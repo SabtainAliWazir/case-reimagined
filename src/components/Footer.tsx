@@ -53,7 +53,7 @@ export const Footer = () => {
             </nav>
           </div>
 
-          {/* Sections */}
+          {/* Sectionsa */}
           <div>
             <h3 className="font-semibold mb-4 text-sm">Sections</h3>
             <nav className="flex flex-col gap-2">
