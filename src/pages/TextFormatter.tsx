@@ -117,7 +117,7 @@ const TextFormatter = () => {
   return (
     <>
       <Helmet>
-        <title>Text Formatter - Strikethrough, Underline & Fancy Text | ConvertCase</title>
+        <title>Text Formatter - Strikethrough, Underline & Fancy Text |CaseConvert</title>
         <meta name="description" content="Free online text formatter. Create strikethrough, underline, upside down, superscript, bubble text, and more. Perfect for social media and unique text styles." />
         <meta name="keywords" content="text formatter, strikethrough text, underline text, upside down text, superscript text, bubble text, fancy text generator" />
         <link rel="canonical" href="https://convertcase.net/text-formatter" />

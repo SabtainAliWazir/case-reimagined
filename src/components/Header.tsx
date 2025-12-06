@@ -24,7 +24,7 @@ export const Header = () => {
             <Type className="w-5 h-5 text-primary" />
           </div>
           <span className="text-xl font-semibold tracking-tight">
-            Convert<span className="text-primary">Case</span>
+            Case<span className="text-primary">Convert</span>
           </span>
         </Link>
 

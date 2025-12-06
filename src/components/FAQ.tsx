@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: "Does it work on mobile devices?",
-    answer: "Absolutely! ConvertCase is fully responsive and works seamlessly on smartphones, tablets, and desktop computers. The interface adapts to your screen size for the best experience.",
+    answer: "Absolutely!CaseConvert is fully responsive and works seamlessly on smartphones, tablets, and desktop computers. The interface adapts to your screen size for the best experience.",
   },
   {
     question: "Is there a character limit?",

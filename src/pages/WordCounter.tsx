@@ -34,7 +34,7 @@ const WordCounter = () => {
   return (
     <>
       <Helmet>
-        <title>Word Counter - Count Words, Characters & Sentences | ConvertCase</title>
+        <title>Word Counter - Count Words, Characters & Sentences |CaseConvert</title>
         <meta name="description" content="Free online word counter tool. Count words, characters, sentences, paragraphs, and estimate reading time. Perfect for writers, students, and content creators." />
         <meta name="keywords" content="word counter, character counter, sentence counter, paragraph counter, reading time calculator, word count online" />
         <link rel="canonical" href="https://convertcase.net/word-counter" />

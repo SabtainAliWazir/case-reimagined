@@ -46,7 +46,7 @@ export const Features = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Why Choose ConvertCase?
+            Why ChooseCaseConvert?
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             The fastest, most private way to transform your text online

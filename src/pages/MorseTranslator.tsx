@@ -122,7 +122,7 @@ const MorseTranslator = () => {
   return (
     <>
       <Helmet>
-        <title>Morse Code Translator - Convert Text to Morse Code | ConvertCase</title>
+        <title>Morse Code Translator - Convert Text to Morse Code |CaseConvert</title>
         <meta name="description" content="Free online morse code translator. Convert text to morse code and morse code to text. Listen to morse code audio and learn morse code easily." />
         <meta name="keywords" content="morse code translator, text to morse, morse to text, morse code converter, learn morse code, morse code audio" />
         <link rel="canonical" href="https://convertcase.net/morse-translator" />

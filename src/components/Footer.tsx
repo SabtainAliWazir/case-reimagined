@@ -29,11 +29,11 @@ export const Footer = () => {
                 <Type className="w-4 h-4 text-primary" />
               </div>
               <span className="font-semibold">
-                Convert<span className="text-primary">Case</span>
+                Case<span className="text-primary">Convert</span>
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Free online text tools. Convert case, count words, translate to binary and morse code.
+              Free online text tools.  Case Convert, count words, translate to binary and morse code.
             </p>
           </div>
 
@@ -73,14 +73,14 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4 text-sm">About</h3>
             <p className="text-sm text-muted-foreground">
-              ConvertCase is a free, privacy-focused text utility. All processing happens in your browser - no data is sent to servers.
+             CaseConvert is a free, privacy-focused text utility. All processing happens in your browser - no data is sent to servers.
             </p>
           </div>
         </div>
 
         <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {currentYear} ConvertCase. Free online text case converter tool.
+            © {currentYear} CaseConvert. Free online text case converter tool.
           </p>
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <span>Made with</span>
