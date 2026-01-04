@@ -140,8 +140,8 @@ const PrivacyPolicy = () => {
                                 </h2>
                                 <p className="text-muted-foreground leading-relaxed">
                                     If you have any questions about this Privacy Policy, please contact us at:{" "}
-                                    <a href="mailto:privacy@caseconvert.online" className="text-primary hover:underline">
-                                        privacy@caseconvert.online
+                                    <a href="mailto:sabtainalicoder@gmail.com" className="text-primary hover:underline">
+                                        sabtainalicoder@gmail.com
                                     </a>
                                 </p>
                             </Card>
