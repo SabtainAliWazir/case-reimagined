@@ -276,23 +276,46 @@ const TextCleaner = () => {
               </div>
             )}
 
-            {/* Use Cases Section */}
-            <div className="mt-16 animate-fade-in-delay-3">
-              <h2 className="text-2xl font-bold text-center mb-8">
-                Common <span className="text-gradient">Use Cases</span>
-              </h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {[
-                  { title: "PDF Text", desc: "Fix broken words and weird spacing from PDF copies" },
-                  { title: "WhatsApp", desc: "Clean forwarded messages with extra line breaks" },
-                  { title: "Word Docs", desc: "Normalize smart quotes and special characters" },
-                  { title: "ChatGPT", desc: "Remove duplicate content and clean AI outputs" },
-                ].map((useCase) => (
-                  <Card key={useCase.title} className="glass shadow-card p-4">
-                    <h3 className="font-semibold mb-2">{useCase.title}</h3>
-                    <p className="text-sm text-muted-foreground">{useCase.desc}</p>
-                  </Card>
-                ))}
+            {/* SEO Content Section */}
+            <div className="mt-16 space-y-12 animate-fade-in-delay-3">
+              {/* What is Text Cleaner */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">
+                  What is a <span className="text-gradient">Text Cleaner</span>?
+                </h2>
+                <div className="text-muted-foreground space-y-4">
+                  <p>
+                    A <strong>text cleaner</strong> is an online tool that removes unwanted formatting, extra spaces,
+                    duplicate lines, and special characters from your text. Whether you've copied text from a
+                    <strong> PDF</strong>, <strong>Word document</strong>, <strong>WhatsApp</strong>, or
+                    <strong> ChatGPT</strong>, our text cleaner fixes common formatting issues instantly.
+                  </p>
+                  <p>
+                    Common problems include broken words split across lines, multiple spaces, smart quotes that
+                    don't display correctly, and unwanted line breaks. Our <strong>Clean PDF Text</strong> feature
+                    handles all of these issues in one click.
+                  </p>
+                </div>
+              </div>
+
+              {/* Use Cases */}
+              <div>
+                <h2 className="text-2xl font-bold text-center mb-8">
+                  Common <span className="text-gradient">Use Cases</span>
+                </h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {[
+                    { title: "📄 PDF Text", desc: "Fix broken words and weird spacing from PDF copies" },
+                    { title: "💬 WhatsApp", desc: "Clean forwarded messages with extra line breaks" },
+                    { title: "📝 Word Docs", desc: "Normalize smart quotes and special characters" },
+                    { title: "🤖 ChatGPT", desc: "Remove duplicate content and clean AI outputs" },
+                  ].map((useCase) => (
+                    <Card key={useCase.title} className="glass shadow-card p-4">
+                      <h3 className="font-semibold mb-2">{useCase.title}</h3>
+                      <p className="text-sm text-muted-foreground">{useCase.desc}</p>
+                    </Card>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

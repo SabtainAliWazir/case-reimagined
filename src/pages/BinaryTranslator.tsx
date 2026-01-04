@@ -140,6 +140,75 @@ const BinaryTranslator = () => {
                 Clear All
               </Button>
             </div>
+
+            {/* SEO Content Section */}
+            <div className="mt-16 space-y-12 animate-fade-in-delay-3">
+              {/* What is Binary */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">
+                  What is <span className="text-gradient">Binary Code</span>?
+                </h2>
+                <div className="text-muted-foreground space-y-4">
+                  <p>
+                    <strong>Binary code</strong> is the fundamental language of computers, using only two digits:
+                    <strong> 0</strong> and <strong>1</strong>. Every letter, number, and character on your computer
+                    is represented as a sequence of these binary digits (bits). Our <strong>binary translator</strong>
+                    converts text to binary and binary back to text instantly.
+                  </p>
+                  <p>
+                    Each character in the ASCII standard is represented by 8 bits (1 byte). For example,
+                    the letter "A" is <code className="bg-primary/10 text-primary px-1 rounded">01000001</code> in binary,
+                    while "a" is <code className="bg-primary/10 text-primary px-1 rounded">01100001</code>.
+                  </p>
+                </div>
+              </div>
+
+              {/* Common Binary Codes */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">
+                  Common <span className="text-gradient">Binary Codes</span>
+                </h2>
+                <Card className="glass shadow-card p-6">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {[
+                      { char: "A", binary: "01000001" },
+                      { char: "Z", binary: "01011010" },
+                      { char: "a", binary: "01100001" },
+                      { char: "z", binary: "01111010" },
+                      { char: "0", binary: "00110000" },
+                      { char: "9", binary: "00111001" },
+                      { char: "Space", binary: "00100000" },
+                      { char: "@", binary: "01000000" },
+                    ].map((item) => (
+                      <div key={item.char} className="flex justify-between items-center p-3 rounded-lg bg-background/50 border border-border/50">
+                        <span className="font-medium">{item.char}</span>
+                        <code className="text-xs text-primary font-mono">{item.binary}</code>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              </div>
+
+              {/* Use Cases */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">
+                  Why Use a <span className="text-gradient">Binary Translator</span>?
+                </h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    { emoji: "🎓", title: "Computer Science", desc: "Learn how computers store and process data at the binary level." },
+                    { emoji: "🔐", title: "Encoding Messages", desc: "Create encoded messages that only binary-literate readers understand." },
+                    { emoji: "👨‍💻", title: "Programming", desc: "Debug low-level code and understand byte-level data representation." },
+                  ].map((item) => (
+                    <Card key={item.title} className="glass shadow-card p-4">
+                      <div className="text-2xl mb-2">{item.emoji}</div>
+                      <h3 className="font-semibold mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </main>
         <Footer />
