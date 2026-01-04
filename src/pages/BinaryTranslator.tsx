@@ -64,7 +64,7 @@ const BinaryTranslator = () => {
         <title>Binary Translator - Convert Text to Binary Code |CaseConvert</title>
         <meta name="description" content="Free online binary translator. Convert text to binary code and binary to text instantly. Perfect for learning binary, coding projects, and data encoding." />
         <meta name="keywords" content="binary translator, text to binary, binary to text, binary converter, binary code translator, ascii to binary" />
-        <link rel="canonical" href="https://convertcase.net/binary-translator" />
+        <link rel="canonical" href="https://caseconvert.online/binary-translator" />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

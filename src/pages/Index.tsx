@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import { Hash, Binary, Radio, Sparkles } from "lucide-react";
+import { Hash, Binary, Radio, Sparkles, Eraser, Braces, KeyRound, FileText, Code, Link2, Fingerprint } from "lucide-react";
 
 const tools = [
   {
@@ -34,6 +34,48 @@ const tools = [
     title: "Morse Translator",
     description: "Translate text to morse code with audio playback.",
   },
+  {
+    href: "/text-cleaner",
+    icon: Eraser,
+    title: "Text Cleaner",
+    description: "Remove extra spaces, duplicate lines, and clean messy text from PDFs.",
+  },
+  {
+    href: "/json-formatter",
+    icon: Braces,
+    title: "JSON Formatter",
+    description: "Beautify, minify, and validate JSON data online.",
+  },
+  {
+    href: "/password-generator",
+    icon: KeyRound,
+    title: "Password Generator",
+    description: "Generate strong, secure random passwords instantly.",
+  },
+  {
+    href: "/lorem-ipsum",
+    icon: FileText,
+    title: "Lorem Ipsum",
+    description: "Generate placeholder text for designs and mockups.",
+  },
+  {
+    href: "/base64",
+    icon: Code,
+    title: "Base64 Encoder",
+    description: "Encode and decode Base64 strings online.",
+  },
+  {
+    href: "/url-encoder",
+    icon: Link2,
+    title: "URL Encoder",
+    description: "Encode and decode URLs with special characters.",
+  },
+  {
+    href: "/hash-generator",
+    icon: Fingerprint,
+    title: "Hash Generator",
+    description: "Generate MD5, SHA-256, SHA-512 hashes from text.",
+  },
 ];
 
 const Index = () => {
@@ -42,7 +84,7 @@ const Index = () => {
       <Helmet>
         <title>ConvertCase - Free Online Text Case Converter Tool</title>
         <meta name="description" content="Convert text between UPPERCASE, lowercase, Title Case, Sentence case and more. Free online text case converter - fast, private, and works in your browser." />
-        <link rel="canonical" href="https://convertcase.net/" />
+        <link rel="canonical" href="https://caseconvert.online/" />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

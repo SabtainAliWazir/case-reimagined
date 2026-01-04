@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://convertcase.net/sitemap.xml
+Sitemap: https://caseconvert.online/sitemap.xml

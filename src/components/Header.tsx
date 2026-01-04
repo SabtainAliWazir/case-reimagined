@@ -7,9 +7,11 @@ import { Button } from "./ui/button";
 const navLinks = [
   { href: "/", label: "Case Converter" },
   { href: "/word-counter", label: "Word Counter" },
-  { href: "/text-formatter", label: "Text Formatter" },
-  { href: "/binary-translator", label: "Binary" },
-  { href: "/morse-translator", label: "Morse" },
+  { href: "/text-formatter", label: "Formatter" },
+  { href: "/text-cleaner", label: "Cleaner" },
+  { href: "/json-formatter", label: "JSON" },
+  { href: "/password-generator", label: "Password" },
+  { href: "/lorem-ipsum", label: "Lorem" },
 ];
 
 export const Header = () => {
@@ -34,11 +36,10 @@ export const Header = () => {
             <Link
               key={link.href}
               to={link.href}
-              className={`px-3 py-2 text-sm rounded-lg transition-colors ${
-                location.pathname === link.href
+              className={`px-3 py-2 text-sm rounded-lg transition-colors ${location.pathname === link.href
                   ? "bg-primary/10 text-primary font-medium"
                   : "text-muted-foreground hover:text-foreground hover:bg-accent"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -47,7 +48,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          
+
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
@@ -69,11 +70,10 @@ export const Header = () => {
                 key={link.href}
                 to={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-3 text-sm rounded-lg transition-colors ${
-                  location.pathname === link.href
+                className={`px-4 py-3 text-sm rounded-lg transition-colors ${location.pathname === link.href
                     ? "bg-primary/10 text-primary font-medium"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>

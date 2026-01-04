@@ -83,31 +83,31 @@ const MorseTranslator = () => {
 
   const playMorse = () => {
     if (!morse) return;
-    
+
     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
     const dotDuration = 0.1;
     const dashDuration = 0.3;
     const pauseDuration = 0.1;
-    
+
     let currentTime = audioContext.currentTime;
-    
+
     morse.split("").forEach((char) => {
       if (char === "." || char === "-") {
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
-        
+
         oscillator.connect(gainNode);
         gainNode.connect(audioContext.destination);
-        
+
         oscillator.frequency.value = 600;
         oscillator.type = "sine";
-        
+
         const duration = char === "." ? dotDuration : dashDuration;
-        
+
         gainNode.gain.setValueAtTime(0.3, currentTime);
         oscillator.start(currentTime);
         oscillator.stop(currentTime + duration);
-        
+
         currentTime += duration + pauseDuration;
       } else if (char === " ") {
         currentTime += pauseDuration * 2;
@@ -115,7 +115,7 @@ const MorseTranslator = () => {
         currentTime += pauseDuration * 4;
       }
     });
-    
+
     toast.success("Playing morse code...");
   };
 
@@ -125,7 +125,7 @@ const MorseTranslator = () => {
         <title>Morse Code Translator - Convert Text to Morse Code |CaseConvert</title>
         <meta name="description" content="Free online morse code translator. Convert text to morse code and morse code to text. Listen to morse code audio and learn morse code easily." />
         <meta name="keywords" content="morse code translator, text to morse, morse to text, morse code converter, learn morse code, morse code audio" />
-        <link rel="canonical" href="https://convertcase.net/morse-translator" />
+        <link rel="canonical" href="https://caseconvert.online/morse-translator" />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

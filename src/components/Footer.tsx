@@ -8,14 +8,27 @@ export const Footer = () => {
     { href: "/", label: "Case Converter" },
     { href: "/word-counter", label: "Word Counter" },
     { href: "/text-formatter", label: "Text Formatter" },
+    { href: "/text-cleaner", label: "Text Cleaner" },
     { href: "/binary-translator", label: "Binary Translator" },
     { href: "/morse-translator", label: "Morse Translator" },
+    { href: "/json-formatter", label: "JSON Formatter" },
+    { href: "/password-generator", label: "Password Generator" },
+    { href: "/lorem-ipsum", label: "Lorem Ipsum" },
+    { href: "/base64", label: "Base64 Encoder" },
+    { href: "/url-encoder", label: "URL Encoder" },
+    { href: "/hash-generator", label: "Hash Generator" },
   ];
 
   const sections = [
     { href: "/#converter", label: "Converter" },
     { href: "/#features", label: "Features" },
     { href: "/#faq", label: "FAQ" },
+  ];
+
+  const legal = [
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact" },
+    { href: "/privacy", label: "Privacy Policy" },
   ];
 
   return (
@@ -69,12 +82,20 @@ export const Footer = () => {
             </nav>
           </div>
 
-          {/* About */}
+          {/* Legal */}
           <div>
-            <h3 className="font-semibold mb-4 text-sm">About</h3>
-            <p className="text-sm text-muted-foreground">
-             CaseConvert is a free, privacy-focused text utility. All processing happens in your browser - no data is sent to servers.
-            </p>
+            <h3 className="font-semibold mb-4 text-sm">Legal</h3>
+            <nav className="flex flex-col gap-2">
+              {legal.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
 

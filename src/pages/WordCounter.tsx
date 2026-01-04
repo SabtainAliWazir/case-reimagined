@@ -5,6 +5,27 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { FileText, Hash, Type, AlignLeft, Clock } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { RelatedTools } from "@/components/RelatedTools";
+import { FAQSection } from "@/components/FAQSection";
+
+const faqs = [
+  {
+    question: "How accurate is the word count?",
+    answer: "Our word counter uses the same algorithm as Microsoft Word - splitting text by whitespace. It's 100% accurate for standard text and handles multiple spaces correctly."
+  },
+  {
+    question: "Does word counter work offline?",
+    answer: "Yes! Once loaded, the tool works entirely in your browser with no internet required. Your text never leaves your device."
+  },
+  {
+    question: "How is reading time calculated?",
+    answer: "Reading time is based on the average reading speed of 200 words per minute. Speaking time uses 150 words per minute, which is typical for presentations."
+  },
+  {
+    question: "Can I count words in a PDF or Word document?",
+    answer: "Copy the text from your document and paste it here. The counter will instantly show all statistics. For best results, use our Text Cleaner first to remove any formatting issues."
+  }
+];
 
 const WordCounter = () => {
   const [text, setText] = useState("");
@@ -37,7 +58,7 @@ const WordCounter = () => {
         <title>Word Counter - Count Words, Characters & Sentences |CaseConvert</title>
         <meta name="description" content="Free online word counter tool. Count words, characters, sentences, paragraphs, and estimate reading time. Perfect for writers, students, and content creators." />
         <meta name="keywords" content="word counter, character counter, sentence counter, paragraph counter, reading time calculator, word count online" />
-        <link rel="canonical" href="https://convertcase.net/word-counter" />
+        <link rel="canonical" href="https://caseconvert.online/word-counter" />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
@@ -70,6 +91,12 @@ const WordCounter = () => {
                 </Card>
               ))}
             </div>
+
+            {/* FAQ Section */}
+            <FAQSection faqs={faqs} toolName="Word Counter" />
+
+            {/* Related Tools */}
+            <RelatedTools currentPath="/word-counter" />
           </div>
         </main>
         <Footer />
