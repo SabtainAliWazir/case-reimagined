@@ -17,6 +17,14 @@ const PrivacyPolicy = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/privacy" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="Privacy Policy - How CaseConvert Protects Your Data" />
+                <meta property="og:description" content="Read our privacy policy. At CaseConvert, your data stays in your browser. We never store or transmit your text." />
+                <meta property="og:url" content="https://caseconvert.online/privacy" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Privacy Policy - How CaseConvert Protects Your Data" />
+                <meta name="twitter:description" content="Learn how CaseConvert ensures 100% private text processing." />
+
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",

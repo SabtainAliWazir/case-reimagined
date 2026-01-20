@@ -135,6 +135,15 @@ const JsonFormatter = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/json-formatter" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="JSON Formatter & Validator Online | CaseConvert" />
+                <meta property="og:description" content="Format, beautify, and validate your JSON data instantly. Fast, private, and powerful JSON tools for developers." />
+                <meta property="og:url" content="https://caseconvert.online/json-formatter" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="JSON Formatter & Validator Online | CaseConvert" />
+                <meta name="twitter:description" content="Beautify, minify, and validate JSON with our free online tool." />
+                <link rel="canonical" href="https://caseconvert.online/json-formatter" />
+
                 {/* JSON Formatter Specific Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({

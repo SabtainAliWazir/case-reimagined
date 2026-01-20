@@ -53,6 +53,14 @@ const Contact = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/contact" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="Contact CaseConvert - Feedback & Support" />
+                <meta property="og:description" content="Have a question or suggestion? Contact the CaseConvert team. We value your feedback on our text tools." />
+                <meta property="og:url" content="https://caseconvert.online/contact" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Contact CaseConvert - Feedback & Support" />
+                <meta name="twitter:description" content="Get in touch with the CaseConvert team for support or to suggest new features." />
+
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",

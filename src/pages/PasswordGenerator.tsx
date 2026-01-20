@@ -132,6 +132,22 @@ const PasswordGenerator = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/password-generator" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="Secure Password Generator Online | CaseConvert" />
+                <meta property="og:description" content="Generate strong, secure, and random passwords instantly. Fully private and browser-based." />
+                <meta property="og:url" content="https://caseconvert.online/password-generator" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Secure Password Generator Online | CaseConvert" />
+                <meta name="twitter:description" content="Create unhackable passwords with our free online security tool." />
+
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="Secure Password Generator Online | CaseConvert" />
+                <meta property="og:description" content="Generate strong, secure, and random passwords instantly. Fully private and browser-based." />
+                <meta property="og:url" content="https://caseconvert.online/password-generator" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Secure Password Generator Online | CaseConvert" />
+                <meta name="twitter:description" content="Create unhackable passwords with our free online security tool." />
+
                 {/* Password Generator Specific Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({

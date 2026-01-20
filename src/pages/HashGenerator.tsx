@@ -134,6 +134,14 @@ const HashGenerator = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/hash-generator" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="Hash Generator - MD5 & SHA256 Tool | CaseConvert" />
+                <meta property="og:description" content="Generate secure MD5, SHA-256, and SHA-512 hashes online. Fast, private, and browser-based checksum calculation." />
+                <meta property="og:url" content="https://caseconvert.online/hash-generator" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Hash Generator - MD5 & SHA256 Tool | CaseConvert" />
+                <meta name="twitter:description" content="Generate secure text hashes and checksums instantly with our free online tool." />
+
                 {/* Hash Generator Specific Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({

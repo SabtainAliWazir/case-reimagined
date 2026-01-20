@@ -60,6 +60,14 @@ const About = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/about" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="About CaseConvert - Our Mission & Tools" />
+                <meta property="og:description" content="Learn more about CaseConvert, our mission to provide free, fast, and private text tools for everyone." />
+                <meta property="og:url" content="https://caseconvert.online/about" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="About CaseConvert - Our Mission & Tools" />
+                <meta name="twitter:description" content="Discover the mission behind CaseConvert and our suite of free text utilities." />
+
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",

@@ -173,6 +173,14 @@ const TextCleaner = () => {
         />
         <link rel="canonical" href="https://caseconvert.online/text-cleaner" />
 
+        {/* Social Media Meta Tags */}
+        <meta property="og:title" content="Text Cleaner - Remove Spaces & Duplicate Lines | CaseConvert" />
+        <meta property="og:description" content="Clean your text instantly. Remove extra spaces, line breaks, and duplicate lines for cleaner documents and code." />
+        <meta property="og:url" content="https://caseconvert.online/text-cleaner" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Text Cleaner - Remove Spaces & Duplicate Lines | CaseConvert" />
+        <meta name="twitter:description" content="Instant text cleanup tool to remove formatting, spaces, and duplicate lines." />
+
         {/* Text Cleaner Specific Schema */}
         <script type="application/ld+json">
           {JSON.stringify({

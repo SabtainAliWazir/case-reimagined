@@ -107,6 +107,14 @@ const Base64Encoder = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/base64" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="Base64 Encoder & Decoder Online | CaseConvert" />
+                <meta property="og:description" content="Quickly encode and decode Base64 strings online. Secure, fast, and browser-based." />
+                <meta property="og:url" content="https://caseconvert.online/base64" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Base64 Encoder & Decoder Online | CaseConvert" />
+                <meta name="twitter:description" content="The fastest way to encode and decode Base64 online." />
+
                 {/* Base64 Specific Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({

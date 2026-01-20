@@ -106,6 +106,14 @@ const UrlEncoder = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/url-encoder" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="URL Encoder & Decoder Online | CaseConvert" />
+                <meta property="og:description" content="Quickly encode and decode URLs for safe sharing and web development. Fast, free, and private." />
+                <meta property="og:url" content="https://caseconvert.online/url-encoder" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="URL Encoder & Decoder Online | CaseConvert" />
+                <meta name="twitter:description" content="The easiest way to encode and decode URLs online." />
+
                 {/* URL Encoder Specific Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({

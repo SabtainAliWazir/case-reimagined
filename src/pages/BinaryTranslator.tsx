@@ -66,6 +66,14 @@ const BinaryTranslator = () => {
         <meta name="keywords" content="binary translator, text to binary, binary to text, binary converter, binary code translator, ascii to binary" />
         <link rel="canonical" href="https://caseconvert.online/binary-translator" />
 
+        {/* Social Media Meta Tags */}
+        <meta property="og:title" content="Binary Translator - Text to Binary Converter | CaseConvert" />
+        <meta property="og:description" content="Convert text to binary and binary back to plain text instantly with our free online tool." />
+        <meta property="og:url" content="https://caseconvert.online/binary-translator" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Binary Translator - Text to Binary Converter | CaseConvert" />
+        <meta name="twitter:description" content="Quickly translate text to binary code and back. Fast, free, and private." />
+
         {/* Binary Translator Specific Schema */}
         <script type="application/ld+json">
           {JSON.stringify({

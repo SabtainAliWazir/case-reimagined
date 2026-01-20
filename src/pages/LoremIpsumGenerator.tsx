@@ -151,6 +151,14 @@ const LoremIpsumGenerator = () => {
                 />
                 <link rel="canonical" href="https://caseconvert.online/lorem-ipsum" />
 
+                {/* Social Media Meta Tags */}
+                <meta property="og:title" content="Lorem Ipsum Generator - Placeholder Text | CaseConvert" />
+                <meta property="og:description" content="Generate high-quality placeholder text for your designs. Simple, fast, and customizable lorem ipsum." />
+                <meta property="og:url" content="https://caseconvert.online/lorem-ipsum" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Lorem Ipsum Generator - Placeholder Text | CaseConvert" />
+                <meta name="twitter:description" content="Create custom placeholder text for your next project instantly." />
+
                 {/* Lorem Ipsum Specific Schema */}
                 <script type="application/ld+json">
                     {JSON.stringify({

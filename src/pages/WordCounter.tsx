@@ -119,6 +119,14 @@ const WordCounter = () => {
         <meta name="keywords" content="word counter, character counter, keyword density, reading time calculator, word count online, SEO word counter, unique word counter" />
         <link rel="canonical" href="https://caseconvert.online/word-counter" />
 
+        {/* Social Media Meta Tags */}
+        <meta property="og:title" content="Word Counter - Count Words & Characters Online | CaseConvert" />
+        <meta property="og:description" content="Free online tool to count words, characters, sentences, and analyze keyword density. Get instant reading and speaking time estimates." />
+        <meta property="og:url" content="https://caseconvert.online/word-counter" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Word Counter - Count Words & Characters Online | CaseConvert" />
+        <meta name="twitter:description" content="Analyze your text with our free online word counter. Keyword density, reading time, and more." />
+
         {/* Word Counter Specific Schema */}
         <script type="application/ld+json">
           {JSON.stringify({

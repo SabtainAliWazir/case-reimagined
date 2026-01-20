@@ -127,6 +127,14 @@ const MorseTranslator = () => {
         <meta name="keywords" content="morse code translator, text to morse, morse to text, morse code converter, learn morse code, morse code audio" />
         <link rel="canonical" href="https://caseconvert.online/morse-translator" />
 
+        {/* Social Media Meta Tags */}
+        <meta property="og:title" content="Morse Code Translator - Text to Morse Converter | CaseConvert" />
+        <meta property="og:description" content="Translate text to morse code and listen to the audio playback. Free, fast, and works in your browser." />
+        <meta property="og:url" content="https://caseconvert.online/morse-translator" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Morse Code Translator - Text to Morse Converter | CaseConvert" />
+        <meta name="twitter:description" content="Convert text to morse code with audio playback. Learn morse code online for free." />
+
         {/* Morse Translator Specific Schema */}
         <script type="application/ld+json">
           {JSON.stringify({

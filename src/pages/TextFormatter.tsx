@@ -122,6 +122,14 @@ const TextFormatter = () => {
         <meta name="keywords" content="text formatter, strikethrough text, underline text, upside down text, superscript text, bubble text, fancy text generator" />
         <link rel="canonical" href="https://caseconvert.online/text-formatter" />
 
+        {/* Social Media Meta Tags */}
+        <meta property="og:title" content="Text Formatter - Fancy Text & Formatting Tool | CaseConvert" />
+        <meta property="og:description" content="Format text with strikethrough, underline, and fancy styles for social media and creative projects." />
+        <meta property="og:url" content="https://caseconvert.online/text-formatter" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Text Formatter - Fancy Text & Formatting Tool | CaseConvert" />
+        <meta name="twitter:description" content="Generate cool fancy text, strikethrough, and underlined styles instantly." />
+
         {/* Text Formatter Specific Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
