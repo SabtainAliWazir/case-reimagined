@@ -82,9 +82,40 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>ConvertCase - Free Online Text Case Converter Tool</title>
+        <title>CaseConvert - Free Online Text Case Converter Tool</title>
         <meta name="description" content="Convert text between UPPERCASE, lowercase, Title Case, Sentence case and more. Free online text case converter - fast, private, and works in your browser." />
         <link rel="canonical" href="https://caseconvert.online/" />
+
+        {/* Home Page Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "CaseConvert",
+            "description": "Free online text case converter tool. Convert between uppercase, lowercase, title case, sentence case, and more.",
+            "url": "https://caseconvert.online",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://caseconvert.online/"
+            }]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

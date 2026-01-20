@@ -134,6 +134,44 @@ const JsonFormatter = () => {
                     content="json formatter, json beautifier, json minifier, json validator, format json online, pretty print json, compress json, json tool"
                 />
                 <link rel="canonical" href="https://caseconvert.online/json-formatter" />
+
+                {/* JSON Formatter Specific Schema */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Online JSON Formatter & Validator",
+                        "description": "Format, beautify, minify, and validate JSON code online.",
+                        "applicationCategory": "UtilitiesApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        }
+                    })}
+                </script>
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "JSON Formatter",
+                                "item": "https://caseconvert.online/json-formatter"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />

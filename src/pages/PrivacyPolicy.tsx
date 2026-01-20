@@ -16,6 +16,27 @@ const PrivacyPolicy = () => {
                     content="Privacy Policy for CaseConvert. Learn how we handle your data. All text processing happens in your browser - we never store or transmit your data."
                 />
                 <link rel="canonical" href="https://caseconvert.online/privacy" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Privacy Policy",
+                                "item": "https://caseconvert.online/privacy"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />

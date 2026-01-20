@@ -122,10 +122,48 @@ const MorseTranslator = () => {
   return (
     <>
       <Helmet>
-        <title>Morse Code Translator - Convert Text to Morse Code |CaseConvert</title>
+        <title>Morse Code Translator - Convert Text to Morse Code | CaseConvert</title>
         <meta name="description" content="Free online morse code translator. Convert text to morse code and morse code to text. Listen to morse code audio and learn morse code easily." />
         <meta name="keywords" content="morse code translator, text to morse, morse to text, morse code converter, learn morse code, morse code audio" />
         <link rel="canonical" href="https://caseconvert.online/morse-translator" />
+
+        {/* Morse Translator Specific Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Morse Code Translator",
+            "description": "Convert text to morse code and morse code to text with audio playback feature.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://caseconvert.online/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Morse Code Translator",
+                "item": "https://caseconvert.online/morse-translator"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

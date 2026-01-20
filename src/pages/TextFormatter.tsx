@@ -117,10 +117,48 @@ const TextFormatter = () => {
   return (
     <>
       <Helmet>
-        <title>Text Formatter - Strikethrough, Underline & Fancy Text |CaseConvert</title>
+        <title>Text Formatter - Strikethrough, Underline & Fancy Text | CaseConvert</title>
         <meta name="description" content="Free online text formatter. Create strikethrough, underline, upside down, superscript, bubble text, and more. Perfect for social media and unique text styles." />
         <meta name="keywords" content="text formatter, strikethrough text, underline text, upside down text, superscript text, bubble text, fancy text generator" />
         <link rel="canonical" href="https://caseconvert.online/text-formatter" />
+
+        {/* Text Formatter Specific Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Online Text Formatter",
+            "description": "Create fancy text styles like strikethrough, underline, and bubble text online.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://caseconvert.online/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Text Formatter",
+                "item": "https://caseconvert.online/text-formatter"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

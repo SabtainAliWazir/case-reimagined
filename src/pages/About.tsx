@@ -59,6 +59,27 @@ const About = () => {
                     content="CaseConvert is a free collection of online text tools. Learn about our mission to provide fast, private, and unlimited text utilities for everyone."
                 />
                 <link rel="canonical" href="https://caseconvert.online/about" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "About",
+                                "item": "https://caseconvert.online/about"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />

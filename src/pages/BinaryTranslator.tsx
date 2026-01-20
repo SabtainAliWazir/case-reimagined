@@ -61,10 +61,48 @@ const BinaryTranslator = () => {
   return (
     <>
       <Helmet>
-        <title>Binary Translator - Convert Text to Binary Code |CaseConvert</title>
+        <title>Binary Translator - Convert Text to Binary Code | CaseConvert</title>
         <meta name="description" content="Free online binary translator. Convert text to binary code and binary to text instantly. Perfect for learning binary, coding projects, and data encoding." />
         <meta name="keywords" content="binary translator, text to binary, binary to text, binary converter, binary code translator, ascii to binary" />
         <link rel="canonical" href="https://caseconvert.online/binary-translator" />
+
+        {/* Binary Translator Specific Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Binary Translator & Converter",
+            "description": "Convert text to binary and binary to text instantly. Supports ASCII encoding.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://caseconvert.online/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Binary Translator",
+                "item": "https://caseconvert.online/binary-translator"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

@@ -52,6 +52,27 @@ const Contact = () => {
                     content="Contact the CaseConvert team. We'd love to hear from you! Send us feedback, suggestions, or questions about our free online text tools."
                 />
                 <link rel="canonical" href="https://caseconvert.online/contact" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Contact",
+                                "item": "https://caseconvert.online/contact"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />

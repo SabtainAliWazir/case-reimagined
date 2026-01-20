@@ -150,6 +150,44 @@ const LoremIpsumGenerator = () => {
                     content="lorem ipsum generator, placeholder text, dummy text, filler text, lorem ipsum copy paste, text generator, mockup text"
                 />
                 <link rel="canonical" href="https://caseconvert.online/lorem-ipsum" />
+
+                {/* Lorem Ipsum Specific Schema */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Lorem Ipsum Generator",
+                        "description": "Generate placeholder text for designs and layouts instantly.",
+                        "applicationCategory": "UtilitiesApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        }
+                    })}
+                </script>
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Lorem Ipsum Generator",
+                                "item": "https://caseconvert.online/lorem-ipsum"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />
@@ -178,8 +216,8 @@ const LoremIpsumGenerator = () => {
                                                 key={t}
                                                 onClick={() => setType(t)}
                                                 className={`flex-1 py-2 px-3 text-sm capitalize transition-colors ${type === t
-                                                        ? "bg-primary text-primary-foreground"
-                                                        : "bg-background hover:bg-accent"
+                                                    ? "bg-primary text-primary-foreground"
+                                                    : "bg-background hover:bg-accent"
                                                     }`}
                                             >
                                                 {t}

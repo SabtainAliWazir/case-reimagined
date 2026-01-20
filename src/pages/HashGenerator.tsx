@@ -133,6 +133,44 @@ const HashGenerator = () => {
                     content="hash generator, md5 generator, sha256 generator, sha512 hash, checksum calculator, hash online, md5 checksum, sha256 online"
                 />
                 <link rel="canonical" href="https://caseconvert.online/hash-generator" />
+
+                {/* Hash Generator Specific Schema */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Online Hash Generator",
+                        "description": "Generate MD5, SHA-1, SHA-256, and SHA-512 hashes online.",
+                        "applicationCategory": "UtilitiesApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        }
+                    })}
+                </script>
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Hash Generator",
+                                "item": "https://caseconvert.online/hash-generator"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />

@@ -106,6 +106,44 @@ const Base64Encoder = () => {
                     content="base64 encoder, base64 decoder, encode base64, decode base64, base64 converter, base64 online, text to base64"
                 />
                 <link rel="canonical" href="https://caseconvert.online/base64" />
+
+                {/* Base64 Specific Schema */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "Base64 Encoder & Decoder",
+                        "description": "Encode text to Base64 and decode Base64 back to text instantly.",
+                        "applicationCategory": "UtilitiesApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        }
+                    })}
+                </script>
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                position: 1,
+                                name: "Home",
+                                item: "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                position: 2,
+                                name: "Base64 Encoder",
+                                item: "https://caseconvert.online/base64"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />

@@ -172,6 +172,44 @@ const TextCleaner = () => {
           content="text cleaner, remove extra spaces, remove line breaks, remove duplicate lines, clean pdf text, normalize text, trim whitespace, text cleanup tool"
         />
         <link rel="canonical" href="https://caseconvert.online/text-cleaner" />
+
+        {/* Text Cleaner Specific Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Online Text Cleaner Tool",
+            "description": "Clean messy text by removing extra spaces, line breaks, and duplicates instantly.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://caseconvert.online/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Text Cleaner",
+                "item": "https://caseconvert.online/text-cleaner"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

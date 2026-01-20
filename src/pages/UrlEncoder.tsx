@@ -105,6 +105,44 @@ const UrlEncoder = () => {
                     content="url encoder, url decoder, encode url, decode url, percent encoding, urlencode, urldecode, url escape"
                 />
                 <link rel="canonical" href="https://caseconvert.online/url-encoder" />
+
+                {/* URL Encoder Specific Schema */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        "name": "URL Encoder & Decoder",
+                        "description": "Encode and decode URLs and query strings safely.",
+                        "applicationCategory": "UtilitiesApplication",
+                        "operatingSystem": "Any",
+                        "offers": {
+                            "@type": "Offer",
+                            "price": "0",
+                            "priceCurrency": "USD"
+                        }
+                    })}
+                </script>
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://caseconvert.online/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "URL Encoder",
+                                "item": "https://caseconvert.online/url-encoder"
+                            }
+                        ]
+                    })}
+                </script>
             </Helmet>
             <div className="min-h-screen bg-background">
                 <Header />
@@ -126,8 +164,8 @@ const UrlEncoder = () => {
                                 <button
                                     onClick={() => setMode("encode")}
                                     className={`px-6 py-2.5 text-sm font-medium transition-colors ${mode === "encode"
-                                            ? "bg-primary text-primary-foreground"
-                                            : "bg-background hover:bg-accent"
+                                        ? "bg-primary text-primary-foreground"
+                                        : "bg-background hover:bg-accent"
                                         }`}
                                 >
                                     Encode
@@ -135,8 +173,8 @@ const UrlEncoder = () => {
                                 <button
                                     onClick={() => setMode("decode")}
                                     className={`px-6 py-2.5 text-sm font-medium transition-colors ${mode === "decode"
-                                            ? "bg-primary text-primary-foreground"
-                                            : "bg-background hover:bg-accent"
+                                        ? "bg-primary text-primary-foreground"
+                                        : "bg-background hover:bg-accent"
                                         }`}
                                 >
                                     Decode

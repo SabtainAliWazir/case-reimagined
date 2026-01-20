@@ -118,6 +118,44 @@ const WordCounter = () => {
         <meta name="description" content="Free online word counter with keyword density analysis. Count words, characters, sentences, paragraphs. Get reading time, speaking time, and SEO keyword insights." />
         <meta name="keywords" content="word counter, character counter, keyword density, reading time calculator, word count online, SEO word counter, unique word counter" />
         <link rel="canonical" href="https://caseconvert.online/word-counter" />
+
+        {/* Word Counter Specific Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Online Word Counter Tool",
+            "description": "Calculate word count, character count, and analyze keyword density in real-time.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://caseconvert.online/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Word Counter",
+                "item": "https://caseconvert.online/word-counter"
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
