@@ -25,7 +25,8 @@ const routes = [
   "/hash-generator",
   "/privacy",
   "/about",
-  "/contact"
+  "/contact",
+  "/404"
 ];
 
 async function prerender() {
@@ -65,7 +66,9 @@ async function prerender() {
         const html = await page.content();
         
         // Write the HTML file
-        const routePath = route === '/' ? '/index.html' : `${route}/index.html`;
+        let routePath = `${route}/index.html`;
+        if (route === '/') routePath = '/index.html';
+        if (route === '/404') routePath = '/404.html';
         const filePath = path.join(DIST_DIR, routePath);
         
         // Ensure directory exists
