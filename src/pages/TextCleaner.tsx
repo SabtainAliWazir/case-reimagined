@@ -219,7 +219,8 @@ const TextCleaner = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
         <Header />
         <main className="px-4 py-12">
           <div className="max-w-4xl mx-auto">
@@ -235,7 +236,7 @@ const TextCleaner = () => {
             </div>
 
             {/* Input Card */}
-            <Card className="glass shadow-card p-6 mb-6 animate-fade-in-delay-1">
+            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 mb-6 animate-fade-in-delay-1">
               <div className="flex justify-between items-center mb-3">
                 <label className="text-sm font-medium text-foreground">Paste Your Text</label>
                 <span className="text-xs text-muted-foreground">{text.length} characters</span>
@@ -249,7 +250,7 @@ const TextCleaner = () => {
             </Card>
 
             {/* Cleaner Buttons */}
-            <div className="glass rounded-xl p-4 shadow-card mb-6 animate-fade-in-delay-2">
+            <div className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4 mb-6 animate-fade-in-delay-2">
               <p className="text-sm text-muted-foreground text-center mb-4">
                 Choose a cleaning action:
               </p>
@@ -271,7 +272,7 @@ const TextCleaner = () => {
             </div>
 
             {/* Result Card */}
-            <Card className="glass shadow-card p-6 animate-fade-in-delay-3">
+            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-3">
               <div className="flex justify-between items-center mb-3">
                 <label className="text-sm font-medium text-foreground">Cleaned Result</label>
                 <div className="flex gap-2">
@@ -292,17 +293,16 @@ const TextCleaner = () => {
                   </Button>
                 </div>
               </div>
-              <Textarea
-                value={result}
+              <Textarea value={result}
                 readOnly
                 placeholder="Cleaned text will appear here..."
-                className="min-h-[150px] font-mono text-sm bg-background/50 border-border/50 resize-none"
+                className="min-h-[250px] font-sans text-lg resize-y"
               />
             </Card>
 
             {/* Stats Bar */}
             {result && (
-              <div className="glass rounded-xl p-4 shadow-card mt-6 animate-fade-in">
+              <div className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4 mt-6 animate-fade-in">
                 <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Type className="w-4 h-4 text-primary" />
@@ -356,7 +356,7 @@ const TextCleaner = () => {
                     { title: "📝 Word Docs", desc: "Normalize smart quotes and special characters" },
                     { title: "🤖 ChatGPT", desc: "Remove duplicate content and clean AI outputs" },
                   ].map((useCase) => (
-                    <Card key={useCase.title} className="glass shadow-card p-4">
+                    <Card key={useCase.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                       <h3 className="font-semibold mb-2">{useCase.title}</h3>
                       <p className="text-sm text-muted-foreground">{useCase.desc}</p>
                     </Card>

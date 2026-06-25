@@ -186,7 +186,8 @@ const PasswordGenerator = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-3xl mx-auto">
@@ -202,7 +203,7 @@ const PasswordGenerator = () => {
                         </div>
 
                         {/* Generator Card */}
-                        <Card className="glass shadow-card p-6 mb-6 animate-fade-in-delay-1">
+                        <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 mb-6 animate-fade-in-delay-1">
                             {/* Latest Password Display */}
                             <div className="mb-6">
                                 <div className="flex justify-between items-center mb-2">
@@ -330,7 +331,7 @@ const PasswordGenerator = () => {
 
                         {/* Password History */}
                         {passwords.length > 1 && (
-                            <Card className="glass shadow-card p-6 animate-fade-in-delay-2">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-2">
                                 <h3 className="font-semibold mb-4">Recent Passwords</h3>
                                 <div className="space-y-2">
                                     {passwords.slice(1).map((password, index) => (
@@ -366,7 +367,7 @@ const PasswordGenerator = () => {
                                     { icon: Eye, title: "Show/Hide Toggle", desc: "Easily toggle password visibility" },
                                     { icon: RefreshCw, title: "Instant Generation", desc: "Generate passwords in milliseconds" },
                                 ].map((item) => (
-                                    <Card key={item.title} className="glass shadow-card p-4">
+                                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                                         <item.icon className="w-8 h-8 text-primary mb-3" />
                                         <h3 className="font-semibold mb-2">{item.title}</h3>
                                         <p className="text-sm text-muted-foreground">{item.desc}</p>

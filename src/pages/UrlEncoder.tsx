@@ -152,7 +152,8 @@ const UrlEncoder = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-4xl mx-auto">
@@ -192,7 +193,7 @@ const UrlEncoder = () => {
 
                         <div className="grid lg:grid-cols-2 gap-6">
                             {/* Input Card */}
-                            <Card className="glass shadow-card p-6 animate-fade-in-delay-1">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-1">
                                 <div className="flex justify-between items-center mb-3">
                                     <label className="text-sm font-medium text-foreground">
                                         {mode === "encode" ? "Text to Encode" : "URL to Decode"}
@@ -203,12 +204,12 @@ const UrlEncoder = () => {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder={mode === "encode" ? "Enter text with special characters..." : "Enter URL encoded text..."}
-                                    className="min-h-[200px] font-mono text-sm bg-background/50 border-border/50 focus:border-primary/50 resize-none"
+                                    className="min-h-[250px] font-mono text-base resize-y"
                                 />
                             </Card>
 
                             {/* Result Card */}
-                            <Card className="glass shadow-card p-6 animate-fade-in-delay-2">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-2">
                                 <div className="flex justify-between items-center mb-3">
                                     <label className="text-sm font-medium text-foreground">
                                         {mode === "encode" ? "URL Encoded Output" : "Decoded Text"}
@@ -225,11 +226,10 @@ const UrlEncoder = () => {
                                         </Button>
                                     </div>
                                 </div>
-                                <Textarea
-                                    value={result}
+                                <Textarea value={result}
                                     readOnly
                                     placeholder="Result will appear here..."
-                                    className="min-h-[200px] font-mono text-sm bg-background/50 border-border/50 resize-none"
+                                    className="min-h-[250px] font-sans text-lg resize-y"
                                 />
                             </Card>
                         </div>
@@ -247,7 +247,7 @@ const UrlEncoder = () => {
 
                         {/* Stats */}
                         {result && (
-                            <div className="glass rounded-xl p-4 shadow-card mt-6 animate-fade-in">
+                            <div className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4 mt-6 animate-fade-in">
                                 <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
                                     <div className="flex items-center gap-2 text-muted-foreground">
                                         <Type className="w-4 h-4 text-primary" />
@@ -272,7 +272,7 @@ const UrlEncoder = () => {
                                     { title: "Query Strings", desc: "Properly encode parameter values for GET requests and APIs" },
                                     { title: "International Text", desc: "Make non-ASCII characters safe for URLs and links" },
                                 ].map((item) => (
-                                    <Card key={item.title} className="glass shadow-card p-4">
+                                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                                         <h3 className="font-semibold mb-2">{item.title}</h3>
                                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                                     </Card>

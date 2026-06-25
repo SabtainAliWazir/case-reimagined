@@ -173,7 +173,8 @@ const MorseTranslator = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
         <Header />
         <main className="px-4 py-12">
           <div className="max-w-4xl mx-auto">
@@ -198,7 +199,7 @@ const MorseTranslator = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 animate-fade-in-delay-2">
-              <Card className="glass shadow-card p-4">
+              <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-medium text-foreground">Text</label>
                   <Button
@@ -214,12 +215,12 @@ const MorseTranslator = () => {
                   value={text}
                   onChange={(e) => handleTextChange(e.target.value)}
                   placeholder="Enter text here..."
-                  className="min-h-[200px] font-mono text-sm bg-background/50 border-border/50 focus:border-primary/50 resize-none"
+                  className="min-h-[250px] font-mono text-base resize-y"
                   disabled={mode === "morseToText"}
                 />
               </Card>
 
-              <Card className="glass shadow-card p-4">
+              <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-medium text-foreground">Morse Code</label>
                   <Button
@@ -235,7 +236,7 @@ const MorseTranslator = () => {
                   value={morse}
                   onChange={(e) => handleMorseChange(e.target.value)}
                   placeholder="Morse code will appear here..."
-                  className="min-h-[200px] font-mono text-sm bg-background/50 border-border/50 focus:border-primary/50 resize-none"
+                  className="min-h-[250px] font-mono text-base resize-y"
                   disabled={mode === "textToMorse"}
                 />
               </Card>
@@ -248,7 +249,7 @@ const MorseTranslator = () => {
               </Button>
             </div>
 
-            <Card className="glass shadow-card p-6 mt-8 animate-fade-in-delay-3">
+            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 mt-8 animate-fade-in-delay-3">
               <h2 className="text-lg font-semibold mb-4">Morse Code Reference</h2>
               <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-9 gap-2 text-xs font-mono">
                 {Object.entries(MORSE_CODE).slice(0, 36).map(([char, code]) => (

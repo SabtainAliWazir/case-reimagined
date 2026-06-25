@@ -112,7 +112,8 @@ const BinaryTranslator = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
         <Header />
         <main className="px-4 py-12">
           <div className="max-w-4xl mx-auto">
@@ -133,7 +134,7 @@ const BinaryTranslator = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 animate-fade-in-delay-2">
-              <Card className="glass shadow-card p-4">
+              <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-medium text-foreground">Text</label>
                   <div className="flex gap-2">
@@ -151,12 +152,12 @@ const BinaryTranslator = () => {
                   value={text}
                   onChange={(e) => handleTextChange(e.target.value)}
                   placeholder="Enter text here..."
-                  className="min-h-[200px] font-mono text-sm bg-background/50 border-border/50 focus:border-primary/50 resize-none"
+                  className="min-h-[250px] font-mono text-base resize-y"
                   disabled={mode === "binaryToText"}
                 />
               </Card>
 
-              <Card className="glass shadow-card p-4">
+              <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                 <div className="flex justify-between items-center mb-3">
                   <label className="text-sm font-medium text-foreground">Binary</label>
                   <div className="flex gap-2">
@@ -174,7 +175,7 @@ const BinaryTranslator = () => {
                   value={binary}
                   onChange={(e) => handleBinaryChange(e.target.value)}
                   placeholder="Binary code will appear here..."
-                  className="min-h-[200px] font-mono text-sm bg-background/50 border-border/50 focus:border-primary/50 resize-none"
+                  className="min-h-[250px] font-mono text-base resize-y"
                   disabled={mode === "textToBinary"}
                 />
               </Card>
@@ -214,7 +215,7 @@ const BinaryTranslator = () => {
                 <h2 className="text-2xl font-bold mb-4">
                   Common <span className="text-gradient">Binary Codes</span>
                 </h2>
-                <Card className="glass shadow-card p-6">
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {[
                       { char: "A", binary: "01000001" },
@@ -246,7 +247,7 @@ const BinaryTranslator = () => {
                     { emoji: "🔐", title: "Encoding Messages", desc: "Create encoded messages that only binary-literate readers understand." },
                     { emoji: "👨‍💻", title: "Programming", desc: "Debug low-level code and understand byte-level data representation." },
                   ].map((item) => (
-                    <Card key={item.title} className="glass shadow-card p-4">
+                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                       <div className="text-2xl mb-2">{item.emoji}</div>
                       <h3 className="font-semibold mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>

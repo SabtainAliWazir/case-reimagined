@@ -157,74 +157,77 @@ export const TextConverter = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6 animate-fade-in">
-      {/* Text Area */}
-      <div className="relative group">
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Type or paste your content here..."
-          className="w-full h-64 p-6 rounded-xl bg-card border border-border shadow-card font-mono text-base resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 placeholder:text-muted-foreground/50"
-          aria-label="Text input for case conversion"
-        />
-        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="text-xs text-muted-foreground">
-            {stats.charCount} characters
-          </span>
-        </div>
-      </div>
+    <div className="w-full max-w-4xl mx-auto space-y-8 animate-fade-in relative z-10">
+      
+      {/* Abstract Background Orbs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-2xl max-h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-      {/* Conversion Buttons */}
-      <div className="glass rounded-xl p-4 shadow-card animate-fade-in-delay-1">
-        <div className="flex flex-wrap gap-2 justify-center">
-          {conversions.map((conversion) => (
-            <Button
-              key={conversion.id}
-              variant={activeConversion === conversion.id ? "converterActive" : "converter"}
-              size="converter"
-              onClick={() => handleConversion(conversion.id)}
-              title={conversion.description}
-            >
-              {conversion.label}
-            </Button>
-          ))}
+      {/* Main Glass Card */}
+      <div className="bg-card/60 backdrop-blur-2xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-3 md:p-6 transition-all duration-500 hover:shadow-glow">
+        
+        {/* Text Area */}
+        <div className="relative group mb-6">
+          <textarea
+            autoFocus
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Type or paste your content here..."
+            className="w-full h-64 md:h-80 p-6 md:p-8 rounded-2xl bg-card dark:bg-black/40 border border-border shadow-sm font-sans text-lg resize-y focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 placeholder:text-muted-foreground/50"
+            aria-label="Text input for case conversion"
+          />
         </div>
-      </div>
 
-      {/* Stats Bar */}
-      <div className="glass rounded-xl p-4 shadow-card animate-fade-in-delay-2">
-        <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+        {/* Conversion Buttons */}
+        <div className="mb-8 px-2 md:px-6">
+          <div className="flex flex-wrap gap-3 justify-center">
+            {conversions.map((conversion) => (
+              <Button
+                key={conversion.id}
+                variant={activeConversion === conversion.id ? "converterActive" : "converter"}
+                size="converter"
+                onClick={() => handleConversion(conversion.id)}
+                title={conversion.description}
+              >
+                {conversion.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats Bar */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-sm py-6 border-t border-border/30">
           <div className="flex items-center gap-2 text-muted-foreground">
             <Type className="w-4 h-4 text-primary" />
-            <span>{stats.charCount} Characters</span>
+            <span className="font-medium">{stats.charCount} Characters</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <Hash className="w-4 h-4 text-primary" />
-            <span>{stats.wordCount} Words</span>
+            <span className="font-medium">{stats.wordCount} Words</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <ArrowUpDown className="w-4 h-4 text-primary" />
-            <span>{stats.sentenceCount} Sentences</span>
+            <span className="font-medium">{stats.sentenceCount} Sentences</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <Minus className="w-4 h-4 text-primary" />
-            <span>{stats.lineCount} Lines</span>
+            <span className="font-medium">{stats.lineCount} Lines</span>
           </div>
         </div>
+
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap gap-3 justify-center animate-fade-in-delay-3">
-        <Button variant="action" onClick={handleCopy} className="gap-2">
-          <Copy className="w-4 h-4" />
+      <div className="flex flex-wrap gap-4 justify-center animate-fade-in-delay-3 pt-4">
+        <Button variant="action" size="lg" onClick={handleCopy} className="gap-2 px-8">
+          <Copy className="w-5 h-5" />
           Copy to Clipboard
         </Button>
-        <Button variant="action" onClick={handleDownload} className="gap-2">
-          <Download className="w-4 h-4" />
+        <Button variant="action" size="lg" onClick={handleDownload} className="gap-2 px-8">
+          <Download className="w-5 h-5" />
           Download Text
         </Button>
-        <Button variant="action" onClick={handleClear} className="gap-2 hover:border-destructive/50 hover:text-destructive">
-          <Trash2 className="w-4 h-4" />
+        <Button variant="action" size="lg" onClick={handleClear} className="gap-2 px-8 hover:border-destructive/50 hover:text-destructive">
+          <Trash2 className="w-5 h-5" />
           Clear
         </Button>
       </div>

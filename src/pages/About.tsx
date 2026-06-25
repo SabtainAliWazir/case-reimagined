@@ -89,7 +89,8 @@ const About = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-4xl mx-auto">
@@ -107,7 +108,7 @@ const About = () => {
                         </div>
 
                         {/* Mission */}
-                        <Card className="glass shadow-card p-8 mb-8 animate-fade-in-delay-1">
+                        <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-8 mb-8 animate-fade-in-delay-1">
                             <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
                             <p className="text-muted-foreground leading-relaxed text-lg">
                                 CaseConvert was built with a simple mission: to provide a comprehensive suite of
@@ -125,7 +126,7 @@ const About = () => {
                         {/* Features */}
                         <div className="grid sm:grid-cols-2 gap-4 mb-8 animate-fade-in-delay-2">
                             {features.map((feature) => (
-                                <Card key={feature.title} className="glass shadow-card p-6">
+                                <Card key={feature.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                     <feature.icon className="w-10 h-10 text-primary mb-4" />
                                     <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
                                     <p className="text-muted-foreground">{feature.description}</p>
@@ -134,7 +135,7 @@ const About = () => {
                         </div>
 
                         {/* Tools List */}
-                        <Card className="glass shadow-card p-8 mb-8 animate-fade-in-delay-3">
+                        <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-8 mb-8 animate-fade-in-delay-3">
                             <h2 className="text-2xl font-semibold mb-6">Our Tools</h2>
                             <div className="grid sm:grid-cols-2 gap-3">
                                 {tools.map((tool, index) => (
@@ -148,7 +149,7 @@ const About = () => {
 
                         {/* Made With Love */}
                         <div className="text-center animate-fade-in-delay-3">
-                            <Card className="glass shadow-card p-8 inline-block">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-8 inline-block">
                                 <div className="flex items-center justify-center gap-2 text-lg">
                                     <span>Made with</span>
                                     <Heart className="w-5 h-5 text-destructive fill-destructive" />

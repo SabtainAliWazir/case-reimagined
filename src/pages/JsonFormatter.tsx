@@ -182,7 +182,8 @@ const JsonFormatter = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-5xl mx-auto">
@@ -199,7 +200,7 @@ const JsonFormatter = () => {
 
                         <div className="grid lg:grid-cols-2 gap-6">
                             {/* Input Card */}
-                            <Card className="glass shadow-card p-6 animate-fade-in-delay-1">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-1">
                                 <div className="flex justify-between items-center mb-3">
                                     <label className="text-sm font-medium text-foreground">Input JSON</label>
                                     <Button variant="ghost" size="sm" onClick={loadSample} className="text-xs h-7">
@@ -221,7 +222,7 @@ const JsonFormatter = () => {
                             </Card>
 
                             {/* Result Card */}
-                            <Card className="glass shadow-card p-6 animate-fade-in-delay-2">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-2">
                                 <div className="flex justify-between items-center mb-3">
                                     <label className="text-sm font-medium text-foreground">Formatted Output</label>
                                     <div className="flex gap-2">
@@ -236,17 +237,16 @@ const JsonFormatter = () => {
                                         </Button>
                                     </div>
                                 </div>
-                                <Textarea
-                                    value={result}
+                                <Textarea value={result}
                                     readOnly
                                     placeholder="Formatted JSON will appear here..."
-                                    className="min-h-[300px] font-mono text-sm bg-background/50 border-border/50 resize-none"
+                                    className="min-h-[250px] font-sans text-lg resize-y"
                                 />
                             </Card>
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="glass rounded-xl p-6 shadow-card mt-6 animate-fade-in-delay-3">
+                        <div className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 mt-6 animate-fade-in-delay-3">
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <div className="flex items-center gap-2">
                                     <label className="text-sm text-muted-foreground">Indent:</label>
@@ -279,7 +279,7 @@ const JsonFormatter = () => {
 
                         {/* Stats */}
                         {result && (
-                            <div className="glass rounded-xl p-4 shadow-card mt-6 animate-fade-in">
+                            <div className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4 mt-6 animate-fade-in">
                                 <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
                                     <div className="flex items-center gap-2 text-muted-foreground">
                                         <Type className="w-4 h-4 text-primary" />
@@ -305,7 +305,7 @@ const JsonFormatter = () => {
                                     { title: "Validate JSON", desc: "Check for syntax errors before using in your code" },
                                     { title: "100% Private", desc: "All processing happens in your browser - no data sent anywhere" },
                                 ].map((item) => (
-                                    <Card key={item.title} className="glass shadow-card p-4">
+                                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                                         <h3 className="font-semibold mb-2">{item.title}</h3>
                                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                                     </Card>

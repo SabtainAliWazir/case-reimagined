@@ -46,7 +46,8 @@ const PrivacyPolicy = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-3xl mx-auto">
@@ -65,7 +66,7 @@ const PrivacyPolicy = () => {
 
                         <div className="space-y-8 animate-fade-in-delay-1">
                             {/* Introduction */}
-                            <Card className="glass shadow-card p-6">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                                     <Eye className="w-5 h-5 text-primary" />
                                     Overview
@@ -78,7 +79,7 @@ const PrivacyPolicy = () => {
                             </Card>
 
                             {/* Data Collection */}
-                            <Card className="glass shadow-card p-6">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                                     <Database className="w-5 h-5 text-primary" />
                                     Information We Collect
@@ -112,7 +113,7 @@ const PrivacyPolicy = () => {
                             </Card>
 
                             {/* Cookies */}
-                            <Card className="glass shadow-card p-6">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                                     <Cookie className="w-5 h-5 text-primary" />
                                     Cookies & Tracking
@@ -128,7 +129,7 @@ const PrivacyPolicy = () => {
                             </Card>
 
                             {/* Third Party Services */}
-                            <Card className="glass shadow-card p-6">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                                     <Lock className="w-5 h-5 text-primary" />
                                     Third-Party Services
@@ -147,7 +148,7 @@ const PrivacyPolicy = () => {
                             </Card>
 
                             {/* Your Rights */}
-                            <Card className="glass shadow-card p-6">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                 <h2 className="text-xl font-semibold mb-4">Your Rights</h2>
                                 <div className="space-y-3 text-muted-foreground leading-relaxed">
                                     <p>You have the right to:</p>
@@ -162,7 +163,7 @@ const PrivacyPolicy = () => {
                             </Card>
 
                             {/* Contact */}
-                            <Card className="glass shadow-card p-6">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                 <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                                     <Mail className="w-5 h-5 text-primary" />
                                     Contact Us
@@ -176,7 +177,7 @@ const PrivacyPolicy = () => {
                             </Card>
 
                             {/* Updates */}
-                            <Card className="glass shadow-card p-6">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                 <h2 className="text-xl font-semibold mb-4">Changes to This Policy</h2>
                                 <p className="text-muted-foreground leading-relaxed">
                                     We may update this Privacy Policy from time to time. We will notify you of any

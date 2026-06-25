@@ -180,7 +180,8 @@ const HashGenerator = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-4xl mx-auto">
@@ -196,7 +197,7 @@ const HashGenerator = () => {
                         </div>
 
                         {/* Input Card */}
-                        <Card className="glass shadow-card p-6 mb-6 animate-fade-in-delay-1">
+                        <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 mb-6 animate-fade-in-delay-1">
                             <div className="flex justify-between items-center mb-3">
                                 <label className="text-sm font-medium text-foreground">Enter Text to Hash</label>
                                 <span className="text-xs text-muted-foreground">{input.length} characters</span>
@@ -222,7 +223,7 @@ const HashGenerator = () => {
                         {/* Hash Results */}
                         <div className="space-y-4 animate-fade-in-delay-2">
                             {hashInfo.map((hash) => (
-                                <Card key={hash.type} className="glass shadow-card p-4">
+                                <Card key={hash.type} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                                     <div className="flex items-center justify-between mb-2">
                                         <div className="flex items-center gap-3">
                                             <HashIcon className="w-5 h-5 text-primary" />
@@ -261,7 +262,7 @@ const HashGenerator = () => {
                                     { title: "Password Storage", desc: "Securely store password hashes instead of plain text" },
                                     { title: "Data Deduplication", desc: "Quickly identify duplicate files by comparing hashes" },
                                 ].map((item) => (
-                                    <Card key={item.title} className="glass shadow-card p-4">
+                                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                                         <h3 className="font-semibold mb-2">{item.title}</h3>
                                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                                     </Card>

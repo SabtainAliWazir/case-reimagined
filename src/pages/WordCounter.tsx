@@ -165,7 +165,8 @@ const WordCounter = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
         <Header />
         <main className="px-4 py-12">
           <div className="max-w-5xl mx-auto">
@@ -181,27 +182,27 @@ const WordCounter = () => {
             </div>
 
             {/* Main Stats Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 animate-fade-in-delay-1">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 animate-fade-in-delay-1 relative z-10">
               {mainStats.map((stat) => (
-                <Card key={stat.label} className="glass shadow-card p-4 text-center group hover:border-primary/50 transition-colors">
-                  <stat.icon className={`w-6 h-6 ${stat.color} mx-auto mb-2 group-hover:scale-110 transition-transform`} />
-                  <div className="text-3xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
+                <Card key={stat.label} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card p-4 text-center group hover:border-primary/50 transition-all duration-300 hover:shadow-glow rounded-3xl">
+                  <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-3 group-hover:scale-110 transition-transform`} />
+                  <div className="text-3xl font-heading font-bold text-foreground mb-1">{stat.value}</div>
+                  <div className="text-sm font-medium text-muted-foreground">{stat.label}</div>
                 </Card>
               ))}
             </div>
 
             {/* Text Area */}
-            <Card className="glass shadow-card p-6 mb-6 animate-fade-in-delay-1">
-              <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-medium text-foreground">Your Text</label>
+            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card p-4 md:p-6 mb-6 animate-fade-in-delay-1 rounded-3xl relative z-10">
+              <div className="flex justify-between items-center mb-4 px-2">
+                <label className="text-sm font-heading font-semibold text-foreground">Your Text</label>
                 <div className="flex gap-2">
-                  <Button variant="ghost" size="sm" onClick={copyText} className="gap-1 h-8">
-                    <Copy className="w-3 h-3" />
+                  <Button variant="ghost" size="sm" onClick={copyText} className="gap-2 rounded-xl">
+                    <Copy className="w-4 h-4" />
                     Copy
                   </Button>
-                  <Button variant="ghost" size="sm" onClick={clearText} className="gap-1 h-8">
-                    <Trash2 className="w-3 h-3" />
+                  <Button variant="ghost" size="sm" onClick={clearText} className="gap-2 rounded-xl hover:text-destructive hover:bg-destructive/10">
+                    <Trash2 className="w-4 h-4" />
                     Clear
                   </Button>
                 </div>
@@ -210,57 +211,59 @@ const WordCounter = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Start typing or paste your text here to get instant word count, character count, and keyword analysis..."
-                className="min-h-[200px] font-mono text-sm bg-background/50 border-border/50 focus:border-primary/50 resize-none"
+                className="min-h-[250px] font-sans text-lg bg-card dark:bg-black/40 border border-border shadow-sm focus:border-primary/50 resize-y rounded-2xl p-6"
               />
             </Card>
 
-            <div className="grid lg:grid-cols-2 gap-6 animate-fade-in-delay-2">
+            <div className="grid lg:grid-cols-2 gap-6 animate-fade-in-delay-2 relative z-10">
               {/* Time Estimates */}
-              <Card className="glass shadow-card p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <h3 className="font-semibold">Time Estimates</h3>
+              <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card p-6 md:p-8 rounded-3xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading font-semibold text-xl">Time Estimates</h3>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-muted-foreground">Reading Time</span>
-                      <span className="font-medium">{stats.readingTime} min</span>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-muted-foreground font-medium">Reading Time</span>
+                      <span className="font-bold">{stats.readingTime} min</span>
                     </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-3 bg-secondary rounded-full overflow-hidden shadow-inner">
                       <div
-                        className="h-full bg-blue-500 transition-all duration-300"
+                        className="h-full bg-primary transition-all duration-500 rounded-full"
                         style={{ width: `${Math.min(stats.readingTime * 10, 100)}%` }}
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1">Based on 200 words/min</p>
+                    <p className="text-xs text-muted-foreground mt-2">Based on 200 words/min</p>
                   </div>
                   <div>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-muted-foreground">Speaking Time</span>
-                      <span className="font-medium">{stats.speakingTime} min</span>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-muted-foreground font-medium">Speaking Time</span>
+                      <span className="font-bold">{stats.speakingTime} min</span>
                     </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <div className="h-3 bg-secondary rounded-full overflow-hidden shadow-inner">
                       <div
-                        className="h-full bg-green-500 transition-all duration-300"
+                        className="h-full bg-primary/60 transition-all duration-500 rounded-full"
                         style={{ width: `${Math.min(stats.speakingTime * 10, 100)}%` }}
                       />
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1">Based on 150 words/min</p>
+                    <p className="text-xs text-muted-foreground mt-2">Based on 150 words/min</p>
                   </div>
                 </div>
 
                 {/* Detailed Stats */}
-                <div className="mt-6 pt-4 border-t border-border/50">
-                  <h4 className="text-sm font-medium mb-3 flex items-center gap-2">
+                <div className="mt-8 pt-6 border-t border-border/50">
+                  <h4 className="text-sm font-heading font-semibold mb-4 flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-primary" />
                     Detailed Stats
                   </h4>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     {detailedStats.map((stat) => (
-                      <div key={stat.label} className="flex justify-between text-sm">
+                      <div key={stat.label} className="flex justify-between text-sm bg-background/50 p-3 rounded-xl border border-border/30">
                         <span className="text-muted-foreground">{stat.label}</span>
-                        <span className="font-medium">{stat.value}</span>
+                        <span className="font-semibold">{stat.value}</span>
                       </div>
                     ))}
                   </div>
@@ -268,10 +271,12 @@ const WordCounter = () => {
               </Card>
 
               {/* Keyword Density */}
-              <Card className="glass shadow-card p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <BarChart3 className="w-5 h-5 text-primary" />
-                  <h3 className="font-semibold">Keyword Density</h3>
+              <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card p-6 md:p-8 rounded-3xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <BarChart3 className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-heading font-semibold text-xl">Keyword Density</h3>
                 </div>
                 {keywordDensity.length > 0 ? (
                   <div className="space-y-3">
@@ -343,7 +348,7 @@ const WordCounter = () => {
                     { title: "📱 Social Media", desc: "Stay within Twitter/X, Instagram, and Facebook character limits." },
                     { title: "🔍 SEO Professionals", desc: "Analyze keyword density to optimize content for search engines." },
                   ].map((item) => (
-                    <Card key={item.title} className="glass shadow-card p-4">
+                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                       <h3 className="font-semibold mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>
                     </Card>
@@ -356,7 +361,7 @@ const WordCounter = () => {
                 <h2 className="text-2xl font-bold mb-4">
                   Social Media <span className="text-gradient">Character Limits</span>
                 </h2>
-                <Card className="glass shadow-card p-6">
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {[
                       { platform: "Twitter/X Post", limit: "280 characters" },

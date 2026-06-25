@@ -1,5 +1,4 @@
 import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
 import { TextConverter } from "@/components/TextConverter";
 import { Features } from "@/components/Features";
 import { FAQ } from "@/components/FAQ";
@@ -117,20 +116,47 @@ const Index = () => {
           })}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        
+        {/* Global Ambient Background */}
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
+
         <Header />
-        <main>
-          <Hero />
-          <section id="converter" className="px-4 pb-16">
+        <main className="pt-12 pb-24 relative z-10">
+          
+          {/* Dribbble Style Hero Intro */}
+          <section className="px-4 mb-16 text-center max-w-3xl mx-auto animate-fade-in relative">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6 border border-primary/20 backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              The Ultimate Text Toolkit
+            </div>
+            <h1 className="text-5xl md:text-7xl font-heading font-extrabold tracking-tight mb-6 text-foreground drop-shadow-sm">
+              Transform Text <span className="text-transparent bg-clip-text bg-gradient-text">Naturally.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Convert between formats, generate secure passwords, and beautify code. 
+              A purely browser-based suite crafted for precision and privacy.
+            </p>
+          </section>
+
+          {/* Core Utility Section */}
+          <section id="converter" className="px-4 max-w-[1000px] mx-auto relative">
+            {/* Decorative background leaf/blob behind converter */}
+            <div className="absolute top-0 right-10 w-72 h-72 bg-secondary/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 dark:opacity-20 animate-blob" />
+            <div className="absolute -bottom-10 left-10 w-72 h-72 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50 dark:opacity-20 animate-blob animation-delay-2000" />
+            
             <TextConverter />
           </section>
 
           {/* Other Tools Section */}
-          <section className="px-4 py-16 bg-muted/30">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  More Text <span className="text-gradient">Tools</span>
+          <section className="px-4 mt-32 relative">
+            <div className="max-w-[1200px] mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                  Explore More Tools
                 </h2>
                 <p className="text-muted-foreground max-w-xl mx-auto">
                   Explore our collection of free text utilities to enhance your workflow.
@@ -139,10 +165,12 @@ const Index = () => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {tools.map((tool) => (
                   <Link key={tool.href} to={tool.href}>
-                    <Card className="glass shadow-card p-5 h-full hover:border-primary/50 transition-all hover:-translate-y-1">
-                      <tool.icon className="w-8 h-8 text-primary mb-3" />
-                      <h3 className="font-semibold mb-2">{tool.title}</h3>
-                      <p className="text-sm text-muted-foreground">{tool.description}</p>
+                    <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card p-6 h-full rounded-3xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-glow group">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <tool.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="font-heading font-semibold text-lg mb-2">{tool.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{tool.description}</p>
                     </Card>
                   </Link>
                 ))}
@@ -187,7 +215,7 @@ const Index = () => {
                     { type: "aLtErNaTiNg cAsE", example: "hElLo WoRlD", desc: "Alternating caps for memes, sarcasm, or stylized text." },
                     { type: "slug-case", example: "hello-world", desc: "URL-friendly format with hyphens. Essential for blog post URLs." },
                   ].map((item) => (
-                    <Card key={item.type} className="glass shadow-card p-4">
+                    <Card key={item.type} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="font-semibold">{item.type}</h3>
                         <code className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">{item.example}</code>
@@ -209,7 +237,7 @@ const Index = () => {
                     { emoji: "💻", title: "Developers", desc: "Convert variable names between camelCase and slug-case formats." },
                     { emoji: "📱", title: "Social Media", desc: "Create eye-catching posts with alternating or uppercase text." },
                   ].map((item) => (
-                    <Card key={item.title} className="glass shadow-card p-4 text-center">
+                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4 text-center">
                       <div className="text-3xl mb-3">{item.emoji}</div>
                       <h3 className="font-semibold mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>

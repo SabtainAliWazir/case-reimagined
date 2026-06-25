@@ -129,46 +129,9 @@ const TextFormatter = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="Text Formatter - Fancy Text & Formatting Tool | CaseConvert" />
         <meta name="twitter:description" content="Generate cool fancy text, strikethrough, and underlined styles instantly." />
-
-        {/* Text Formatter Specific Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Online Text Formatter",
-            "description": "Create fancy text styles like strikethrough, underline, and bubble text online.",
-            "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://caseconvert.online/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Text Formatter",
-                "item": "https://caseconvert.online/text-formatter"
-              }
-            ]
-          })}
-        </script>
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
         <Header />
         <main className="px-4 py-12">
           <div className="max-w-4xl mx-auto">
@@ -181,13 +144,13 @@ const TextFormatter = () => {
               </p>
             </div>
 
-            <Card className="glass shadow-card p-6 mb-6 animate-fade-in-delay-1">
+            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 mb-6 animate-fade-in-delay-1">
               <label className="text-sm font-medium text-foreground mb-3 block">Input Text</label>
               <Textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Enter your text here..."
-                className="min-h-[120px] font-mono text-sm bg-background/50 border-border/50 focus:border-primary/50 resize-none"
+                className="min-h-[150px] font-sans text-lg resize-y"
               />
             </Card>
 
@@ -196,7 +159,7 @@ const TextFormatter = () => {
                 <Button
                   key={formatter.name}
                   variant="converter"
-                  size="converter"
+                  size="sm"
                   onClick={() => applyFormat(formatter.transform)}
                   className="text-xs"
                 >
@@ -206,7 +169,7 @@ const TextFormatter = () => {
               ))}
             </div>
 
-            <Card className="glass shadow-card p-6 animate-fade-in-delay-3">
+            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-3">
               <div className="flex justify-between items-center mb-3">
                 <label className="text-sm font-medium text-foreground">Result</label>
                 <div className="flex gap-2">
@@ -218,11 +181,10 @@ const TextFormatter = () => {
                   </Button>
                 </div>
               </div>
-              <Textarea
-                value={result}
+              <Textarea value={result}
                 readOnly
                 placeholder="Formatted text will appear here..."
-                className="min-h-[120px] font-mono text-sm bg-background/50 border-border/50 resize-none"
+                className="min-h-[250px] font-sans text-lg resize-y"
               />
             </Card>
           </div>

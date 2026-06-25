@@ -19,13 +19,13 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="w-full py-4 px-4 border-b border-border/50 sticky top-0 z-50 bg-background/80 backdrop-blur-xl">
-      <div className="max-w-5xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shadow-glow">
+    <header className="w-full pt-6 pb-2 px-4 sticky top-0 z-50">
+      <div className="max-w-5xl mx-auto flex items-center justify-between bg-background/80 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-lg rounded-full px-6 py-3">
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
             <Type className="w-5 h-5 text-primary" />
           </div>
-          <span className="text-xl font-semibold tracking-tight">
+          <span className="text-xl font-heading font-bold tracking-tight">
             Case<span className="text-primary">Convert</span>
           </span>
         </Link>
@@ -36,9 +36,9 @@ export const Header = () => {
             <Link
               key={link.href}
               to={link.href}
-              className={`px-3 py-2 text-sm rounded-lg transition-colors ${location.pathname === link.href
-                  ? "bg-primary/10 text-primary font-medium"
-                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
+              className={`px-4 py-2 text-sm rounded-full transition-all duration-300 font-medium ${location.pathname === link.href
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 }`}
             >
               {link.label}
@@ -53,7 +53,7 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden rounded-full"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

@@ -82,7 +82,8 @@ const Contact = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-4xl mx-auto">
@@ -102,7 +103,7 @@ const Contact = () => {
                         <div className="grid lg:grid-cols-3 gap-8">
                             {/* Contact Info */}
                             <div className="space-y-4 animate-fade-in-delay-1">
-                                <Card className="glass shadow-card p-6">
+                                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                     <Mail className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="font-semibold mb-2">Email Us</h3>
                                     <a
@@ -113,7 +114,7 @@ const Contact = () => {
                                     </a>
                                 </Card>
 
-                                <Card className="glass shadow-card p-6">
+                                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                     <Clock className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="font-semibold mb-2">Response Time</h3>
                                     <p className="text-muted-foreground">
@@ -121,7 +122,7 @@ const Contact = () => {
                                     </p>
                                 </Card>
 
-                                <Card className="glass shadow-card p-6">
+                                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8">
                                     <MapPin className="w-8 h-8 text-primary mb-4" />
                                     <h3 className="font-semibold mb-2">Location</h3>
                                     <p className="text-muted-foreground">
@@ -131,7 +132,7 @@ const Contact = () => {
                             </div>
 
                             {/* Contact Form */}
-                            <Card className="glass shadow-card p-6 lg:col-span-2 animate-fade-in-delay-2">
+                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 lg:col-span-2 animate-fade-in-delay-2">
                                 <h2 className="text-xl font-semibold mb-6">Send us a Message</h2>
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     <div className="grid sm:grid-cols-2 gap-4">
@@ -177,14 +178,13 @@ const Contact = () => {
 
                                     <div>
                                         <Label htmlFor="message">Message</Label>
-                                        <Textarea
-                                            id="message"
+                                        <Textarea id="message"
                                             name="message"
                                             value={formData.message}
                                             onChange={handleChange}
                                             placeholder="Tell us more..."
                                             required
-                                            className="mt-1 min-h-[150px]"
+                                            className="min-h-[250px] font-sans text-lg resize-y"
                                         />
                                     </div>
 
@@ -201,7 +201,7 @@ const Contact = () => {
                         </div>
 
                         {/* FAQ Preview */}
-                        <Card className="glass shadow-card p-8 mt-8 animate-fade-in-delay-3">
+                        <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-8 mt-8 animate-fade-in-delay-3">
                             <h2 className="text-xl font-semibold mb-4">Common Questions</h2>
                             <div className="space-y-4 text-muted-foreground">
                                 <div>

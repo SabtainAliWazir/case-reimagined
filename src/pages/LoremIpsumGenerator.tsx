@@ -197,7 +197,8 @@ const LoremIpsumGenerator = () => {
                     })}
                 </script>
             </Helmet>
-            <div className="min-h-screen bg-background">
+            <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
+        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
                 <Header />
                 <main className="px-4 py-12">
                     <div className="max-w-4xl mx-auto">
@@ -213,7 +214,7 @@ const LoremIpsumGenerator = () => {
                         </div>
 
                         {/* Options Card */}
-                        <Card className="glass shadow-card p-6 mb-6 animate-fade-in-delay-1">
+                        <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 mb-6 animate-fade-in-delay-1">
                             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                                 {/* Type Selection */}
                                 <div>
@@ -273,7 +274,7 @@ const LoremIpsumGenerator = () => {
                         </Card>
 
                         {/* Result Card */}
-                        <Card className="glass shadow-card p-6 animate-fade-in-delay-2">
+                        <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-6 md:p-8 animate-fade-in-delay-2">
                             <div className="flex justify-between items-center mb-3">
                                 <label className="text-sm font-medium text-foreground">Generated Text</label>
                                 <div className="flex gap-2">
@@ -288,17 +289,16 @@ const LoremIpsumGenerator = () => {
                                     </Button>
                                 </div>
                             </div>
-                            <Textarea
-                                value={result}
+                            <Textarea value={result}
                                 readOnly
                                 placeholder="Click 'Generate' to create Lorem Ipsum text..."
-                                className="min-h-[250px] font-serif text-base leading-relaxed bg-background/50 border-border/50 resize-none"
+                                className="min-h-[250px] font-sans text-lg resize-y"
                             />
                         </Card>
 
                         {/* Stats */}
                         {result && (
-                            <div className="glass rounded-xl p-4 shadow-card mt-6 animate-fade-in">
+                            <div className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4 mt-6 animate-fade-in">
                                 <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
                                     <div className="flex items-center gap-2 text-muted-foreground">
                                         <Type className="w-4 h-4 text-primary" />
@@ -324,7 +324,7 @@ const LoremIpsumGenerator = () => {
                                     { title: "Print Layouts", desc: "Preview magazine, brochure, and poster designs" },
                                     { title: "Presentations", desc: "Create polished slides with placeholder content" },
                                 ].map((item) => (
-                                    <Card key={item.title} className="glass shadow-card p-4">
+                                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
                                         <h3 className="font-semibold mb-2">{item.title}</h3>
                                         <p className="text-sm text-muted-foreground">{item.desc}</p>
                                     </Card>
