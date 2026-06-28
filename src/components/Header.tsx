@@ -1,22 +1,70 @@
-import { Type, Menu, X } from "lucide-react";
+import { Type, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  DropdownMenuPortal
+} from "./ui/dropdown-menu";
+import { allCalculators } from "@/pages/CalculatorsIndex";
 
-const navLinks = [
-  { href: "/", label: "Case Converter" },
-  { href: "/word-counter", label: "Word Counter" },
-  { href: "/text-formatter", label: "Formatter" },
-  { href: "/text-cleaner", label: "Cleaner" },
-  { href: "/json-formatter", label: "JSON" },
-  { href: "/password-generator", label: "Password" },
-  { href: "/lorem-ipsum", label: "Lorem" },
+// Group calculators by category
+const financialCategories = allCalculators.reduce((acc, curr) => {
+  if (!acc[curr.category]) {
+    acc[curr.category] = [];
+  }
+  acc[curr.category].push(curr);
+  return acc;
+}, {} as Record<string, typeof allCalculators>);
+
+const navCategories = [
+  {
+    category: "Text & Dev",
+    links: [
+      { href: "/", label: "Case Converter" },
+      { href: "/word-counter", label: "Word Counter" },
+      { href: "/text-formatter", label: "Text Formatter" },
+      { href: "/text-cleaner", label: "Text Cleaner" },
+      { href: "/json-formatter", label: "JSON Formatter" },
+      { href: "/base64", label: "Base64 Encoder" },
+      { href: "/url-encoder", label: "URL Encoder" },
+      { href: "/hash-generator", label: "Hash Generator" },
+      { href: "/password-generator", label: "Password Generator" },
+      { href: "/lorem-ipsum", label: "Lorem Ipsum" },
+      { href: "/binary-translator", label: "Binary Translator" },
+      { href: "/morse-translator", label: "Morse Translator" },
+    ]
+  },
+  {
+    category: "File Tools",
+    links: [
+      { href: "/zip-creator", label: "ZIP Creator" },
+      { href: "/zip-extractor", label: "ZIP Extractor" },
+      { href: "/image-converter", label: "Image Converter" },
+    ]
+  },
+  {
+    category: "Financial",
+    isNested: true,
+    links: [
+      { href: "/calculators", label: "★ All Calculators Hub ★" }
+    ],
+    subCategories: financialCategories
+  }
 ];
 
 export const Header = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const isActive = (href: string) => location.pathname === href || location.pathname.startsWith(href + '/');
 
   return (
     <header className="w-full pt-6 pb-2 px-4 sticky top-0 z-50">
@@ -31,18 +79,67 @@ export const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className={`px-4 py-2 text-sm rounded-full transition-all duration-300 font-medium ${location.pathname === link.href
-                  ? "bg-primary text-primary-foreground shadow-md"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                }`}
-            >
-              {link.label}
-            </Link>
+        <nav className="hidden lg:flex items-center gap-2">
+          {navCategories.map((category) => (
+            <DropdownMenu key={category.category}>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="rounded-full gap-1 text-muted-foreground hover:text-foreground font-medium">
+                  {category.category}
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-64 bg-background/95 backdrop-blur-xl border-white/20 rounded-2xl p-2 shadow-xl">
+                {category.isNested ? (
+                  <>
+                    <DropdownMenuItem asChild className="rounded-xl cursor-pointer mb-2">
+                      <Link to="/calculators" className="w-full font-bold text-primary px-3 py-2.5">
+                        ★ All Calculators Hub ★
+                      </Link>
+                    </DropdownMenuItem>
+                    {Object.entries(category.subCategories || {}).map(([subCatName, tools]) => (
+                      <DropdownMenuSub key={subCatName}>
+                        <DropdownMenuSubTrigger className="rounded-xl cursor-pointer px-3 py-2.5 hover:bg-accent/50 transition-colors">
+                          {subCatName}
+                        </DropdownMenuSubTrigger>
+                        <DropdownMenuPortal>
+                          <DropdownMenuSubContent className="w-64 bg-background/95 backdrop-blur-xl border-white/20 rounded-2xl p-2 shadow-xl max-h-[80vh] overflow-y-auto">
+                            {tools.map(tool => (
+                              <DropdownMenuItem key={tool.href} asChild className="rounded-xl cursor-pointer">
+                                <Link
+                                  to={tool.href}
+                                  className={`w-full px-3 py-2 transition-colors ${
+                                    location.pathname === tool.href 
+                                      ? "bg-primary/10 text-primary font-semibold" 
+                                      : "hover:bg-accent/50"
+                                  }`}
+                                >
+                                  {tool.title}
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuSubContent>
+                        </DropdownMenuPortal>
+                      </DropdownMenuSub>
+                    ))}
+                  </>
+                ) : (
+                  category.links.map(link => (
+                    <DropdownMenuItem key={link.href} asChild className="rounded-xl cursor-pointer">
+                      <Link
+                        to={link.href}
+                        className={`w-full flex items-center px-3 py-2.5 transition-colors ${
+                          location.pathname === link.href 
+                            ? "bg-primary/10 text-primary font-semibold" 
+                            : "hover:bg-accent/50"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
           ))}
         </nav>
 
@@ -63,20 +160,60 @@ export const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className="lg:hidden mt-4 pb-4 border-t border-border/50 pt-4">
-          <div className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-3 text-sm rounded-lg transition-colors ${location.pathname === link.href
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                  }`}
-              >
-                {link.label}
-              </Link>
+        <nav className="lg:hidden mt-4 pb-4 border-t border-border/50 pt-4 bg-background/95 backdrop-blur-xl rounded-2xl shadow-xl px-4 mx-2 max-h-[75vh] overflow-y-auto">
+          <div className="flex flex-col gap-6 py-4">
+            {navCategories.map((category) => (
+              <div key={category.category} className="space-y-2">
+                <h3 className="font-heading font-bold text-sm text-primary tracking-wider uppercase px-2">{category.category}</h3>
+                
+                {category.isNested ? (
+                  <div className="flex flex-col gap-3 pl-2 border-l-2 border-border/50 ml-2">
+                    <Link
+                      to="/calculators"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-4 py-2 text-sm rounded-xl font-bold text-primary bg-primary/5"
+                    >
+                      ★ All Calculators Hub ★
+                    </Link>
+                    {Object.entries(category.subCategories || {}).map(([subCatName, tools]) => (
+                      <div key={subCatName} className="space-y-1">
+                        <div className="text-xs font-semibold text-muted-foreground px-4 py-1 uppercase">{subCatName}</div>
+                        {tools.map(tool => (
+                          <Link
+                            key={tool.href}
+                            to={tool.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className={`block px-4 py-2 text-sm rounded-xl transition-colors ${
+                              location.pathname === tool.href
+                                ? "bg-primary/10 text-primary font-medium"
+                                : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                            }`}
+                          >
+                            {tool.title}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-1">
+                    {category.links.map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`px-4 py-3 text-sm rounded-xl transition-colors ${
+                          location.pathname === link.href
+                            ? "bg-primary/10 text-primary font-medium"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </nav>
