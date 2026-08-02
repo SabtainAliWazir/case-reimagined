@@ -10,24 +10,42 @@ const __dirname = path.dirname(__filename);
 const PORT = 8081;
 const DIST_DIR = path.resolve(__dirname, 'dist');
 
-const routes = [
-  "/",
-  "/word-counter",
-  "/binary-translator",
-  "/morse-translator",
-  "/text-formatter",
-  "/text-cleaner",
-  "/json-formatter",
-  "/password-generator",
-  "/lorem-ipsum",
-  "/base64",
-  "/url-encoder",
-  "/hash-generator",
-  "/privacy",
-  "/about",
-  "/contact",
-  "/404"
+const missingSlugs = [
+  "investment-income", "savings-goal", "apr-advanced", "loan-analysis",
+  "mortgage-tax-saving", "fixed-vs-adjustable", "401k-save-max",
+  "retirement-income-analysis", "social-security-analysis", "social-security-distribution",
+  "asset-allocation", "retirement-income", "retirement-basic", "non-constant-growth",
+  "holding-period-return", "commodities-futures", "unit-conversion", "treasury-bill",
+  "business-forecast", "fuel-calculator", "hourly-to-salary", "net-distribution",
+  "effective-rate", "balance-sheet-analysis", "financial-ratios", "currency-converter"
 ];
+
+const standardSlugs = [
+  "tvm-calculator", "irr-npv-calculator", "bond-calculator", "tax-equivalent-yield",
+  "rule-of-72", "college-savings", "mutual-fund-fee", "hsa-calculator", "cd-calculator",
+  "loan-comparison", "refinance-calculator", "apr-calculator", "commercial-loan",
+  "home-affordability", "rent-vs-buy", "discount-points", "adjustable-rate",
+  "bi-weekly-payment", "interest-only", "rental-property", "retirement-planner",
+  "401k-contribution", "retirement-savings-analysis", "ira-vs-roth", "rmd-calculator",
+  "social-security-estimator", "annuity-calculator", "stock-return", "constant-growth",
+  "capm-calculator", "expected-return", "wacc-calculator", "black-scholes", "pivot-point",
+  "fibonacci", "dividend-tax", "paypal-fee", "stripe-fee", "square-fee", "ebay-fee",
+  "etsy-fee", "shopify-fee", "cashapp-fee", "venmo-fee", "credit-card-payoff",
+  "credit-card-minimum", "auto-loan", "auto-lease", "tip-calculator", "discount-tax",
+  "percentage", "date-calculator", "us-inflation", "margin-markup", "salary-increase",
+  "paycheck-tax", "triangle-calculator"
+];
+
+const allCalcRoutes = [...standardSlugs, ...missingSlugs].map(s => `/calculators/${s}`);
+const otherRoutes = [
+  '/', '/calculators', '/word-counter', '/binary-translator', '/morse-translator',
+  '/text-formatter', '/text-cleaner', '/json-formatter', '/password-generator',
+  '/lorem-ipsum', '/base64', '/url-encoder', '/hash-generator', '/epoch-converter',
+  '/privacy', '/about', '/contact', '/compound-interest', '/loan-calculator',
+  '/roi-calculator', '/zip-extractor', '/zip-creator', '/image-converter', '/404'
+];
+
+const routes = Array.from(new Set([...otherRoutes, ...allCalcRoutes]));
 
 async function prerender() {
   const app = express();
@@ -60,8 +78,8 @@ async function prerender() {
           console.log('Timeout waiting for root content, continuing...');
         }
         
-        // Wait an extra second for animations/data to settle
-        await new Promise(r => setTimeout(r, 1000));
+        // Wait a brief moment for dynamic metadata to settle
+        await new Promise(r => setTimeout(r, 300));
         
         const html = await page.content();
         
