@@ -34,7 +34,7 @@ const standardSlugs = [
 
 const allCalcRoutes = [...standardSlugs, ...missingSlugs].map(s => `/calculators/${s}`);
 const otherRoutes = [
-  '/', '/calculators', '/word-counter', '/binary-translator', '/morse-translator',
+  '/calculators', '/word-counter', '/binary-translator', '/morse-translator',
   '/text-formatter', '/text-cleaner', '/json-formatter', '/password-generator',
   '/lorem-ipsum', '/base64', '/url-encoder', '/hash-generator', '/privacy', 
   '/about', '/contact', '/compound-interest', '/loan-calculator', '/roi-calculator',
