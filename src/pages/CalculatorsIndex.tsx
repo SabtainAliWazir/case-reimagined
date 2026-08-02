@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useState, useMemo } from "react";
-import { Search, Calculator, LineChart, FileText, Percent, Timer, GraduationCap, Briefcase, HeartPulse, Landmark, Scale, RefreshCw, Building, Home, Tag, TrendingUp, Calendar, CircleDollarSign, Building2, Palmtree, PiggyBank, PieChart, CalendarClock, Banknote, Activity, Target, Layers, GitMerge, Crosshair, Waves, Receipt, CreditCard, Car, CarFront, Coins, CalendarDays, TrendingDown, ArrowUpRight, ArrowUp, ReceiptText, BadgeDollarSign, Square, ShoppingCart, Store, ShoppingBag, Smartphone, Send } from "lucide-react";
+import { Search, Calculator, LineChart, FileText, Percent, Timer, GraduationCap, Briefcase, HeartPulse, Landmark, Scale, RefreshCw, Building, Home, Tag, TrendingUp, Calendar, CircleDollarSign, Building2, Palmtree, PiggyBank, PieChart, CalendarClock, Banknote, Activity, Target, Layers, GitMerge, Crosshair, Waves, Receipt, CreditCard, Car, CarFront, Coins, CalendarDays, TrendingDown, ArrowUpRight, ArrowUp, ReceiptText, BadgeDollarSign, Square, ShoppingCart, Store, ShoppingBag, Smartphone, Send, Triangle } from "lucide-react";
 
 export const allCalculators = [
+  { category: "Math & Geometry", href: "/calculators/triangle-calculator", title: "Triangle Calculator", icon: Triangle, description: "Advanced calculator to solve SSS, SAS, SSA, ASA, and AAS triangles." },
   { category: "Finance & Investment", href: "/calculators/tvm-calculator", title: "TVM Calculator", icon: Calculator, description: "Free online tvm calculator tool." },
   { category: "Finance & Investment", href: "/calculators/irr-npv-calculator", title: "IRR NPV Calculator", icon: LineChart, description: "Free online irr npv calculator tool." },
   { category: "Finance & Investment", href: "/calculators/bond-calculator", title: "Bond Calculator", icon: FileText, description: "Free online bond calculator tool." },

@@ -40,6 +40,7 @@ const navCategories = [
       { href: "/lorem-ipsum", label: "Lorem Ipsum" },
       { href: "/binary-translator", label: "Binary Translator" },
       { href: "/morse-translator", label: "Morse Translator" },
+      { href: "/epoch-converter", label: "Epoch Converter" },
     ]
   },
   {

@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { allCalculators } from "@/pages/CalculatorsIndex";
 import {
     Hash, Binary, Radio, Sparkles, Eraser, Braces, KeyRound,
-    FileText, Code, Link2, Fingerprint, Type, FolderArchive, FileArchive, Image as ImageIcon
+    FileText, Code, Link2, Fingerprint, Type, FolderArchive, FileArchive, Image as ImageIcon, Clock
 } from "lucide-react";
 
 const textAndFileTools = [
@@ -19,6 +19,7 @@ const textAndFileTools = [
     { category: "Text & Dev", href: "/base64", icon: Code, title: "Base64 Encoder", description: "Encode & decode" },
     { category: "Text & Dev", href: "/url-encoder", icon: Link2, title: "URL Encoder", description: "URL encode/decode" },
     { category: "Text & Dev", href: "/hash-generator", icon: Fingerprint, title: "Hash Generator", description: "MD5, SHA-256 hashes" },
+    { category: "Text & Dev", href: "/epoch-converter", icon: Clock, title: "Epoch Converter", description: "Unix timestamp converter" },
     { category: "File Tools", href: "/zip-creator", icon: FileArchive, title: "ZIP Creator", description: "Compress files" },
     { category: "File Tools", href: "/zip-extractor", icon: FolderArchive, title: "ZIP Extractor", description: "Extract archives" },
     { category: "File Tools", href: "/image-converter", icon: ImageIcon, title: "Image Converter", description: "Convert image formats" },

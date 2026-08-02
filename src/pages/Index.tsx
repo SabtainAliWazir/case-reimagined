@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import { Hash, Binary, Radio, Sparkles, Eraser, Braces, KeyRound, FileText, Code, Link2, Fingerprint, Calculator, Wallet, TrendingUp, FolderArchive, FileArchive, Image as ImageIcon } from "lucide-react";
+import { Hash, Binary, Radio, Sparkles, Eraser, Braces, KeyRound, FileText, Code, Link2, Fingerprint, Calculator, Wallet, TrendingUp, FolderArchive, FileArchive, Image as ImageIcon, Clock } from "lucide-react";
 
 import { allCalculators } from "@/pages/CalculatorsIndex";
 
@@ -88,6 +88,13 @@ const tools = [
     icon: Fingerprint,
     title: "Hash Generator",
     description: "Generate MD5, SHA-256, SHA-512 hashes from text.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/epoch-converter",
+    icon: Clock,
+    title: "Epoch Converter",
+    description: "Convert Unix timestamps to dates and vice versa.",
   },
   // File Tools
   {

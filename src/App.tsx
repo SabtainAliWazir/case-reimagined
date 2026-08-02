@@ -26,6 +26,7 @@ import LoanCalculator from "./pages/LoanCalculator";
 import RoiCalculator from "./pages/RoiCalculator";
 import ZipExtractor from "./pages/ZipExtractor";
 import ZipCreator from "./pages/ZipCreator";
+import EpochConverter from "./pages/EpochConverter";
 import ImageConverter from "./pages/ImageConverter";
 import CalculatorsIndex from "./pages/CalculatorsIndex";
 import TvmCalculator from "./pages/calculators/TvmCalculator";
@@ -110,6 +111,7 @@ import EffectiveRate from "./pages/calculators/EffectiveRate";
 import BalanceSheetAnalysis from "./pages/calculators/BalanceSheetAnalysis";
 import FinancialRatios from "./pages/calculators/FinancialRatios";
 import CurrencyConverter from "./pages/calculators/CurrencyConverter";
+import TriangleCalculator from "./pages/calculators/TriangleCalculator";
 import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -119,8 +121,6 @@ const App = () => (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
           <BrowserRouter>
             <ScrollToTop />
             <Routes>
@@ -128,24 +128,8 @@ const App = () => (
               <Route path="/word-counter" element={<WordCounter />} />
               <Route path="/binary-translator" element={<BinaryTranslator />} />
               <Route path="/morse-translator" element={<MorseTranslator />} />
-              <Route path="/text-formatter" element={<TextFormatter />} />
-              <Route path="/text-cleaner" element={<TextCleaner />} />
-              <Route path="/json-formatter" element={<JsonFormatter />} />
-              <Route path="/password-generator" element={<PasswordGenerator />} />
-              <Route path="/lorem-ipsum" element={<LoremIpsumGenerator />} />
-              <Route path="/base64" element={<Base64Encoder />} />
-              <Route path="/url-encoder" element={<UrlEncoder />} />
-              <Route path="/hash-generator" element={<HashGenerator />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
-              <Route path="/loan-calculator" element={<LoanCalculator />} />
-              <Route path="/roi-calculator" element={<RoiCalculator />} />
-              <Route path="/zip-extractor" element={<ZipExtractor />} />
-              <Route path="/zip-creator" element={<ZipCreator />} />
-              <Route path="/image-converter" element={<ImageConverter />} />
               <Route path="/calculators" element={<CalculatorsIndex />} />
+              <Route path="/calculators/triangle-calculator" element={<TriangleCalculator />} />
               <Route path="/calculators/tvm-calculator" element={<TvmCalculator />} />
               <Route path="/calculators/irr-npv-calculator" element={<IrrNpvCalculator />} />
               <Route path="/calculators/bond-calculator" element={<BondCalculator />} />
@@ -195,6 +179,24 @@ const App = () => (
               <Route path="/calculators/salary-increase" element={<SalaryIncrease />} />
               <Route path="/calculators/paycheck-tax" element={<PaycheckTax />} />
               <Route path="/calculators/paypal-fee" element={<PaypalFee />} />
+              <Route path="/text-formatter" element={<TextFormatter />} />
+              <Route path="/text-cleaner" element={<TextCleaner />} />
+              <Route path="/json-formatter" element={<JsonFormatter />} />
+              <Route path="/password-generator" element={<PasswordGenerator />} />
+              <Route path="/lorem-ipsum" element={<LoremIpsumGenerator />} />
+              <Route path="/base64" element={<Base64Encoder />} />
+              <Route path="/url-encoder" element={<UrlEncoder />} />
+              <Route path="/hash-generator" element={<HashGenerator />} />
+              <Route path="/epoch-converter" element={<EpochConverter />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
+              <Route path="/loan-calculator" element={<LoanCalculator />} />
+              <Route path="/roi-calculator" element={<RoiCalculator />} />
+              <Route path="/zip-extractor" element={<ZipExtractor />} />
+              <Route path="/zip-creator" element={<ZipCreator />} />
+              <Route path="/image-converter" element={<ImageConverter />} />
               <Route path="/calculators/stripe-fee" element={<StripeFee />} />
               <Route path="/calculators/square-fee" element={<SquareFee />} />
               <Route path="/calculators/ebay-fee" element={<EbayFee />} />
@@ -202,7 +204,7 @@ const App = () => (
               <Route path="/calculators/shopify-fee" element={<ShopifyFee />} />
               <Route path="/calculators/cashapp-fee" element={<CashappFee />} />
               <Route path="/calculators/venmo-fee" element={<VenmoFee />} />
-                            <Route path="/calculators/investment-income" element={<InvestmentIncome />} />
+              <Route path="/calculators/investment-income" element={<InvestmentIncome />} />
               <Route path="/calculators/savings-goal" element={<SavingsGoal />} />
               <Route path="/calculators/apr-advanced" element={<AprAdvanced />} />
               <Route path="/calculators/loan-analysis" element={<LoanAnalysis />} />
