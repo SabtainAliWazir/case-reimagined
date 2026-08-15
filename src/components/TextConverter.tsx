@@ -11,25 +11,29 @@ import {
   Minus
 } from "lucide-react";
 
-type ConversionType = 
+export type ConversionType = 
   | "sentence" 
   | "lower" 
   | "upper" 
   | "capitalized" 
   | "alternating" 
   | "title" 
+  | "camel"
+  | "pascal"
+  | "snake"
+  | "kebab"
   | "inverse"
   | "reverse"
   | "slug";
 
-interface ConversionOption {
+export interface ConversionOption {
   id: ConversionType;
   label: string;
   description: string;
   transform: (text: string) => string;
 }
 
-const conversions: ConversionOption[] = [
+export const conversions: ConversionOption[] = [
   {
     id: "sentence",
     label: "Sentence case",
@@ -59,17 +63,9 @@ const conversions: ConversionOption[] = [
     },
   },
   {
-    id: "alternating",
-    label: "aLtErNaTiNg cAsE",
-    description: "Alternate between lowercase and uppercase",
-    transform: (text) => {
-      return text.split("").map((c, i) => (i % 2 === 0 ? c.toLowerCase() : c.toUpperCase())).join("");
-    },
-  },
-  {
     id: "title",
     label: "Title Case",
-    description: "Capitalize major words",
+    description: "Capitalize major words according to headline rules",
     transform: (text) => {
       const minorWords = ["a", "an", "and", "as", "at", "but", "by", "for", "in", "nor", "of", "on", "or", "so", "the", "to", "up", "yet"];
       return text.toLowerCase().split(" ").map((word, index) => {
@@ -81,9 +77,63 @@ const conversions: ConversionOption[] = [
     },
   },
   {
+    id: "camel",
+    label: "camelCase",
+    description: "Convert text to camelCase format",
+    transform: (text) => {
+      return text
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase())
+        .replace(/^[A-Z]/, (c) => c.toLowerCase());
+    },
+  },
+  {
+    id: "pascal",
+    label: "PascalCase",
+    description: "Convert text to PascalCase format",
+    transform: (text) => {
+      return text
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase())
+        .replace(/^[a-z]/, (c) => c.toUpperCase());
+    },
+  },
+  {
+    id: "snake",
+    label: "snake_case",
+    description: "Convert text to snake_case format with underscores",
+    transform: (text) => {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-zA-Z0-9]+/g, "_")
+        .replace(/^_+|_+$/g, "");
+    },
+  },
+  {
+    id: "kebab",
+    label: "kebab-case",
+    description: "Convert text to kebab-case format with dashes",
+    transform: (text) => {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-zA-Z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    },
+  },
+  {
+    id: "alternating",
+    label: "aLtErNaTiNg cAsE",
+    description: "Alternate between lowercase and uppercase",
+    transform: (text) => {
+      return text.split("").map((c, i) => (i % 2 === 0 ? c.toLowerCase() : c.toUpperCase())).join("");
+    },
+  },
+  {
     id: "inverse",
     label: "InVeRsE cAsE",
-    description: "Swap uppercase and lowercase",
+    description: "Swap uppercase and lowercase characters",
     transform: (text) => {
       return text.split("").map((c) => (c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase())).join("");
     },
@@ -91,22 +141,27 @@ const conversions: ConversionOption[] = [
   {
     id: "reverse",
     label: "esreveR",
-    description: "Reverse the text",
+    description: "Reverse the text characters",
     transform: (text) => text.split("").reverse().join(""),
   },
   {
     id: "slug",
     label: "slug-case",
-    description: "Convert to URL-friendly slug",
+    description: "Convert to URL-friendly web slug",
     transform: (text) => {
       return text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
     },
   },
 ];
 
-export const TextConverter = () => {
+interface TextConverterProps {
+  defaultMode?: ConversionType;
+  initialPlaceholder?: string;
+}
+
+export const TextConverter = ({ defaultMode, initialPlaceholder }: TextConverterProps) => {
   const [text, setText] = useState("");
-  const [activeConversion, setActiveConversion] = useState<ConversionType | null>(null);
+  const [activeConversion, setActiveConversion] = useState<ConversionType | null>(defaultMode || null);
 
   const stats = useMemo(() => {
     const charCount = text.length;
@@ -171,7 +226,7 @@ export const TextConverter = () => {
             autoFocus
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Type or paste your content here..."
+            placeholder={initialPlaceholder || "Type or paste your content here..."}
             className="w-full h-64 md:h-80 p-6 md:p-8 rounded-2xl bg-card dark:bg-black/40 border border-border shadow-sm font-sans text-lg resize-y focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 placeholder:text-muted-foreground/50"
             aria-label="Text input for case conversion"
           />

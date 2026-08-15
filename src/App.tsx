@@ -6,6 +6,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
+import UppercaseConverter from "./pages/converters/UppercaseConverter";
+import LowercaseConverter from "./pages/converters/LowercaseConverter";
+import TitleCaseConverter from "./pages/converters/TitleCaseConverter";
+import SentenceCaseConverter from "./pages/converters/SentenceCaseConverter";
+import CapitalizedCaseConverter from "./pages/converters/CapitalizedCaseConverter";
+import CamelCaseConverter from "./pages/converters/CamelCaseConverter";
+import KebabCaseConverter from "./pages/converters/KebabCaseConverter";
+import PascalCaseConverter from "./pages/converters/PascalCaseConverter";
+import AlternatingCaseConverter from "./pages/converters/AlternatingCaseConverter";
+import ReverseTextConverter from "./pages/converters/ReverseTextConverter";
 import WordCounter from "./pages/WordCounter";
 import BinaryTranslator from "./pages/BinaryTranslator";
 import MorseTranslator from "./pages/MorseTranslator";
@@ -17,6 +27,18 @@ import LoremIpsumGenerator from "./pages/LoremIpsumGenerator";
 import Base64Encoder from "./pages/Base64Encoder";
 import UrlEncoder from "./pages/UrlEncoder";
 import HashGenerator from "./pages/HashGenerator";
+import SlugGenerator from "./pages/SlugGenerator";
+import SmallTextGenerator from "./pages/SmallTextGenerator";
+import BinaryToHex from "./pages/BinaryToHex";
+import WordFrequencyCounter from "./pages/WordFrequencyCounter";
+import TextDiffChecker from "./pages/TextDiffChecker";
+import CaesarCipher from "./pages/CaesarCipher";
+import CamelToSnake from "./pages/converters/CamelToSnake";
+import SnakeToCamel from "./pages/converters/SnakeToCamel";
+import PascalToCamel from "./pages/converters/PascalToCamel";
+import KebabToCamel from "./pages/converters/KebabToCamel";
+import BinaryToMorse from "./pages/converters/BinaryToMorse";
+import Base64ToHex from "./pages/converters/Base64ToHex";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -125,6 +147,27 @@ const App = () => (
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/uppercase-converter" element={<UppercaseConverter />} />
+              <Route path="/lowercase-converter" element={<LowercaseConverter />} />
+              <Route path="/title-case-converter" element={<TitleCaseConverter />} />
+              <Route path="/sentence-case-converter" element={<SentenceCaseConverter />} />
+              <Route path="/capitalized-case-converter" element={<CapitalizedCaseConverter />} />
+              <Route path="/camelcase-converter" element={<CamelCaseConverter />} />
+              <Route path="/kebab-case-converter" element={<KebabCaseConverter />} />
+              <Route path="/pascal-case-converter" element={<PascalCaseConverter />} />
+              <Route path="/alternating-case-converter" element={<AlternatingCaseConverter />} />
+              <Route path="/slug-generator" element={<SlugGenerator />} />
+              <Route path="/small-text-generator" element={<SmallTextGenerator />} />
+              <Route path="/binary-to-hex" element={<BinaryToHex />} />
+              <Route path="/word-frequency-counter" element={<WordFrequencyCounter />} />
+              <Route path="/text-diff-checker" element={<TextDiffChecker />} />
+              <Route path="/caesar-cipher" element={<CaesarCipher />} />
+              <Route path="/camelcase-to-snake-case" element={<CamelToSnake />} />
+              <Route path="/snake-case-to-camelcase" element={<SnakeToCamel />} />
+              <Route path="/pascalcase-to-camelcase" element={<PascalToCamel />} />
+              <Route path="/kebab-case-to-camelcase" element={<KebabToCamel />} />
+              <Route path="/binary-to-morse-code" element={<BinaryToMorse />} />
+              <Route path="/base64-to-hex" element={<Base64ToHex />} />
               <Route path="/word-counter" element={<WordCounter />} />
               <Route path="/binary-translator" element={<BinaryTranslator />} />
               <Route path="/morse-translator" element={<MorseTranslator />} />

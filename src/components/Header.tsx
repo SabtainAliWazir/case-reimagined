@@ -26,9 +26,36 @@ const financialCategories = allCalculators.reduce((acc, curr) => {
 
 const navCategories = [
   {
+    category: "Case Converters",
+    links: [
+      { href: "/", label: "All-in-One Case Converter" },
+      { href: "/camelcase-to-snake-case", label: "camelCase to snake_case" },
+      { href: "/snake-case-to-camelcase", label: "snake_case to camelCase" },
+      { href: "/pascalcase-to-camelcase", label: "PascalCase to camelCase" },
+      { href: "/kebab-case-to-camelcase", label: "kebab-case to camelCase" },
+      { href: "/uppercase-converter", label: "UPPERCASE (ALL CAPS)" },
+      { href: "/lowercase-converter", label: "lowercase (small letters)" },
+      { href: "/title-case-converter", label: "Title Case (Headlines)" },
+      { href: "/sentence-case-converter", label: "Sentence case" },
+      { href: "/capitalized-case-converter", label: "Capitalized Case" },
+      { href: "/camelcase-converter", label: "camelCase" },
+      { href: "/kebab-case-converter", label: "kebab-case" },
+      { href: "/pascal-case-converter", label: "PascalCase" },
+      { href: "/alternating-case-converter", label: "aLtErNaTiNg cAsE" },
+      { href: "/reverse-text-generator", label: "Reverse Text (esreveR)" },
+    ]
+  },
+  {
     category: "Text & Dev",
     links: [
-      { href: "/", label: "Case Converter" },
+      { href: "/slug-generator", label: "SEO Slug Generator" },
+      { href: "/small-text-generator", label: "Small Text (Tiny Font)" },
+      { href: "/binary-to-hex", label: "Binary to Hex Converter" },
+      { href: "/binary-to-morse-code", label: "Binary to Morse (Audio)" },
+      { href: "/base64-to-hex", label: "Base64 to Hex Converter" },
+      { href: "/word-frequency-counter", label: "Word Frequency Counter" },
+      { href: "/text-diff-checker", label: "Text Diff Checker" },
+      { href: "/caesar-cipher", label: "Caesar Cipher (ROT13)" },
       { href: "/word-counter", label: "Word Counter" },
       { href: "/text-formatter", label: "Text Formatter" },
       { href: "/text-cleaner", label: "Text Cleaner" },

@@ -37,8 +37,20 @@ const standardSlugs = [
 ];
 
 const allCalcRoutes = [...standardSlugs, ...missingSlugs].map(s => `/calculators/${s}`);
+const converterRoutes = [
+  '/uppercase-converter', '/lowercase-converter', '/title-case-converter',
+  '/sentence-case-converter', '/capitalized-case-converter', '/camelcase-converter',
+  '/kebab-case-converter', '/pascal-case-converter', '/alternating-case-converter',
+  '/reverse-text-generator'
+];
+
 const otherRoutes = [
-  '/', '/calculators', '/word-counter', '/binary-translator', '/morse-translator',
+  '/', ...converterRoutes,
+  '/slug-generator', '/small-text-generator', '/binary-to-hex',
+  '/word-frequency-counter', '/text-diff-checker', '/caesar-cipher',
+  '/camelcase-to-snake-case', '/snake-case-to-camelcase', '/pascalcase-to-camelcase',
+  '/kebab-case-to-camelcase', '/binary-to-morse-code', '/base64-to-hex',
+  '/calculators', '/word-counter', '/binary-translator', '/morse-translator',
   '/text-formatter', '/text-cleaner', '/json-formatter', '/password-generator',
   '/lorem-ipsum', '/base64', '/url-encoder', '/hash-generator', '/epoch-converter',
   '/privacy', '/about', '/contact', '/compound-interest', '/loan-calculator',
@@ -67,19 +79,31 @@ async function prerender() {
       
       for (const route of routes) {
         const page = await browser.newPage();
+        
+        page.on('console', msg => {
+          if (msg.type() === 'error') {
+            console.log(`Browser console error [${route}]:`, msg.text());
+          }
+        });
+        page.on('pageerror', err => {
+          console.log(`Browser page error [${route}]:`, err.toString());
+        });
+
         console.log(`Prerendering ${route}...`);
         
-        await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'domcontentloaded' });
-        
-        // Wait for React to render content inside #root
         try {
-          await page.waitForSelector('#root > *', { timeout: 10000 });
+          await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'domcontentloaded', timeout: 10000 });
+          // Wait for React #root to have child elements
+          await page.waitForFunction(() => {
+            const root = document.getElementById('root');
+            return root && root.children.length > 0;
+          }, { timeout: 8000 });
         } catch (e) {
-          console.log('Timeout waiting for root content, continuing...');
+          console.log(`Notice on ${route}: ${e.message}`);
         }
         
         // Wait a brief moment for dynamic metadata to settle
-        await new Promise(r => setTimeout(r, 300));
+        await new Promise(r => setTimeout(r, 150));
         
         const html = await page.content();
         

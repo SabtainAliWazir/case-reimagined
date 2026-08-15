@@ -4,25 +4,48 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const tools = [
-    { href: "/", label: "Case Converter" },
+  const caseConverters = [
+    { href: "/uppercase-converter", label: "Uppercase (ALL CAPS)" },
+    { href: "/lowercase-converter", label: "Lowercase Converter" },
+    { href: "/title-case-converter", label: "Title Case (Headlines)" },
+    { href: "/sentence-case-converter", label: "Sentence Case" },
+    { href: "/capitalized-case-converter", label: "Capitalized Case" },
+    { href: "/camelcase-converter", label: "camelCase Converter" },
+    { href: "/kebab-case-converter", label: "kebab-case Converter" },
+    { href: "/camelcase-to-snake-case", label: "camelCase to snake_case" },
+    { href: "/snake-case-to-camelcase", label: "snake_case to camelCase" },
+    { href: "/pascalcase-to-camelcase", label: "PascalCase to camelCase" },
+    { href: "/kebab-case-to-camelcase", label: "kebab-case to camelCase" },
+    { href: "/pascal-case-converter", label: "PascalCase Converter" },
+    { href: "/alternating-case-converter", label: "Alternating Meme Text" },
+    { href: "/reverse-text-generator", label: "Reverse Text (esreveR)" },
+  ];
+
+  const devAndTextTools = [
+    { href: "/slug-generator", label: "SEO Slug Generator" },
+    { href: "/small-text-generator", label: "Small Text (Tiny Font)" },
+    { href: "/binary-to-hex", label: "Binary to Hex Converter" },
+    { href: "/binary-to-morse-code", label: "Binary to Morse (Audio)" },
+    { href: "/base64-to-hex", label: "Base64 to Hex Converter" },
+    { href: "/word-frequency-counter", label: "Word Frequency Counter" },
+    { href: "/text-diff-checker", label: "Text Diff Checker" },
+    { href: "/caesar-cipher", label: "Caesar Cipher (ROT13)" },
     { href: "/word-counter", label: "Word Counter" },
     { href: "/text-formatter", label: "Text Formatter" },
     { href: "/text-cleaner", label: "Text Cleaner" },
-    { href: "/binary-translator", label: "Binary Translator" },
-    { href: "/morse-translator", label: "Morse Translator" },
     { href: "/json-formatter", label: "JSON Formatter" },
-    { href: "/password-generator", label: "Password Generator" },
-    { href: "/lorem-ipsum", label: "Lorem Ipsum" },
     { href: "/base64", label: "Base64 Encoder" },
     { href: "/url-encoder", label: "URL Encoder" },
     { href: "/hash-generator", label: "Hash Generator" },
+    { href: "/password-generator", label: "Password Generator" },
   ];
 
   const sections = [
-    { href: "/#converter", label: "Converter" },
-    { href: "/#features", label: "Features" },
-    { href: "/#faq", label: "FAQ" },
+    { href: "/", label: "Case Converter" },
+    { href: "/calculators", label: "Financial Calculators" },
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact" },
+    { href: "/privacy", label: "Privacy Policy" },
   ];
 
   const legal = [
@@ -34,9 +57,9 @@ export const Footer = () => {
   return (
     <footer className="py-12 px-4 border-t border-border">
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="sm:col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Type className="w-4 h-4 text-primary" />
@@ -45,16 +68,21 @@ export const Footer = () => {
                 Case<span className="text-primary">Convert</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              Free online text tools.  Case Convert, count words, translate to binary and morse code.
+            <p className="text-sm text-muted-foreground mb-4">
+              Fast, private browser-based text case conversion and developer utilities. 100% free and secure.
             </p>
+            <div className="flex flex-col gap-1 text-xs text-muted-foreground">
+              <Link to="/about" className="hover:text-foreground">About CaseConvert</Link>
+              <Link to="/contact" className="hover:text-foreground">Contact & Support</Link>
+              <Link to="/privacy" className="hover:text-foreground">Privacy Policy</Link>
+            </div>
           </div>
 
-          {/* Tools */}
+          {/* Case Converters Column */}
           <div>
-            <h3 className="font-semibold mb-4 text-sm">Tools</h3>
+            <h3 className="font-semibold mb-4 text-sm font-heading text-primary">Case Converters</h3>
             <nav className="flex flex-col gap-2">
-              {tools.map((tool) => (
+              {caseConverters.map((tool) => (
                 <Link
                   key={tool.href}
                   to={tool.href}
@@ -66,33 +94,33 @@ export const Footer = () => {
             </nav>
           </div>
 
-          {/* Sectionsa */}
+          {/* Developer & Text Tools */}
           <div>
-            <h3 className="font-semibold mb-4 text-sm">Sections</h3>
+            <h3 className="font-semibold mb-4 text-sm font-heading text-primary">Text & Dev Utilities</h3>
             <nav className="flex flex-col gap-2">
-              {sections.map((section) => (
-                <a
-                  key={section.href}
-                  href={section.href}
+              {devAndTextTools.map((tool) => (
+                <Link
+                  key={tool.href}
+                  to={tool.href}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {section.label}
-                </a>
+                  {tool.label}
+                </Link>
               ))}
             </nav>
           </div>
 
-          {/* Legal */}
+          {/* Hubs & Calculators */}
           <div>
-            <h3 className="font-semibold mb-4 text-sm">Legal</h3>
+            <h3 className="font-semibold mb-4 text-sm font-heading text-primary">Explore Hubs</h3>
             <nav className="flex flex-col gap-2">
-              {legal.map((item) => (
+              {sections.map((section) => (
                 <Link
-                  key={item.href}
-                  to={item.href}
+                  key={section.href}
+                  to={section.href}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {item.label}
+                  {section.label}
                 </Link>
               ))}
             </nav>

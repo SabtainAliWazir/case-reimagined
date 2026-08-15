@@ -33,7 +33,19 @@ const standardSlugs = [
 ];
 
 const allCalcRoutes = [...standardSlugs, ...missingSlugs].map(s => `/calculators/${s}`);
+const converterRoutes = [
+  '/uppercase-converter', '/lowercase-converter', '/title-case-converter',
+  '/sentence-case-converter', '/capitalized-case-converter', '/camelcase-converter',
+  '/kebab-case-converter', '/pascal-case-converter', '/alternating-case-converter',
+  '/reverse-text-generator'
+];
+
 const otherRoutes = [
+  ...converterRoutes,
+  '/slug-generator', '/small-text-generator', '/binary-to-hex',
+  '/word-frequency-counter', '/text-diff-checker', '/caesar-cipher',
+  '/camelcase-to-snake-case', '/snake-case-to-camelcase', '/pascalcase-to-camelcase',
+  '/kebab-case-to-camelcase', '/binary-to-morse-code', '/base64-to-hex',
   '/calculators', '/word-counter', '/binary-translator', '/morse-translator',
   '/text-formatter', '/text-cleaner', '/json-formatter', '/password-generator',
   '/lorem-ipsum', '/base64', '/url-encoder', '/hash-generator', '/privacy', 

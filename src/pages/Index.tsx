@@ -6,12 +6,167 @@ import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import { Hash, Binary, Radio, Sparkles, Eraser, Braces, KeyRound, FileText, Code, Link2, Fingerprint, Calculator, Wallet, TrendingUp, FolderArchive, FileArchive, Image as ImageIcon, Clock } from "lucide-react";
+import { Hash, Binary, Radio, Sparkles, Eraser, Braces, KeyRound, FileText, Code, Link2, Fingerprint, Calculator, Wallet, TrendingUp, FolderArchive, FileArchive, Image as ImageIcon, Clock, Type } from "lucide-react";
 
 import { allCalculators } from "@/pages/CalculatorsIndex";
 
 const tools = [
+  // Case Converters
+  {
+    category: "Case Converters",
+    href: "/uppercase-converter",
+    icon: Type,
+    title: "Uppercase Converter",
+    description: "Convert any text into capital letters (ALL CAPS) instantly.",
+  },
+  {
+    category: "Case Converters",
+    href: "/lowercase-converter",
+    icon: Type,
+    title: "Lowercase Converter",
+    description: "Convert text and mixed capitals into small letters.",
+  },
+  {
+    category: "Case Converters",
+    href: "/title-case-converter",
+    icon: Type,
+    title: "Title Case Converter",
+    description: "Capitalize headlines, books, and articles according to APA/Chicago rules.",
+  },
+  {
+    category: "Case Converters",
+    href: "/sentence-case-converter",
+    icon: Type,
+    title: "Sentence Case Converter",
+    description: "Capitalize the first letter of each sentence automatically.",
+  },
+  {
+    category: "Case Converters",
+    href: "/capitalized-case-converter",
+    icon: Type,
+    title: "Capitalized Case Converter",
+    description: "Capitalize the first letter of every word (Start Case).",
+  },
+  {
+    category: "Case Converters",
+    href: "/camelcase-converter",
+    icon: Code,
+    title: "camelCase Converter",
+    description: "Convert text and variable names to camelCase format.",
+  },
+  {
+    category: "Case Converters",
+    href: "/kebab-case-converter",
+    icon: Link2,
+    title: "kebab-case Converter",
+    description: "Convert text and headlines into clean, hyphenated URL slugs.",
+  },
+  {
+    category: "Case Converters",
+    href: "/pascal-case-converter",
+    icon: Code,
+    title: "PascalCase Converter",
+    description: "Convert text to PascalCase (UpperCamelCase) for classes and React.",
+  },
+  {
+    category: "Case Converters",
+    href: "/camelcase-to-snake-case",
+    icon: Code,
+    title: "camelCase to snake_case",
+    description: "Convert JavaScript variables into Python and SQL snake_case identifiers.",
+  },
+  {
+    category: "Case Converters",
+    href: "/snake-case-to-camelcase",
+    icon: Code,
+    title: "snake_case to camelCase",
+    description: "Convert database columns and Python dictionaries into JavaScript camelCase.",
+  },
+  {
+    category: "Case Converters",
+    href: "/pascalcase-to-camelcase",
+    icon: Code,
+    title: "PascalCase to camelCase",
+    description: "Convert React component and class names into variable identifiers.",
+  },
+  {
+    category: "Case Converters",
+    href: "/kebab-case-to-camelcase",
+    icon: Link2,
+    title: "kebab-case to camelCase",
+    description: "Convert CSS property styles into React inline style camelCase keys.",
+  },
+  {
+    category: "Case Converters",
+    href: "/alternating-case-converter",
+    icon: Sparkles,
+    title: "Alternating Case Converter",
+    description: "Generate mocking SpongeBob meme text and sarcasm captions.",
+  },
+  {
+    category: "Case Converters",
+    href: "/reverse-text-generator",
+    icon: Type,
+    title: "Reverse Text Generator",
+    description: "Spell text backwards (esreveR) in real-time.",
+  },
   // Text & Dev
+  {
+    category: "Text & Dev",
+    href: "/slug-generator",
+    icon: Link2,
+    title: "SEO Slug Generator",
+    description: "Generate clean, search-engine-friendly URL slugs from text.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/small-text-generator",
+    icon: Sparkles,
+    title: "Small Text Generator",
+    description: "Generate tiny superscript, subscript, and small caps for bios.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/binary-to-hex",
+    icon: Binary,
+    title: "Binary to Hex",
+    description: "Convert Base-2 binary code to Base-16 hexadecimal strings.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/binary-to-morse-code",
+    icon: Binary,
+    title: "Binary to Morse Code",
+    description: "Translate binary bits to Morse code dots & dashes with audio beeps.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/base64-to-hex",
+    icon: Code,
+    title: "Base64 to Hex Converter",
+    description: "Convert Base64 strings to raw Hexadecimal byte sequences.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/word-frequency-counter",
+    icon: Hash,
+    title: "Word Frequency Counter",
+    description: "Analyze word repetitions, top keywords, and keyword densities.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/text-diff-checker",
+    icon: Code,
+    title: "Text Diff Checker",
+    description: "Compare two blocks of text side-by-side to highlight differences.",
+  },
+  {
+    category: "Text & Dev",
+    href: "/caesar-cipher",
+    icon: KeyRound,
+    title: "Caesar Cipher (ROT13)",
+    description: "Encrypt and decrypt shift ciphers with 25-key brute-force solver.",
+  },
   {
     category: "Text & Dev",
     href: "/word-counter",
@@ -122,7 +277,7 @@ const tools = [
   ...allCalculators
 ];
 
-const categories = ["Text & Dev", "File Tools", ...Array.from(new Set(allCalculators.map(t => t.category)))];
+const categories = ["Case Converters", "Text & Dev", "File Tools", ...Array.from(new Set(allCalculators.map(t => t.category)))];
 
 
 const Index = () => {
@@ -147,6 +302,20 @@ const Index = () => {
               "@type": "Offer",
               "price": "0",
               "priceCurrency": "USD"
+            }
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "CaseConvert",
+            "url": "https://caseconvert.online",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://caseconvert.online/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
             }
           })}
         </script>
