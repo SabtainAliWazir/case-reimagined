@@ -72,10 +72,26 @@ async function prerender() {
     console.log(`Static server listening on port ${PORT}`);
     
     try {
-      const browser = await puppeteer.launch({ 
-        headless: "new",
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-      });
+      let browser;
+      try {
+        browser = await puppeteer.launch({ 
+          headless: "new",
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process'
+          ]
+        });
+      } catch (browserError) {
+        console.warn("Puppeteer launch failed on CI/Vercel environment. Falling back to Vite SPA build.", browserError.message);
+        server.close();
+        process.exit(0);
+        return;
+      }
       
       for (const route of routes) {
         const page = await browser.newPage();
