@@ -58,10 +58,10 @@ const SlugGenerator = () => {
       text = text.replace(/[0-9]/g, "");
     }
 
-    // 3. Remove punctuation and symbols except alphanumerics & whitespace
-    text = text.replace(/[^a-zA-Z0-9\s-_]/g, "");
+    // 3. Replace punctuation, hyphens, and symbols with spaces for clean word boundary splitting
+    text = text.replace(/[^a-zA-Z0-9]/g, " ");
 
-    // 4. Split into words
+    // 4. Split into clean words
     let words = text.trim().split(/\s+/).filter(Boolean);
 
     // 5. Remove stop words if enabled
@@ -153,51 +153,122 @@ const SlugGenerator = () => {
             <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-6 md:p-8 rounded-3xl shadow-card">
               <div className="space-y-6">
                 <div>
-                  <Label htmlFor="slug-input" className="text-sm font-semibold mb-2 block">
-                    Enter Title or Headline:
-                  </Label>
+                  <div className="flex items-center justify-between mb-2">
+                    <Label htmlFor="slug-input" className="text-sm font-semibold block">
+                      Enter Title or Headline:
+                    </Label>
+                    {inputText && (
+                      <button
+                        type="button"
+                        onClick={() => setInputText("")}
+                        className="text-xs text-muted-foreground hover:text-primary transition-colors font-medium"
+                      >
+                        Clear input
+                      </button>
+                    )}
+                  </div>
                   <Input
                     id="slug-input"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     placeholder="Type or paste your headline here..."
-                    className="p-4 text-lg bg-background/60 rounded-2xl h-14 border-border"
+                    className="p-4 text-base md:text-lg bg-background/60 rounded-2xl h-14 border-border"
                   />
                 </div>
 
-                {/* Options Grid */}
-                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 pt-2 border-t border-border/50">
-                  <div>
-                    <Label className="text-xs text-muted-foreground mb-2 block">Separator</Label>
-                    <div className="flex gap-2">
-                      {(["-", "_", "/"] as const).map((sep) => (
-                        <Button
-                          key={sep}
-                          type="button"
-                          variant={separator === sep ? "default" : "outline"}
-                          size="sm"
-                          className="flex-1 rounded-xl font-mono text-base"
-                          onClick={() => setSeparator(sep)}
+                {/* Separator Controls */}
+                <div className="space-y-2 pt-2 border-t border-border/50">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                    <Label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
+                      Word Separator
+                    </Label>
+                    <span className="text-xs text-muted-foreground">
+                      {separator === "-"
+                        ? "✓ Hyphens are officially recommended by Google"
+                        : separator === "_"
+                        ? "Underscores combine words into one token in Googlebot"
+                        : "Forward slashes simulate subdirectories"}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                    {(["-", "_", "/"] as const).map((sep) => (
+                      <Button
+                        key={sep}
+                        type="button"
+                        variant={separator === sep ? "default" : "outline"}
+                        size="sm"
+                        className={`rounded-xl font-medium text-xs sm:text-sm h-11 flex items-center justify-center gap-1.5 sm:gap-2 transition-all ${
+                          separator === sep
+                            ? "shadow-sm border-primary/40 font-semibold"
+                            : "hover:border-primary/30"
+                        }`}
+                        onClick={() => setSeparator(sep)}
+                      >
+                        <span>{sep === "-" ? "Hyphen" : sep === "_" ? "Underscore" : "Forward Slash"}</span>
+                        <code
+                          className={`text-xs px-1.5 py-0.5 rounded font-mono ${
+                            separator === sep
+                              ? "bg-primary-foreground/20 text-primary-foreground"
+                              : "bg-muted text-muted-foreground"
+                          }`}
                         >
-                          {sep === "-" ? "Hyphen (-)" : sep === "_" ? "Underscore (_)" : "Slash (/)"}
-                        </Button>
-                      ))}
-                    </div>
+                          {sep}
+                        </code>
+                      </Button>
+                    ))}
                   </div>
+                </div>
 
-                  <div className="flex items-center justify-between sm:justify-start gap-3 pt-6">
-                    <Switch id="lower-toggle" checked={toLowerCase} onCheckedChange={setToLowerCase} />
-                    <Label htmlFor="lower-toggle" className="text-sm cursor-pointer">Lowercase</Label>
-                  </div>
+                {/* SEO Optimization Options */}
+                <div className="space-y-2 pt-2">
+                  <Label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
+                    Optimization Options
+                  </Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <label
+                      htmlFor="lower-toggle"
+                      className="flex items-center justify-between p-3.5 rounded-2xl bg-muted/20 border border-border/50 hover:border-primary/30 transition-all cursor-pointer group"
+                    >
+                      <div className="space-y-0.5 pr-2">
+                        <span className="text-sm font-semibold block group-hover:text-primary transition-colors">
+                          Lowercase
+                        </span>
+                        <span className="text-xs text-muted-foreground block">
+                          Enforces all-lowercase slug
+                        </span>
+                      </div>
+                      <Switch id="lower-toggle" checked={toLowerCase} onCheckedChange={setToLowerCase} />
+                    </label>
 
-                  <div className="flex items-center justify-between sm:justify-start gap-3 pt-6">
-                    <Switch id="stop-words-toggle" checked={removeStopWords} onCheckedChange={setRemoveStopWords} />
-                    <Label htmlFor="stop-words-toggle" className="text-sm cursor-pointer">Remove Stop Words</Label>
-                  </div>
+                    <label
+                      htmlFor="stop-words-toggle"
+                      className="flex items-center justify-between p-3.5 rounded-2xl bg-muted/20 border border-border/50 hover:border-primary/30 transition-all cursor-pointer group"
+                    >
+                      <div className="space-y-0.5 pr-2">
+                        <span className="text-sm font-semibold block group-hover:text-primary transition-colors">
+                          Remove Stop Words
+                        </span>
+                        <span className="text-xs text-muted-foreground block">
+                          Strips filler words (the, in, of)
+                        </span>
+                      </div>
+                      <Switch id="stop-words-toggle" checked={removeStopWords} onCheckedChange={setRemoveStopWords} />
+                    </label>
 
-                  <div className="flex items-center justify-between sm:justify-start gap-3 pt-6">
-                    <Switch id="numbers-toggle" checked={removeNumbers} onCheckedChange={setRemoveNumbers} />
-                    <Label htmlFor="numbers-toggle" className="text-sm cursor-pointer">Strip Numbers</Label>
+                    <label
+                      htmlFor="numbers-toggle"
+                      className="flex items-center justify-between p-3.5 rounded-2xl bg-muted/20 border border-border/50 hover:border-primary/30 transition-all cursor-pointer group"
+                    >
+                      <div className="space-y-0.5 pr-2">
+                        <span className="text-sm font-semibold block group-hover:text-primary transition-colors">
+                          Strip Numbers
+                        </span>
+                        <span className="text-xs text-muted-foreground block">
+                          Removes numeric digits
+                        </span>
+                      </div>
+                      <Switch id="numbers-toggle" checked={removeNumbers} onCheckedChange={setRemoveNumbers} />
+                    </label>
                   </div>
                 </div>
 
@@ -206,20 +277,23 @@ const SlugGenerator = () => {
                   <Label className="text-xs font-semibold text-primary uppercase tracking-wider mb-2 block">
                     Generated URL Slug:
                   </Label>
-                  <div className="flex items-center gap-2">
-                    <div className="flex-1 p-4 rounded-2xl bg-primary/5 border border-primary/20 font-mono text-primary font-bold text-base md:text-lg break-all">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                    <div className="flex-1 p-4 rounded-2xl bg-primary/5 border border-primary/20 font-mono text-primary font-bold text-base md:text-lg break-all select-all">
                       {generatedSlug || "your-slug-will-appear-here"}
                     </div>
                     <Button
                       onClick={copyToClipboard}
-                      className="h-14 px-6 rounded-2xl gap-2 font-semibold shadow-button hover:shadow-glow"
+                      className="h-14 px-6 rounded-2xl gap-2 font-semibold shadow-button hover:shadow-glow shrink-0"
                     >
                       {copied ? <Check className="w-5 h-5 text-emerald-400" /> : <Copy className="w-5 h-5" />}
                       {copied ? "Copied" : "Copy Slug"}
                     </Button>
                   </div>
-                  <div className="mt-2 text-xs text-muted-foreground font-mono">
-                    Preview URL: <span className="text-foreground">https://example.com/blog/{generatedSlug || "your-slug"}</span>
+                  <div className="mt-2 text-xs text-muted-foreground font-mono break-all">
+                    Preview URL:{" "}
+                    <span className="text-foreground">
+                      https://caseconvert.online/blog/{generatedSlug || "your-slug"}
+                    </span>
                   </div>
                 </div>
               </div>
