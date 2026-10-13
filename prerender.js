@@ -54,7 +54,11 @@ const otherRoutes = [
   '/text-formatter', '/text-cleaner', '/json-formatter', '/password-generator',
   '/lorem-ipsum', '/base64', '/url-encoder', '/hash-generator', '/epoch-converter',
   '/privacy', '/about', '/contact', '/compound-interest', '/loan-calculator',
-  '/roi-calculator', '/zip-extractor', '/zip-creator', '/image-converter', '/blog', '/404'
+  '/roi-calculator', '/zip-extractor', '/zip-creator', '/image-converter', '/blog',
+  '/blog/title-case-vs-sentence-case-formatting-guide',
+  '/blog/camelcase-vs-snake-case-naming-conventions',
+  '/blog/how-to-create-seo-friendly-url-slugs',
+  '/404'
 ];
 
 const routes = Array.from(new Set([...otherRoutes, ...allCalcRoutes]));

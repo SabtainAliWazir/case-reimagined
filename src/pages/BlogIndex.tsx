@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { getPosts, BlogPost } from "@/lib/supabase";
+import { getPosts, BlogPost, samplePosts } from "@/lib/supabase";
 import { ArrowRight, Clock, Calendar, Sparkles } from "lucide-react";
 
 export default function BlogIndex() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState<BlogPost[]>(samplePosts);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function load() {

@@ -1,17 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { marked } from "marked";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { getPostBySlug, BlogPost } from "@/lib/supabase";
+import { getPostBySlug, BlogPost, samplePosts } from "@/lib/supabase";
 import { Calendar, Clock, ArrowLeft, Share2, Sparkles, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [loading, setLoading] = useState(true);
+  const initialPost = slug ? samplePosts.find(p => p.slug === slug) || null : null;
+  const [post, setPost] = useState<BlogPost | null>(initialPost);
+  const [loading, setLoading] = useState(!initialPost);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -24,6 +26,13 @@ export default function BlogPostPage() {
     }
     load();
   }, [slug]);
+
+  const contentHtml = useMemo(() => {
+    if (!post?.content) return "";
+    // Remove duplicate top H1 if already displayed by page header
+    const body = post.content.replace(/^#\s+[^\n]*\n+/, "").trim();
+    return marked.parse(body, { async: false, breaks: true, gfm: true }) as string;
+  }, [post?.content]);
 
   const handleShare = async () => {
     if (navigator.clipboard) {
@@ -180,11 +189,23 @@ export default function BlogPostPage() {
 
 
           {/* Article Body Content */}
-          <article className="prose prose-neutral dark:prose-invert max-w-none text-foreground leading-relaxed font-sans space-y-6">
-            <div className="whitespace-pre-line text-sm md:text-base leading-7 text-foreground/90">
-              {post.content}
-            </div>
-          </article>
+          <article
+            className="prose prose-neutral dark:prose-invert max-w-none text-foreground font-sans leading-relaxed
+              prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground
+              prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-5 prose-h2:border-b prose-h2:border-border/60 prose-h2:pb-2.5
+              prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:text-base prose-p:leading-8 prose-p:text-muted-foreground prose-p:my-5
+              prose-strong:text-foreground prose-strong:font-semibold
+              prose-ul:my-5 prose-ul:list-disc prose-ul:pl-6 prose-li:my-1.5 prose-li:text-muted-foreground
+              prose-table:my-8 prose-table:w-full prose-table:border-collapse prose-table:text-sm
+              prose-th:border-b prose-th:border-border prose-th:py-3 prose-th:px-4 prose-th:font-semibold prose-th:text-foreground prose-th:bg-muted/40 prose-th:text-left
+              prose-td:border-b prose-td:border-border/50 prose-td:py-3 prose-td:px-4 prose-td:text-muted-foreground
+              prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-muted/30 prose-blockquote:rounded-r-2xl prose-blockquote:py-3.5 prose-blockquote:px-5 prose-blockquote:my-6 prose-blockquote:not-italic prose-blockquote:text-foreground
+              prose-hr:my-10 prose-hr:border-border
+              prose-a:text-primary prose-a:underline prose-a:underline-offset-4 prose-a:font-medium hover:prose-a:text-primary/80
+              prose-code:text-primary prose-code:bg-muted/70 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-mono prose-code:text-xs"
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
+          />
 
 
 
