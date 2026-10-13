@@ -1,6 +1,31 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/text_cleaner",
+      "destination": "/text-cleaner",
+      "permanent": true
+    },
+    {
+      "source": "/slug_generator",
+      "destination": "/slug-generator",
+      "permanent": true
+    },
+    {
+      "source": "/reverse_text_generator",
+      "destination": "/reverse-text-generator",
+      "permanent": true
+    },
+    {
+      "source": "/word_counter",
+      "destination": "/word-counter",
+      "permanent": true
+    },
+    {
+      "source": "/json_formatter",
+      "destination": "/json-formatter",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -61,7 +86,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|.*\\..*).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]

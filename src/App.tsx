@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
@@ -160,6 +160,8 @@ const App = () => (
               <Route path="/kebab-case-converter" element={<KebabCaseConverter />} />
               <Route path="/pascal-case-converter" element={<PascalCaseConverter />} />
               <Route path="/alternating-case-converter" element={<AlternatingCaseConverter />} />
+              <Route path="/reverse-text-generator" element={<ReverseTextConverter />} />
+              <Route path="/reverse-text-converter" element={<ReverseTextConverter />} />
               <Route path="/slug-generator" element={<SlugGenerator />} />
               <Route path="/small-text-generator" element={<SmallTextGenerator />} />
               <Route path="/binary-to-hex" element={<BinaryToHex />} />
@@ -280,6 +282,14 @@ const App = () => (
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/admin/blog" element={<BlogAdmin />} />
+
+              {/* Underscore URL alias redirects */}
+              <Route path="/text_cleaner" element={<Navigate to="/text-cleaner" replace />} />
+              <Route path="/slug_generator" element={<Navigate to="/slug-generator" replace />} />
+              <Route path="/reverse_text_generator" element={<Navigate to="/reverse-text-generator" replace />} />
+              <Route path="/word_counter" element={<Navigate to="/word-counter" replace />} />
+              <Route path="/json_formatter" element={<Navigate to="/json-formatter" replace />} />
+
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
