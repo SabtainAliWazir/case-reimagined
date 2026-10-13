@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,103 +6,113 @@
 
 @layer base {
   :root {
-    /* LIGHT MODE FOREST THEME */
-    --background: 135 15% 96%; /* Very soft sage/off-white */
-    --foreground: 135 25% 15%; /* Deep pine green */
-    
-    --card: 0 0% 100%;
-    --card-foreground: 135 25% 15%;
-    
+    /* MOTIONIX WARM PAPER THEME */
+    --background: 40 43% 97%; /* #fdfaf4 Warm Paper Canvas */
+    --foreground: 28 25% 9%;  /* #1c1611 Deep Espresso Charcoal */
+
+    --card: 0 0% 100%;        /* Crisp white card surface */
+    --card-foreground: 28 25% 9%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 135 25% 15%;
-    
-    --primary: 135 40% 30%; /* Rich forest green */
-    --primary-foreground: 135 15% 96%;
-    
-    --secondary: 135 20% 90%; /* Light sage */
-    --secondary-foreground: 135 30% 25%;
-    
-    --muted: 135 15% 90%;
-    --muted-foreground: 135 10% 45%;
-    
-    --accent: 135 30% 85%;
-    --accent-foreground: 135 40% 20%;
-    
+    --popover-foreground: 28 25% 9%;
+
+    --primary: 14 88% 68%;    /* #f58967 Motionix Terracotta / Coral */
+    --primary-foreground: 0 0% 100%; /* #ffffff */
+
+    --secondary: 36 27% 94%;  /* #f5f1ea Muted Warm Cream */
+    --secondary-foreground: 28 25% 9%;
+
+    --muted: 36 27% 94%;      /* #f5f1ea */
+    --muted-foreground: 25 9% 34%; /* #59514b Warm Espresso Gray */
+
+    --accent: 14 88% 68%;     /* Terracotta */
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 135 20% 85%;
-    --input: 135 20% 85%;
-    --ring: 135 40% 30%;
+    --border: 33 18% 89%;     /* #e9e4de Soft Warm Border */
+    --input: 33 18% 89%;
+    --ring: 14 88% 68%;
 
-    --radius: 1.5rem; /* Super smooth rounded corners */
+    --radius: 1.25rem;
 
-    /* Premium Design Tokens */
-    --gradient-hero: radial-gradient(circle at 50% -20%, hsl(135 40% 40% / 0.15), transparent 60%);
-    --gradient-button: linear-gradient(135deg, hsl(135 40% 35%), hsl(135 40% 25%));
-    --gradient-text: linear-gradient(135deg, hsl(135 40% 25%), hsl(135 30% 40%));
-    --shadow-glow: 0 10px 40px -10px hsl(135 40% 30% / 0.25);
-    --shadow-card: 0 20px 40px -10px hsl(135 40% 10% / 0.08), 0 1px 3px hsl(135 40% 10% / 0.05);
-    --shadow-button: 0 8px 20px -6px hsl(135 40% 30% / 0.4);
-    
-    --font-heading: 'Outfit', system-ui, sans-serif;
-    --font-mono: 'Fira Code', monospace;
+    /* Motionix Palette Colors */
+    --color-paper: #fdfaf4;
+    --color-cream: #faf5ee;
+    --color-mint: #eef6f1;
+    --color-blush: #faefee;
+    --color-sky: #edf3f8;
+    --color-ink: #100d08;
+    --color-terracotta: #f58967;
 
-    --sidebar-background: 135 15% 96%;
-    --sidebar-foreground: 135 25% 15%;
-    --sidebar-primary: 135 40% 30%;
-    --sidebar-primary-foreground: 135 15% 96%;
-    --sidebar-accent: 135 20% 90%;
-    --sidebar-accent-foreground: 135 25% 15%;
-    --sidebar-border: 135 20% 85%;
-    --sidebar-ring: 135 40% 30%;
+    /* Gradients & Shadows */
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, rgba(245, 137, 103, 0.12), transparent 70%);
+    --gradient-button: linear-gradient(135deg, #f58967, #e8704c);
+    --gradient-text: linear-gradient(135deg, #1c1611, #59514b);
+    --shadow-glow: 0 10px 40px -10px rgba(245, 137, 103, 0.25);
+    --shadow-card: 0 2px 12px rgba(28, 22, 17, 0.05), 0 1px 3px rgba(28, 22, 17, 0.03);
+    --shadow-card-hover: 0 8px 30px rgba(28, 22, 17, 0.09);
+    --shadow-button: 0 1px 2px rgba(16, 13, 8, 0.06), 0 12px 28px -10px rgba(245, 137, 103, 0.35);
+
+    --font-heading: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --sidebar-background: 40 43% 97%;
+    --sidebar-foreground: 28 25% 9%;
+    --sidebar-primary: 14 88% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 36 27% 94%;
+    --sidebar-accent-foreground: 28 25% 9%;
+    --sidebar-border: 33 18% 89%;
+    --sidebar-ring: 14 88% 68%;
   }
 
   .dark {
-    /* DARK MODE FOREST THEME */
-    --background: 135 30% 6%; /* Super deep midnight green */
-    --foreground: 135 20% 90%; /* Soft pale green-white */
-    
-    --card: 135 25% 10%; /* Dark emerald surface */
-    --card-foreground: 135 20% 90%;
-    
-    --popover: 135 25% 10%;
-    --popover-foreground: 135 20% 90%;
-    
-    --primary: 135 50% 60%; /* Vibrant mint/sage */
-    --primary-foreground: 135 40% 10%;
-    
-    --secondary: 135 25% 15%; /* Deep forest accent */
-    --secondary-foreground: 135 30% 85%;
-    
-    --muted: 135 20% 15%;
-    --muted-foreground: 135 15% 60%;
-    
-    --accent: 135 30% 20%;
-    --accent-foreground: 135 40% 90%;
-    
+    --background: 28 20% 7%;  /* #130f0c Deep Dark Espresso */
+    --foreground: 40 25% 93%; /* #f5f1ea Warm Ivory */
+
+    --card: 28 18% 10%;       /* #1c1612 Darkened Card */
+    --card-foreground: 40 25% 93%;
+
+    --popover: 28 18% 10%;
+    --popover-foreground: 40 25% 93%;
+
+    --primary: 14 88% 68%;    /* #f58967 Warm Terracotta */
+    --primary-foreground: 28 25% 9%;
+
+    --secondary: 28 16% 14%;
+    --secondary-foreground: 40 25% 90%;
+
+    --muted: 28 16% 14%;
+    --muted-foreground: 33 12% 65%;
+
+    --accent: 14 88% 68%;
+    --accent-foreground: 28 25% 9%;
+
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 135 20% 90%;
-    
-    --border: 135 25% 18%;
-    --input: 135 25% 18%;
-    --ring: 135 50% 60%;
+    --destructive-foreground: 40 25% 93%;
 
-    --gradient-hero: radial-gradient(circle at 50% -20%, hsl(135 50% 60% / 0.15), transparent 60%);
-    --gradient-button: linear-gradient(135deg, hsl(135 50% 65%), hsl(135 50% 55%));
-    --gradient-text: linear-gradient(135deg, hsl(135 60% 70%), hsl(135 40% 50%));
-    --shadow-glow: 0 10px 40px -10px hsl(135 50% 60% / 0.2);
-    --shadow-card: 0 20px 50px -10px hsl(0 0% 0% / 0.5), 0 1px 3px hsl(0 0% 0% / 0.3);
-    --shadow-button: 0 8px 20px -6px hsl(135 50% 60% / 0.3);
+    --border: 28 15% 17%;
+    --input: 28 15% 17%;
+    --ring: 14 88% 68%;
 
-    --sidebar-background: 135 30% 6%;
-    --sidebar-foreground: 135 20% 90%;
-    --sidebar-primary: 135 50% 60%;
-    --sidebar-primary-foreground: 135 40% 10%;
-    --sidebar-accent: 135 25% 15%;
-    --sidebar-accent-foreground: 135 20% 90%;
-    --sidebar-border: 135 25% 18%;
-    --sidebar-ring: 135 50% 60%;
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, rgba(245, 137, 103, 0.15), transparent 70%);
+    --gradient-button: linear-gradient(135deg, #f58967, #e8704c);
+    --gradient-text: linear-gradient(135deg, #f5f1ea, #d5cebf);
+    --shadow-glow: 0 10px 40px -10px rgba(245, 137, 103, 0.2);
+    --shadow-card: 0 20px 50px -10px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-button: 0 8px 20px -6px rgba(245, 137, 103, 0.3);
+
+    --sidebar-background: 28 20% 7%;
+    --sidebar-foreground: 40 25% 93%;
+    --sidebar-primary: 14 88% 68%;
+    --sidebar-primary-foreground: 28 25% 9%;
+    --sidebar-accent: 28 16% 14%;
+    --sidebar-accent-foreground: 40 25% 90%;
+    --sidebar-border: 28 15% 17%;
+    --sidebar-ring: 14 88% 68%;
   }
 }
 
@@ -117,12 +127,11 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-heading);
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    @apply font-semibold tracking-tight;
+    @apply tracking-tight text-foreground;
   }
 
   code, pre, textarea.mono {
@@ -131,6 +140,50 @@
 }
 
 @layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-sans {
+    font-family: var(--font-heading);
+  }
+
+  .bg-paper {
+    background-color: var(--color-paper);
+  }
+
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+
+  .bg-mint {
+    background-color: var(--color-mint);
+  }
+
+  .bg-blush {
+    background-color: var(--color-blush);
+  }
+
+  .bg-sky {
+    background-color: var(--color-sky);
+  }
+
+  .bg-ink {
+    background-color: var(--color-ink);
+  }
+
+  .text-ink {
+    color: var(--color-ink);
+  }
+
+  .text-terracotta {
+    color: var(--color-terracotta);
+  }
+
   .text-gradient {
     background: var(--gradient-text);
     -webkit-background-clip: text;
@@ -150,53 +203,44 @@
     box-shadow: var(--shadow-card);
   }
 
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
   .shadow-button {
     box-shadow: var(--shadow-button);
   }
 
   .glass {
-    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+    @apply bg-card/85 backdrop-blur-xl border border-border/60;
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  /* Motionix Signature Button */
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-white bg-primary transition-all duration-200;
+    box-shadow: var(--shadow-button);
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
+  .btn-accent:hover {
+    @apply opacity-95 -translate-y-0.5;
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium border border-border bg-background hover:bg-muted text-foreground transition-all duration-200;
   }
 
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+  /* Eyebrow / Monospace Kicker */
+  .eyebrow-mono {
+    font-family: var(--font-mono);
+    @apply text-[11px] uppercase tracking-wider text-muted-foreground font-medium;
   }
 
   @keyframes fade-in {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   .animate-fade-in {
-    animation: fade-in 0.5s ease-out forwards;
-  }
-
-  .animate-fade-in-delay-1 {
-    animation: fade-in 0.5s ease-out 0.1s forwards;
-    opacity: 0;
-  }
-
-  .animate-fade-in-delay-2 {
-    animation: fade-in 0.5s ease-out 0.2s forwards;
-    opacity: 0;
-  }
-
-  .animate-fade-in-delay-3 {
-    animation: fade-in 0.5s ease-out 0.3s forwards;
-    opacity: 0;
+    animation: fade-in 0.4s ease-out forwards;
   }
 }

@@ -43,6 +43,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import BlogIndex from "./pages/BlogIndex";
+import BlogPost from "./pages/BlogPost";
+import BlogAdmin from "./pages/BlogAdmin";
 import CompoundInterestCalculator from "./pages/CompoundInterestCalculator";
 import LoanCalculator from "./pages/LoanCalculator";
 import RoiCalculator from "./pages/RoiCalculator";
@@ -135,6 +138,7 @@ import FinancialRatios from "./pages/calculators/FinancialRatios";
 import CurrencyConverter from "./pages/calculators/CurrencyConverter";
 import TriangleCalculator from "./pages/calculators/TriangleCalculator";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { CookieConsent } from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -273,9 +277,13 @@ const App = () => (
               <Route path="/calculators/balance-sheet-analysis" element={<BalanceSheetAnalysis />} />
               <Route path="/calculators/financial-ratios" element={<FinancialRatios />} />
               <Route path="/calculators/currency-converter" element={<CurrencyConverter />} />
+              <Route path="/blog" element={<BlogIndex />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/admin/blog" element={<BlogAdmin />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <CookieConsent />
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>

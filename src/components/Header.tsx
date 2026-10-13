@@ -1,7 +1,7 @@
-import { Type, Menu, X, ChevronDown, ChevronRight } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { ThemeToggle } from "./ThemeToggle";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Type, ChevronDown, Menu, X, BookOpen } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -92,53 +92,51 @@ export const Header = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const isActive = (href: string) => location.pathname === href || location.pathname.startsWith(href + '/');
-
   return (
-    <header className="w-full pt-6 pb-2 px-4 sticky top-0 z-50">
-      <div className="max-w-5xl mx-auto flex items-center justify-between bg-background/80 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-lg rounded-full px-6 py-3">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-            <Type className="w-5 h-5 text-primary" />
+    <header className="w-full pt-4 pb-2 px-4 sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto flex items-center justify-between bg-card/90 backdrop-blur-md border border-border shadow-card rounded-full px-5 py-2.5">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+            <Type className="w-4 h-4" />
           </div>
-          <span className="text-xl font-heading font-bold tracking-tight">
-            Case<span className="text-primary">Convert</span>
+          <span className="text-lg font-heading font-bold tracking-tight text-foreground">
+            Case<span className="text-primary font-serif italic text-xl font-normal ml-0.5">Convert</span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-2">
+        <nav className="hidden lg:flex items-center gap-1">
           {navCategories.map((category) => (
             <DropdownMenu key={category.category}>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="rounded-full gap-1 text-muted-foreground hover:text-foreground font-medium">
+                <Button variant="ghost" className="rounded-full gap-1 text-muted-foreground hover:text-foreground font-medium text-xs md:text-sm px-3.5 h-8">
                   {category.category}
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="w-3.5 h-3.5 opacity-60" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-64 bg-background/95 backdrop-blur-xl border-white/20 rounded-2xl p-2 shadow-xl">
+              <DropdownMenuContent align="start" className="w-64 bg-card/95 backdrop-blur-xl border-border rounded-2xl p-2 shadow-card-hover">
                 {category.isNested ? (
                   <>
                     <DropdownMenuItem asChild className="rounded-xl cursor-pointer mb-2">
-                      <Link to="/calculators" className="w-full font-bold text-primary px-3 py-2.5">
+                      <Link to="/calculators" className="w-full font-bold text-primary px-3 py-2">
                         ★ All Calculators Hub ★
                       </Link>
                     </DropdownMenuItem>
                     {Object.entries(category.subCategories || {}).map(([subCatName, tools]) => (
                       <DropdownMenuSub key={subCatName}>
-                        <DropdownMenuSubTrigger className="rounded-xl cursor-pointer px-3 py-2.5 hover:bg-accent/50 transition-colors">
+                        <DropdownMenuSubTrigger className="rounded-xl cursor-pointer px-3 py-2 text-xs font-medium hover:bg-muted transition-colors">
                           {subCatName}
                         </DropdownMenuSubTrigger>
                         <DropdownMenuPortal>
-                          <DropdownMenuSubContent className="w-64 bg-background/95 backdrop-blur-xl border-white/20 rounded-2xl p-2 shadow-xl max-h-[80vh] overflow-y-auto">
+                          <DropdownMenuSubContent className="w-64 bg-card/95 backdrop-blur-xl border-border rounded-2xl p-2 shadow-card-hover max-h-[80vh] overflow-y-auto">
                             {tools.map(tool => (
                               <DropdownMenuItem key={tool.href} asChild className="rounded-xl cursor-pointer">
                                 <Link
                                   to={tool.href}
-                                  className={`w-full px-3 py-2 transition-colors ${
+                                  className={`w-full px-3 py-1.5 text-xs transition-colors ${
                                     location.pathname === tool.href 
                                       ? "bg-primary/10 text-primary font-semibold" 
-                                      : "hover:bg-accent/50"
+                                      : "hover:bg-muted"
                                   }`}
                                 >
                                   {tool.title}
@@ -155,10 +153,10 @@ export const Header = () => {
                     <DropdownMenuItem key={link.href} asChild className="rounded-xl cursor-pointer">
                       <Link
                         to={link.href}
-                        className={`w-full flex items-center px-3 py-2.5 transition-colors ${
+                        className={`w-full flex items-center px-3 py-2 text-xs transition-colors ${
                           location.pathname === link.href 
                             ? "bg-primary/10 text-primary font-semibold" 
-                            : "hover:bg-accent/50"
+                            : "hover:bg-muted"
                         }`}
                       >
                         {link.label}
@@ -169,6 +167,11 @@ export const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           ))}
+
+          {/* Direct Blog Link */}
+          <Button variant="ghost" className="rounded-full text-muted-foreground hover:text-foreground font-medium text-xs md:text-sm px-3.5 h-8" asChild>
+            <Link to="/blog">Blog</Link>
+          </Button>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -178,43 +181,51 @@ export const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden rounded-full"
+            className="lg:hidden rounded-full h-8 w-8"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </Button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className="lg:hidden mt-4 pb-4 border-t border-border/50 pt-4 bg-background/95 backdrop-blur-xl rounded-2xl shadow-xl px-4 mx-2 max-h-[75vh] overflow-y-auto">
-          <div className="flex flex-col gap-6 py-4">
+        <nav className="lg:hidden mt-3 pb-4 border border-border pt-4 bg-card/95 backdrop-blur-xl rounded-2xl shadow-card px-4 mx-2 max-h-[75vh] overflow-y-auto">
+          <div className="flex flex-col gap-5 py-2">
+            <Link
+              to="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 text-primary font-semibold text-sm"
+            >
+              <BookOpen className="w-4 h-4" /> Read Blog & Guides
+            </Link>
+
             {navCategories.map((category) => (
-              <div key={category.category} className="space-y-2">
-                <h3 className="font-heading font-bold text-sm text-primary tracking-wider uppercase px-2">{category.category}</h3>
+              <div key={category.category} className="space-y-1.5">
+                <h3 className="font-mono text-[11px] font-bold text-muted-foreground tracking-wider uppercase px-2">{category.category}</h3>
                 
                 {category.isNested ? (
-                  <div className="flex flex-col gap-3 pl-2 border-l-2 border-border/50 ml-2">
+                  <div className="flex flex-col gap-2 pl-2 border-l border-border ml-2">
                     <Link
                       to="/calculators"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="px-4 py-2 text-sm rounded-xl font-bold text-primary bg-primary/5"
+                      className="px-3 py-1.5 text-xs rounded-lg font-bold text-primary bg-primary/5"
                     >
                       ★ All Calculators Hub ★
                     </Link>
                     {Object.entries(category.subCategories || {}).map(([subCatName, tools]) => (
                       <div key={subCatName} className="space-y-1">
-                        <div className="text-xs font-semibold text-muted-foreground px-4 py-1 uppercase">{subCatName}</div>
+                        <div className="text-[10px] font-semibold text-muted-foreground px-3 pt-1 uppercase">{subCatName}</div>
                         {tools.map(tool => (
                           <Link
                             key={tool.href}
                             to={tool.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className={`block px-4 py-2 text-sm rounded-xl transition-colors ${
+                            className={`block px-3 py-1.5 text-xs rounded-lg transition-colors ${
                               location.pathname === tool.href
                                 ? "bg-primary/10 text-primary font-medium"
-                                : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
                             }`}
                           >
                             {tool.title}
@@ -224,16 +235,16 @@ export const Header = () => {
                     ))}
                   </div>
                 ) : (
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-0.5">
                     {category.links.map((link) => (
                       <Link
                         key={link.href}
                         to={link.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`px-4 py-3 text-sm rounded-xl transition-colors ${
+                        className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
                           location.pathname === link.href
                             ? "bg-primary/10 text-primary font-medium"
-                            : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                            : "text-muted-foreground hover:text-foreground hover:bg-muted"
                         }`}
                       >
                         {link.label}

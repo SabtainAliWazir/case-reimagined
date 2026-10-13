@@ -8,7 +8,8 @@ import {
   Type,
   ArrowUpDown,
   Hash,
-  Minus
+  Minus,
+  Sparkles
 } from "lucide-react";
 
 export type ConversionType = 
@@ -212,77 +213,88 @@ export const TextConverter = ({ defaultMode, initialPlaceholder }: TextConverter
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8 animate-fade-in relative z-10">
+    <div className="w-full max-w-4xl mx-auto space-y-6 animate-fade-in relative z-10">
       
-      {/* Abstract Background Orbs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-2xl max-h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-
-      {/* Main Glass Card */}
-      <div className="bg-card/60 backdrop-blur-2xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-3 md:p-6 transition-all duration-500 hover:shadow-glow">
+      {/* Motionix Workspace Window Container */}
+      <div className="bg-[#f5f1ea] dark:bg-[#1a1511] p-2.5 md:p-3.5 rounded-[1.75rem] border border-[#e9e4de] dark:border-border/60 shadow-card">
         
-        {/* Text Area */}
-        <div className="relative group mb-6">
-          <textarea
-            autoFocus
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder={initialPlaceholder || "Type or paste your content here..."}
-            className="w-full h-64 md:h-80 p-6 md:p-8 rounded-2xl bg-card dark:bg-black/40 border border-border shadow-sm font-sans text-lg resize-y focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 placeholder:text-muted-foreground/50"
-            aria-label="Text input for case conversion"
-          />
+        {/* Workspace Topbar */}
+        <div className="flex items-center justify-between px-3 py-2 mb-2 font-mono text-[11px] text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+            <span>browser-first execution</span>
+          </div>
+          <span className="text-[10px] tracking-wider uppercase opacity-70">zero upload required</span>
         </div>
 
-        {/* Conversion Buttons */}
-        <div className="mb-8 px-2 md:px-6">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {conversions.map((conversion) => (
-              <Button
-                key={conversion.id}
-                variant={activeConversion === conversion.id ? "converterActive" : "converter"}
-                size="converter"
-                onClick={() => handleConversion(conversion.id)}
-                title={conversion.description}
-              >
-                {conversion.label}
-              </Button>
-            ))}
+        {/* Inner Canvas Card */}
+        <div className="bg-card rounded-[1.25rem] p-4 md:p-6 border border-border/80 shadow-sm">
+          {/* Text Area */}
+          <div className="relative group mb-5">
+            <textarea
+              autoFocus
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder={initialPlaceholder || "Type or paste your content here..."}
+              className="w-full h-56 md:h-72 p-5 rounded-xl bg-background border border-border/80 shadow-inner font-sans text-base md:text-lg resize-y focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all placeholder:text-muted-foreground/50 leading-relaxed"
+              aria-label="Text input for case conversion"
+            />
+          </div>
+
+          {/* Conversion Mode Pills */}
+          <div className="mb-6">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {conversions.map((conversion) => (
+                <Button
+                  key={conversion.id}
+                  variant={activeConversion === conversion.id ? "converterActive" : "converter"}
+                  size="converter"
+                  onClick={() => handleConversion(conversion.id)}
+                  title={conversion.description}
+                >
+                  {conversion.label}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* JetBrains Mono Stats Bar */}
+          <div className="flex flex-wrap items-center justify-center gap-5 font-mono text-xs text-muted-foreground py-4 border-t border-border/60">
+            <div className="flex items-center gap-1.5">
+              <Type className="w-3.5 h-3.5 text-primary" />
+              <span className="tabular-nums font-medium">{stats.charCount}</span> Characters
+            </div>
+            <span className="opacity-30">•</span>
+            <div className="flex items-center gap-1.5">
+              <Hash className="w-3.5 h-3.5 text-primary" />
+              <span className="tabular-nums font-medium">{stats.wordCount}</span> Words
+            </div>
+            <span className="opacity-30">•</span>
+            <div className="flex items-center gap-1.5">
+              <ArrowUpDown className="w-3.5 h-3.5 text-primary" />
+              <span className="tabular-nums font-medium">{stats.sentenceCount}</span> Sentences
+            </div>
+            <span className="opacity-30">•</span>
+            <div className="flex items-center gap-1.5">
+              <Minus className="w-3.5 h-3.5 text-primary" />
+              <span className="tabular-nums font-medium">{stats.lineCount}</span> Lines
+            </div>
           </div>
         </div>
-
-        {/* Stats Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-sm py-6 border-t border-border/30">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Type className="w-4 h-4 text-primary" />
-            <span className="font-medium">{stats.charCount} Characters</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Hash className="w-4 h-4 text-primary" />
-            <span className="font-medium">{stats.wordCount} Words</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <ArrowUpDown className="w-4 h-4 text-primary" />
-            <span className="font-medium">{stats.sentenceCount} Sentences</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Minus className="w-4 h-4 text-primary" />
-            <span className="font-medium">{stats.lineCount} Lines</span>
-          </div>
-        </div>
-
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap gap-4 justify-center animate-fade-in-delay-3 pt-4">
-        <Button variant="action" size="lg" onClick={handleCopy} className="gap-2 px-8">
-          <Copy className="w-5 h-5" />
-          Copy to Clipboard
+      <div className="flex flex-wrap gap-3 justify-center pt-2">
+        <Button variant="action" size="default" onClick={handleCopy} className="gap-2 px-6">
+          <Copy className="w-4 h-4" />
+          Copy Output
         </Button>
-        <Button variant="action" size="lg" onClick={handleDownload} className="gap-2 px-8">
-          <Download className="w-5 h-5" />
-          Download Text
+        <Button variant="action" size="default" onClick={handleDownload} className="gap-2 px-6">
+          <Download className="w-4 h-4" />
+          Download TXT
         </Button>
-        <Button variant="action" size="lg" onClick={handleClear} className="gap-2 px-8 hover:border-destructive/50 hover:text-destructive">
-          <Trash2 className="w-5 h-5" />
+        <Button variant="action" size="default" onClick={handleClear} className="gap-2 px-6 hover:border-destructive/40 hover:text-destructive">
+          <Trash2 className="w-4 h-4" />
           Clear
         </Button>
       </div>

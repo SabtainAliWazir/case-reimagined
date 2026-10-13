@@ -42,36 +42,32 @@ export const Footer = () => {
 
   const sections = [
     { href: "/", label: "Case Converter" },
-    { href: "/calculators", label: "Financial Calculators" },
+    { href: "/blog", label: "Blog & Guides" },
+    { href: "/calculators", label: "Financial Calculators Hub" },
     { href: "/about", label: "About Us" },
-    { href: "/contact", label: "Contact" },
-    { href: "/privacy", label: "Privacy Policy" },
-  ];
-
-  const legal = [
-    { href: "/about", label: "About Us" },
-    { href: "/contact", label: "Contact" },
+    { href: "/contact", label: "Contact & Support" },
     { href: "/privacy", label: "Privacy Policy" },
   ];
 
   return (
-    <footer className="py-12 px-4 border-t border-border">
-      <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+    <footer className="py-14 px-4 border-t border-border bg-card/50">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Type className="w-4 h-4 text-primary" />
+            <Link to="/" className="flex items-center gap-2.5 mb-4 group">
+              <div className="w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                <Type className="w-4 h-4" />
               </div>
-              <span className="font-semibold">
-                Case<span className="text-primary">Convert</span>
+              <span className="text-lg font-bold tracking-tight text-foreground">
+                Case<span className="text-primary font-serif italic text-xl font-normal ml-0.5">Convert</span>
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground mb-4">
-              Fast, private browser-based text case conversion and developer utilities. 100% free and secure.
+            <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+              Browser-first text conversions, cryptographic hashing, and financial calculations. 100% private. Files never leave your device.
             </p>
-            <div className="flex flex-col gap-1 text-xs text-muted-foreground">
+            <div className="flex flex-col gap-1.5 text-xs text-muted-foreground font-medium">
+              <Link to="/blog" className="hover:text-primary text-primary">Browse Blog & Guides →</Link>
               <Link to="/about" className="hover:text-foreground">About CaseConvert</Link>
               <Link to="/contact" className="hover:text-foreground">Contact & Support</Link>
               <Link to="/privacy" className="hover:text-foreground">Privacy Policy</Link>
@@ -80,13 +76,13 @@ export const Footer = () => {
 
           {/* Case Converters Column */}
           <div>
-            <h3 className="font-semibold mb-4 text-sm font-heading text-primary">Case Converters</h3>
-            <nav className="flex flex-col gap-2">
-              {caseConverters.map((tool) => (
+            <h3 className="font-mono text-xs font-semibold uppercase tracking-wider mb-3 text-foreground">Case Converters</h3>
+            <nav className="flex flex-col gap-1.5">
+              {caseConverters.slice(0, 10).map((tool) => (
                 <Link
                   key={tool.href}
                   to={tool.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {tool.label}
                 </Link>
@@ -96,13 +92,13 @@ export const Footer = () => {
 
           {/* Developer & Text Tools */}
           <div>
-            <h3 className="font-semibold mb-4 text-sm font-heading text-primary">Text & Dev Utilities</h3>
-            <nav className="flex flex-col gap-2">
-              {devAndTextTools.map((tool) => (
+            <h3 className="font-mono text-xs font-semibold uppercase tracking-wider mb-3 text-foreground">Text & Dev</h3>
+            <nav className="flex flex-col gap-1.5">
+              {devAndTextTools.slice(0, 10).map((tool) => (
                 <Link
                   key={tool.href}
                   to={tool.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {tool.label}
                 </Link>
@@ -112,13 +108,13 @@ export const Footer = () => {
 
           {/* Hubs & Calculators */}
           <div>
-            <h3 className="font-semibold mb-4 text-sm font-heading text-primary">Explore Hubs</h3>
-            <nav className="flex flex-col gap-2">
+            <h3 className="font-mono text-xs font-semibold uppercase tracking-wider mb-3 text-foreground">Explore</h3>
+            <nav className="flex flex-col gap-1.5">
               {sections.map((section) => (
                 <Link
                   key={section.href}
                   to={section.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {section.label}
                 </Link>
@@ -127,14 +123,10 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {currentYear} CaseConvert. Free online text case converter tool.
-          </p>
-          <div className="flex items-center gap-1 text-xs text-muted-foreground">
-            <span>Made with</span>
-            <Heart className="w-3 h-3 text-destructive fill-destructive" />
-            <span>for text lovers</span>
+        <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground font-mono">
+          <p>© {currentYear} CaseConvert. Browser-first privacy toolkit.</p>
+          <div className="flex items-center gap-1.5">
+            <span>Crafted for developers & writers</span>
           </div>
         </div>
       </div>

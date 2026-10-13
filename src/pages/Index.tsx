@@ -6,7 +6,27 @@ import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
-import { Hash, Binary, Radio, Sparkles, Eraser, Braces, KeyRound, FileText, Code, Link2, Fingerprint, Calculator, Wallet, TrendingUp, FolderArchive, FileArchive, Image as ImageIcon, Clock, Type } from "lucide-react";
+import { 
+  Hash, 
+  Binary, 
+  Radio, 
+  Sparkles, 
+  Eraser, 
+  Braces, 
+  KeyRound, 
+  FileText, 
+  Code, 
+  Link2, 
+  Fingerprint, 
+  Calculator, 
+  FolderArchive, 
+  FileArchive, 
+  Image as ImageIcon, 
+  Clock, 
+  Type,
+  ArrowRight,
+  BookOpen
+} from "lucide-react";
 
 import { allCalculators } from "@/pages/CalculatorsIndex";
 
@@ -142,100 +162,72 @@ const tools = [
   {
     category: "Text & Dev",
     href: "/base64-to-hex",
-    icon: Code,
+    icon: Binary,
     title: "Base64 to Hex Converter",
-    description: "Convert Base64 strings to raw Hexadecimal byte sequences.",
+    description: "Decode Base64 strings directly into hexadecimal format.",
   },
   {
     category: "Text & Dev",
     href: "/word-frequency-counter",
     icon: Hash,
     title: "Word Frequency Counter",
-    description: "Analyze word repetitions, top keywords, and keyword densities.",
+    description: "Find the most common words and keyword density in your text.",
   },
   {
     category: "Text & Dev",
     href: "/text-diff-checker",
-    icon: Code,
+    icon: FileText,
     title: "Text Diff Checker",
-    description: "Compare two blocks of text side-by-side to highlight differences.",
+    description: "Compare two text documents and find the exact differences.",
   },
   {
     category: "Text & Dev",
     href: "/caesar-cipher",
     icon: KeyRound,
     title: "Caesar Cipher (ROT13)",
-    description: "Encrypt and decrypt shift ciphers with 25-key brute-force solver.",
+    description: "Encrypt and decrypt text using the classic Roman shift cipher.",
   },
   {
     category: "Text & Dev",
     href: "/word-counter",
     icon: Hash,
     title: "Word Counter",
-    description: "Count words, characters, sentences, and estimate reading time.",
+    description: "Count words, characters, sentences, paragraphs and reading time.",
   },
   {
     category: "Text & Dev",
     href: "/text-formatter",
-    icon: Sparkles,
+    icon: Eraser,
     title: "Text Formatter",
-    description: "Create strikethrough, underline, upside down, and fancy text styles.",
-  },
-  {
-    category: "Text & Dev",
-    href: "/binary-translator",
-    icon: Binary,
-    title: "Binary Translator",
-    description: "Convert text to binary code and binary back to text.",
-  },
-  {
-    category: "Text & Dev",
-    href: "/morse-translator",
-    icon: Radio,
-    title: "Morse Translator",
-    description: "Translate text to morse code with audio playback.",
+    description: "Clean up messy text, remove extra spaces, and standardize formatting.",
   },
   {
     category: "Text & Dev",
     href: "/text-cleaner",
     icon: Eraser,
     title: "Text Cleaner",
-    description: "Remove extra spaces, duplicate lines, and clean messy text from PDFs.",
+    description: "Remove HTML tags, special characters, and numbers from text.",
   },
   {
     category: "Text & Dev",
     href: "/json-formatter",
     icon: Braces,
     title: "JSON Formatter",
-    description: "Beautify, minify, and validate JSON data online.",
-  },
-  {
-    category: "Text & Dev",
-    href: "/password-generator",
-    icon: KeyRound,
-    title: "Password Generator",
-    description: "Generate strong, secure random passwords instantly.",
-  },
-  {
-    category: "Text & Dev",
-    href: "/lorem-ipsum",
-    icon: FileText,
-    title: "Lorem Ipsum",
-    description: "Generate placeholder text for designs and mockups.",
+    description: "Beautify, validate, and format messy JSON strings into readable code.",
   },
   {
     category: "Text & Dev",
     href: "/base64",
-    icon: Code,
+    icon: Binary,
     title: "Base64 Encoder",
-    description: "Encode and decode Base64 strings online.",
+    description: "Encode and decode text and data to Base64 format.",
   },
   {
     category: "Text & Dev",
     href: "/url-encoder",
     icon: Link2,
     title: "URL Encoder",
-    description: "Encode and decode URLs with special characters.",
+    description: "Safely encode strings for URLs and decode percent-encoded links.",
   },
   {
     category: "Text & Dev",
@@ -273,216 +265,147 @@ const tools = [
     title: "Image Converter",
     description: "Convert images between PNG, JPEG, and WebP formats instantly.",
   },
-  // We append all 76 financial calculators dynamically to pass root domain PageRank directly to them
   ...allCalculators
 ];
 
 const categories = ["Case Converters", "Text & Dev", "File Tools", ...Array.from(new Set(allCalculators.map(t => t.category)))];
 
+// Motionix category tint surfaces
+const categoryTints: Record<string, string> = {
+  "Case Converters": "bg-[#faf5ee] dark:bg-card/80",
+  "Text & Dev": "bg-[#eef6f1] dark:bg-card/80",
+  "File Tools": "bg-[#faefee] dark:bg-card/80",
+  "Financial": "bg-[#edf3f8] dark:bg-card/80",
+};
 
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>CaseConvert - Free Online Text Case Converter Tool</title>
-        <meta name="description" content="Convert text between UPPERCASE, lowercase, Title Case, Sentence case and more. Free online text case converter - fast, private, and works in your browser." />
+        <title>Case Converter - Free Online Text Case Conversion Tools</title>
+        <meta name="description" content="Free online text tools: convert between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, and calculate finances. Fast and private." />
         <link rel="canonical" href="https://caseconvert.online/" />
-
-        {/* Home Page Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "CaseConvert",
-            "description": "Free online text case converter tool. Convert between uppercase, lowercase, title case, sentence case, and more.",
-            "url": "https://caseconvert.online",
-            "applicationCategory": "UtilitiesApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "CaseConvert",
-            "url": "https://caseconvert.online",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://caseconvert.online/?q={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          })}
-        </script>
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://caseconvert.online/"
-            }]
-          })}
-        </script>
       </Helmet>
-      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
-        
-        {/* Global Ambient Background */}
-        <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
 
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative">
         <Header />
-        <main className="pt-12 pb-24 relative z-10">
+        
+        <main className="pt-10 pb-24 relative z-10">
           
-          {/* Dribbble Style Hero Intro */}
-          <section className="px-4 mb-16 text-center max-w-3xl mx-auto animate-fade-in relative">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6 border border-primary/20 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              The Ultimate Text Toolkit
-            </div>
-            <h1 className="text-5xl md:text-7xl font-heading font-extrabold tracking-tight mb-6 text-foreground drop-shadow-sm">
-              Transform Text <span className="text-transparent bg-clip-text bg-gradient-text">Naturally.</span>
+          {/* Motionix Editorial Hero */}
+          <section className="px-4 mb-14 text-center max-w-4xl mx-auto animate-fade-in">
+            <p className="eyebrow-mono mb-4 text-primary flex items-center justify-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-primary inline-block"></span>
+              CASE-REIMAGINED / BROWSER-FIRST TOOLS
+            </p>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-5 text-foreground leading-[1.08]">
+              Tools that <em className="font-serif italic font-normal text-primary">actually finish</em> the job.
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Convert between formats, generate secure passwords, and beautify code. 
-              A purely browser-based suite crafted for precision and privacy.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Convert cases, format code, and compute finance — no uploads, no signups, no ads in your face. 
+              Your files and text never leave your device.
             </p>
           </section>
 
-          {/* Core Utility Section */}
-          <section id="converter" className="px-4 max-w-[1000px] mx-auto relative">
-            {/* Decorative background leaf/blob behind converter */}
-            <div className="absolute top-0 right-10 w-72 h-72 bg-secondary/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 dark:opacity-20 animate-blob" />
-            <div className="absolute -bottom-10 left-10 w-72 h-72 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-50 dark:opacity-20 animate-blob animation-delay-2000" />
-            
+          {/* Main Interactive Converter Tool */}
+          <section id="converter" className="px-4 max-w-[1000px] mx-auto mb-20 relative">
             <TextConverter />
           </section>
 
-          {/* Other Tools Section */}
-          <section className="px-4 mt-32 relative">
-            <div className="max-w-[1200px] mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                  Explore More Tools
-                </h2>
-                <p className="text-muted-foreground max-w-xl mx-auto">
-                  Explore our collection of free text utilities to enhance your workflow.
-                </p>
+          {/* Motionix 4-Step Process Strip */}
+          <section className="border-y border-border/80 bg-muted/40 py-16 px-4 mb-24">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center max-w-xl mx-auto mb-10">
+                <p className="eyebrow-mono text-primary mb-2">The Process</p>
+                <h2 className="font-serif text-3xl md:text-4xl italic text-foreground">Four steps. Zero mystery.</h2>
               </div>
-              <div className="space-y-16">
-                {categories.map((category) => {
-                  const categoryTools = tools.filter(t => t.category === category);
-                  if (categoryTools.length === 0) return null;
-                  
-                  return (
-                    <div key={category}>
-                      <h3 className="text-2xl font-heading font-semibold mb-6 flex items-center gap-3">
-                        {category}
-                        <div className="h-px bg-border flex-1" />
-                      </h3>
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {categoryTools.map((tool) => (
-                          <Link key={tool.href} to={tool.href}>
-                            <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card p-6 h-full rounded-3xl hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-glow group">
-                              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                                <tool.icon className="w-6 h-6 text-primary" />
-                              </div>
-                              <h3 className="font-heading font-semibold text-lg mb-2">{tool.title}</h3>
-                              <p className="text-sm text-muted-foreground leading-relaxed">{tool.description}</p>
-                            </Card>
-                          </Link>
-                        ))}
-                      </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { step: "01", title: "Drop your text", desc: "Paste your code, variables, or article draft directly into the editor." },
+                  { step: "02", title: "Pick what to do", desc: "Select from 13 case options, JSON formatting, or hash generation in one click." },
+                  { step: "03", title: "Processed locally", desc: "Calculations run natively on your device. Zero cloud latency, 100% private." },
+                  { step: "04", title: "Copy & Ship", desc: "Instant clipboard export with character counts and zero watermarks." }
+                ].map((item) => (
+                  <div key={item.step} className="bg-card p-6 rounded-2xl border border-border/80 shadow-sm hover:border-primary/40 transition-colors">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-xs text-primary font-semibold">{item.step}</span>
+                      <span className="size-6 rounded-full border border-border grid place-items-center text-xs text-muted-foreground">→</span>
                     </div>
-                  );
-                })}
+                    <h3 className="font-semibold text-base mb-1.5">{item.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
 
-          {/* SEO Content Section */}
-          <section className="px-4 py-16">
-            <div className="max-w-4xl mx-auto space-y-12">
-              {/* What is Case Converter */}
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  What is a <span className="text-gradient">Case Converter</span>?
-                </h2>
-                <div className="text-muted-foreground space-y-4">
-                  <p>
-                    A <strong>case converter</strong> is an online tool that transforms your text between different
-                    capitalization styles instantly. Whether you need to convert text to <strong>UPPERCASE</strong>,
-                    <strong> lowercase</strong>, <strong>Title Case</strong>, or <strong>Sentence case</strong>,
-                    our free case converter handles it all with a single click.
-                  </p>
-                  <p>
-                    Perfect for fixing text copied from PDFs, formatting titles and headings, preparing content
-                    for social media, or simply correcting accidentally typed text in caps lock. All processing
-                    happens in your browser - your text is never sent to any server.
-                  </p>
-                </div>
-              </div>
+          {/* Catalog Section with Motionix Soft Tint Cards */}
+          <section className="px-4 max-w-6xl mx-auto mb-24">
+            <div className="text-center max-w-xl mx-auto mb-14">
+              <p className="eyebrow-mono text-primary mb-2">The Catalog</p>
+              <h2 className="font-serif text-3xl md:text-4xl italic text-foreground">Over 130+ Utilities.</h2>
+              <p className="text-sm text-muted-foreground mt-2">Every tool runs in your browser with zero account required.</p>
+            </div>
 
-              {/* Case Types Explained */}
-              <div>
-                <h2 className="text-2xl font-bold mb-4">
-                  Text Case <span className="text-gradient">Types Explained</span>
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {[
-                    { type: "UPPERCASE", example: "HELLO WORLD", desc: "All letters are capitalized. Used for emphasis, headings, and acronyms." },
-                    { type: "lowercase", example: "hello world", desc: "All letters are small. Common for usernames, URLs, and casual text." },
-                    { type: "Title Case", example: "Hello World", desc: "First letter of each major word is capitalized. Used for titles and headlines." },
-                    { type: "Sentence case", example: "Hello world", desc: "First letter of sentences capitalized. Standard for paragraphs and content." },
-                    { type: "aLtErNaTiNg cAsE", example: "hElLo WoRlD", desc: "Alternating caps for memes, sarcasm, or stylized text." },
-                    { type: "slug-case", example: "hello-world", desc: "URL-friendly format with hyphens. Essential for blog post URLs." },
-                  ].map((item) => (
-                    <Card key={item.type} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="font-semibold">{item.type}</h3>
-                        <code className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">{item.example}</code>
-                      </div>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+            <div className="space-y-16">
+              {categories.map((category, catIdx) => {
+                const categoryTools = tools.filter(t => t.category === category);
+                if (categoryTools.length === 0) return null;
+                const tintBg = categoryTints[category] || "bg-[#edf3f8] dark:bg-card/80";
 
-              {/* Use Cases */}
-              <div>
-                <h2 className="text-2xl font-bold mb-4">
-                  Who Uses <span className="text-gradient">Case Converters</span>?
+                return (
+                  <div key={category} id={category.toLowerCase().replace(/\s+/g, '-')}>
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="font-mono text-xs font-semibold text-primary">0{catIdx + 1} /</span>
+                      <h3 className="text-2xl font-bold font-heading">{category}</h3>
+                      <div className="h-px bg-border flex-1" />
+                      <span className="font-mono text-xs text-muted-foreground">{categoryTools.length} tools</span>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {categoryTools.map((tool) => (
+                        <Link key={tool.href} to={tool.href} className="no-underline group">
+                          <Card className={`${tintBg} border border-border/60 p-5 rounded-2xl h-full flex flex-col transition-all duration-200 hover:-translate-y-1 shadow-card hover:shadow-card-hover`}>
+                            <div className="w-10 h-10 rounded-xl bg-card flex items-center justify-center mb-3 shadow-sm text-primary group-hover:scale-105 transition-transform">
+                              <tool.icon className="w-5 h-5" />
+                            </div>
+                            <h4 className="font-semibold text-sm mb-1 text-foreground group-hover:text-primary transition-colors">{tool.title}</h4>
+                            <p className="text-xs text-muted-foreground leading-relaxed flex-1 line-clamp-2">{tool.description}</p>
+                            <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary pt-1">
+                              Open tool <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </Card>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Blog Highlight Strip */}
+          <section className="px-4 max-w-6xl mx-auto mb-20">
+            <div className="bg-card rounded-3xl border border-border p-8 md:p-12 shadow-card flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="max-w-xl">
+                <p className="eyebrow-mono text-primary mb-2">Editorial Guides</p>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+                  Read our latest <span className="font-serif italic font-normal text-primary">guides & articles</span>
                 </h2>
-                <div className="grid sm:grid-cols-3 gap-4">
-                  {[
-                    { emoji: "✍️", title: "Writers & Bloggers", desc: "Format titles and fix pasted text from PDFs instantly." },
-                    { emoji: "💻", title: "Developers", desc: "Convert variable names between camelCase and slug-case formats." },
-                    { emoji: "📱", title: "Social Media", desc: "Create eye-catching posts with alternating or uppercase text." },
-                  ].map((item) => (
-                    <Card key={item.title} className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-card rounded-3xl p-4 text-center">
-                      <div className="text-3xl mb-3">{item.emoji}</div>
-                      <h3 className="font-semibold mb-2">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">{item.desc}</p>
-                    </Card>
-                  ))}
-                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Deep-dives on programming case conventions, SEO slug best practices, and algorithmic financial formulas.
+                </p>
               </div>
+              <Link to="/blog" className="btn-accent shrink-0">
+                <BookOpen className="w-4 h-4" /> Explore Blog
+              </Link>
             </div>
           </section>
 
           <Features />
           <FAQ />
         </main>
+        
         <Footer />
       </div>
     </>

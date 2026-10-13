@@ -15,8 +15,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Outfit', 'system-ui', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
+        serif: ['Instrument Serif', 'Georgia', 'serif'],
+        heading: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -24,6 +25,13 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        paper: "#fdfaf4",
+        cream: "#faf5ee",
+        mint: "#eef6f1",
+        blush: "#faefee",
+        sky: "#edf3f8",
+        ink: "#100d08",
+        terracotta: "#f58967",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -71,6 +79,7 @@ export default {
       boxShadow: {
         'glow': 'var(--shadow-glow)',
         'card': 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
         'button': 'var(--shadow-button)',
       },
       borderRadius: {
