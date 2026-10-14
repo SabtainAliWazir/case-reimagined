@@ -173,7 +173,104 @@ const SentenceCaseConverter = () => {
               </div>
             </div>
 
-            {/* FAQs */}
+            {/* Excel & Google Sheets Sentence Case Formulas */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                How to Format Sentence Case in <span className="text-gradient">Excel &amp; Google Sheets</span>
+              </h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                Microsoft Excel has native functions for <code>=UPPER()</code> and <code>=LOWER()</code>, but lacks a built-in <code>=SENTENCE()</code> formula. Here is the exact formula combination used by data analysts to force sentence case in spreadsheets:
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-white/20 dark:border-white/5 bg-card/60 backdrop-blur-xl mb-4">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-muted/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground border-b border-border">
+                    <tr>
+                      <th className="p-4">Spreadsheet App</th>
+                      <th className="p-4">Formula</th>
+                      <th className="p-4">Sample Input</th>
+                      <th className="p-4">Output Result</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border/50 text-foreground/90 font-mono text-xs md:text-sm">
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Excel (Single Cell)</td>
+                      <td className="p-4 text-primary font-bold">=UPPER(LEFT(A2,1)) &amp; LOWER(MID(A2,2,LEN(A2)-1))</td>
+                      <td className="p-4 text-muted-foreground">ALL CAPS PARAGRAPH.</td>
+                      <td className="p-4 text-emerald-400 font-bold">All caps paragraph.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Google Sheets (Regex)</td>
+                      <td className="p-4 text-primary font-bold">=REGEXREPLACE(LOWER(A2), "^(.)", UPPER("$1"))</td>
+                      <td className="p-4 text-muted-foreground">FIRST LETTER LOWERCASE</td>
+                      <td className="p-4 text-emerald-400 font-bold">First letter lowercase</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Sheets (Entire Column)</td>
+                      <td className="p-4 text-primary font-bold">=ARRAYFORMULA(UPPER(LEFT(A2:A,1)) &amp; LOWER(MID(A2:A,2,LEN(A2:A)-1)))</td>
+                      <td className="p-4 text-muted-foreground">Multiple lines</td>
+                      <td className="p-4 text-emerald-400 font-bold">Sentence case column</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Keyboard Shortcuts Cheat Sheet */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                Keyboard Shortcuts for <span className="text-gradient">Sentence Case</span>
+              </h2>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Microsoft Word</div>
+                  <div className="text-lg font-mono font-bold my-2 text-foreground">Shift + F3</div>
+                  <p className="text-xs text-muted-foreground">Highlight text and press Shift+F3 to toggle into Sentence case format.</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Google Docs</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">Format &rarr; Text</div>
+                  <p className="text-xs text-muted-foreground">Select text &rarr; Format &gt; Text &gt; Capitalization &gt; Sentence case.</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">macOS Shortcut</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">System Preferences</div>
+                  <p className="text-xs text-muted-foreground">Under Keyboard &gt; Text, enable "Capitalize words automatically" for native sentence casing.</p>
+                </Card>
+              </div>
+            </div>
+
+            {/* Developer Code Reference */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                Developer Cheat Sheet: <span className="text-gradient">Sentence Case in Code</span>
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-4">
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">JavaScript</span>
+                  </div>
+                  <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                    <code>{`function toSentence(str) {\n  return str.charAt(0).toUpperCase() +\n         str.slice(1).toLowerCase();\n}`}</code>
+                  </pre>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">Python</span>
+                  </div>
+                  <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                    <code>{`text = "HELLO WORLD"\nsentence = text.capitalize()\n# Output: "Hello world"`}</code>
+                  </pre>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">PHP</span>
+                  </div>
+                  <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                    <code>{`$text = "HELLO WORLD";\n$sentence = ucfirst(strtolower($text));\n// Output: "Hello world"`}</code>
+                  </pre>
+                </Card>
+              </div>
+            </div>
             <FAQSection faqs={faqs} toolName="Sentence Case Converter" />
 
             {/* Related Tools */}

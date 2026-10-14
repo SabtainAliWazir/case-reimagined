@@ -1,94 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://caseconvert.online/</loc><lastmod>2026-08-15</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://caseconvert.online/uppercase-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/lowercase-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/title-case-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/sentence-case-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/capitalized-case-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/camelcase-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/kebab-case-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/pascal-case-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/alternating-case-converter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/reverse-text-generator</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/slug-generator</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/small-text-generator</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/binary-to-hex</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/word-frequency-counter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/text-diff-checker</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/caesar-cipher</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/camelcase-to-snake-case</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/snake-case-to-camelcase</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/pascalcase-to-camelcase</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/kebab-case-to-camelcase</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/binary-to-morse-code</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/base64-to-hex</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/word-counter</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/text-formatter</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/text-cleaner</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/binary-translator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/morse-translator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/json-formatter</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/password-generator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://caseconvert.online/lorem-ipsum</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/base64</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/url-encoder</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/hash-generator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/epoch-converter</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/zip-extractor</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/zip-creator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/image-converter</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/compound-interest</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/loan-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/roi-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/calculators</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/calculators/tvm-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/irr-npv-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/bond-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/tax-equivalent-yield</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/rule-of-72</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/college-savings</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/mutual-fund-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/hsa-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/cd-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/loan-comparison</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/refinance-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/apr-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/commercial-loan</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/home-affordability</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/rent-vs-buy</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/discount-points</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/adjustable-rate</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/bi-weekly-payment</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/interest-only</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/rental-property</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/retirement-planner</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/401k-contribution</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/retirement-savings-analysis</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/ira-vs-roth</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/rmd-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/social-security-estimator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/annuity-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/stock-return</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/constant-growth</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/capm-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/expected-return</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/wacc-calculator</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/black-scholes</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/pivot-point</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/fibonacci</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/dividend-tax</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/paypal-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/stripe-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/square-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/ebay-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/etsy-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/shopify-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/cashapp-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/calculators/venmo-fee</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://caseconvert.online/about</loc><lastmod>2026-08-02</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://caseconvert.online/contact</loc><lastmod>2026-08-02</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://caseconvert.online/privacy</loc><lastmod>2026-08-02</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://caseconvert.online/blog</loc><lastmod>2026-10-13</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-  <url><loc>https://caseconvert.online/blog/title-case-vs-sentence-case-formatting-guide</loc><lastmod>2026-10-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- Homepage -->
+  <url><loc>https://caseconvert.online/</loc><lastmod>2026-10-14</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+
+  <!-- Core Case Converters -->
+  <url><loc>https://caseconvert.online/uppercase-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/lowercase-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/title-case-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/sentence-case-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/capitalized-case-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/camelcase-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/kebab-case-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/pascal-case-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/alternating-case-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/reverse-text-generator</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Developer & Text Formatting Utilities -->
+  <url><loc>https://caseconvert.online/slug-generator</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/text-cleaner</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/word-counter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/text-formatter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/word-frequency-counter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/text-diff-checker</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/small-text-generator</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/json-formatter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Casing Bridges (Developer Workflows) -->
+  <url><loc>https://caseconvert.online/camelcase-to-snake-case</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/snake-case-to-camelcase</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/pascalcase-to-camelcase</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://caseconvert.online/kebab-case-to-camelcase</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Encoders & Translators -->
+  <url><loc>https://caseconvert.online/binary-to-hex</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/base64-to-hex</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/binary-translator</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/morse-translator</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/binary-to-morse-code</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/caesar-cipher</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/password-generator</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/lorem-ipsum</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/base64</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/url-encoder</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/hash-generator</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/epoch-converter</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Editorial Pillar Blog Guides -->
+  <url><loc>https://caseconvert.online/blog</loc><lastmod>2026-10-14</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/blog/title-case-vs-sentence-case-formatting-guide</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/blog/camelcase-vs-snake-case-naming-conventions</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://caseconvert.online/blog/how-to-create-seo-friendly-url-slugs</loc><lastmod>2026-10-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Trust & Legal Pages -->
+  <url><loc>https://caseconvert.online/about</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://caseconvert.online/contact</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://caseconvert.online/privacy</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

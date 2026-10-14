@@ -363,6 +363,87 @@ const TextCleaner = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Spreadsheet Text Cleaning Formulas Table */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">
+                  How to Clean Text in <span className="text-gradient">Excel &amp; Google Sheets</span>
+                </h2>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Cleaning raw exports, messy CSVs, or customer databases? Use these native spreadsheet functions:
+                </p>
+                <div className="overflow-x-auto rounded-2xl border border-white/20 dark:border-white/5 bg-card/60 backdrop-blur-xl mb-4">
+                  <table className="w-full text-left text-sm">
+                    <thead className="bg-muted/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground border-b border-border">
+                      <tr>
+                        <th className="p-4">Cleanup Task</th>
+                        <th className="p-4">Excel &amp; Sheets Formula</th>
+                        <th className="p-4">What It Does</th>
+                        <th className="p-4">Sample Result</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border/50 text-foreground/90 font-mono text-xs md:text-sm">
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Remove Extra Spaces</td>
+                        <td className="p-4 text-primary font-bold">=TRIM(A2)</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Strips leading/trailing spaces and reduces multiple spaces between words to 1.</td>
+                        <td className="p-4 text-emerald-400 font-bold">"Clean Text"</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Remove Non-Printable Chars</td>
+                        <td className="p-4 text-primary font-bold">=CLEAN(A2)</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Deletes low-level ASCII characters and invisible control codes copied from old databases.</td>
+                        <td className="p-4 text-emerald-400 font-bold">"Clean Data"</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Remove Line Breaks (Alt+Enter)</td>
+                        <td className="p-4 text-primary font-bold">=SUBSTITUTE(A2, CHAR(10), " ")</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Replaces embedded line feed characters (CHAR 10) with single spaces.</td>
+                        <td className="p-4 text-emerald-400 font-bold">"Single Line Text"</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Combined Super Cleaner</td>
+                        <td className="p-4 text-primary font-bold">=TRIM(CLEAN(SUBSTITUTE(A2, CHAR(160), " ")))</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Removes non-breaking web spaces (&amp;nbsp; / CHAR 160), control chars, and extra spaces in one shot.</td>
+                        <td className="p-4 text-emerald-400 font-bold">"Fully Sanitized"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Developer Regex Cleaning Snippets */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">
+                  Developer Regex Snippets: <span className="text-gradient">Text Sanitation</span>
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Collapse Multiple Spaces (JS)</div>
+                    <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                      <code>{`// Replace multiple spaces with single space\nconst clean = text.replace(/\\s+/g, ' ').trim();`}</code>
+                    </pre>
+                  </Card>
+                  <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Remove Blank Lines (Python)</div>
+                    <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                      <code>{`# Filter out empty or whitespace-only lines\nclean = "\\n".join([l for l in text.splitlines() if l.strip()])`}</code>
+                    </pre>
+                  </Card>
+                  <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Strip HTML Tags (JS)</div>
+                    <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                      <code>{`// Strip all HTML elements from copied text\nconst plainText = html.replace(/<[^>]*>/g, '');`}</code>
+                    </pre>
+                  </Card>
+                  <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                    <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Normalize Unicode Accents</div>
+                    <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                      <code>{`// Convert accented letters (é, ñ, ü) to ASCII equivalents\nconst ascii = text.normalize("NFD").replace(/[\\u0300-\\u036f]/g, "");`}</code>
+                    </pre>
+                  </Card>
+                </div>
+              </div>
             </div>
           </div>
         </main>

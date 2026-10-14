@@ -170,7 +170,119 @@ const TitleCaseConverter = () => {
               </div>
             </div>
 
-            {/* FAQs */}
+            {/* Excel & Google Sheets Formulas & PROPER Breakdown */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                How to Title Case in <span className="text-gradient">Excel &amp; Google Sheets</span>
+              </h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                Spreadsheets include a built-in formula for capitalizing text, but it comes with a major grammatical flaw you need to know about:
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-white/20 dark:border-white/5 bg-card/60 backdrop-blur-xl mb-4">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-muted/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground border-b border-border">
+                    <tr>
+                      <th className="p-4">Method</th>
+                      <th className="p-4">Formula / Command</th>
+                      <th className="p-4">Sample Input</th>
+                      <th className="p-4">Result</th>
+                      <th className="p-4">Grammar Evaluation</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border/50 text-foreground/90 font-mono text-xs md:text-sm">
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Excel Native</td>
+                      <td className="p-4 text-primary font-bold">=PROPER(A2)</td>
+                      <td className="p-4 text-muted-foreground">the old man and the sea</td>
+                      <td className="p-4 text-amber-400 font-bold">The Old Man And The Sea</td>
+                      <td className="p-4 font-sans text-xs text-amber-400">⚠️ Incorrect: Capitalizes "And" and "The" inside titles.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Google Sheets</td>
+                      <td className="p-4 text-primary font-bold">=PROPER(A2)</td>
+                      <td className="p-4 text-muted-foreground">lord of the rings</td>
+                      <td className="p-4 text-amber-400 font-bold">Lord Of The Rings</td>
+                      <td className="p-4 font-sans text-xs text-amber-400">⚠️ Incorrect: Capitalizes connecting words "Of" &amp; "The".</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-medium">CaseConvert Online</td>
+                      <td className="p-4 text-primary font-bold">In-Browser Engine</td>
+                      <td className="p-4 text-muted-foreground">the old man and the sea</td>
+                      <td className="p-4 text-emerald-400 font-bold">The Old Man and the Sea</td>
+                      <td className="p-4 font-sans text-xs text-emerald-400">✓ Grammatically Correct: Chicago &amp; AP Style compliant.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Editorial Style Guides Comparison Table */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                Title Case Rules by <span className="text-gradient">Style Guide</span>
+              </h2>
+              <div className="overflow-x-auto rounded-2xl border border-white/20 dark:border-white/5 bg-card/60 backdrop-blur-xl">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-muted/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground border-b border-border">
+                    <tr>
+                      <th className="p-4">Style Guide</th>
+                      <th className="p-4">Primary Use Cases</th>
+                      <th className="p-4">Preposition Capitalization Rule</th>
+                      <th className="p-4">Example Output</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border/50 text-foreground/90 font-mono text-xs md:text-sm">
+                    <tr>
+                      <td className="p-4 font-sans font-semibold text-primary">Chicago Manual of Style (CMOS)</td>
+                      <td className="p-4 font-sans text-xs text-muted-foreground">Books, magazines, fiction, and university presses.</td>
+                      <td className="p-4 font-sans text-xs">Lowercase ALL prepositions regardless of length (e.g., <em>through, between, among</em>).</td>
+                      <td className="p-4 text-emerald-400 font-bold">Walking through the Forest</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-semibold text-primary">Associated Press (AP Style)</td>
+                      <td className="p-4 font-sans text-xs text-muted-foreground">News journalism, PR releases, and online media blogs.</td>
+                      <td className="p-4 font-sans text-xs">Capitalize prepositions of 4+ letters (<em>With, From, Over</em>). Lowercase 3 letters or fewer (<em>in, of, at</em>).</td>
+                      <td className="p-4 text-emerald-400 font-bold">Walking Through the Forest</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-semibold text-primary">APA 7th Edition</td>
+                      <td className="p-4 font-sans text-xs text-muted-foreground">Scientific papers, psychology journals, and academic citations.</td>
+                      <td className="p-4 font-sans text-xs">Capitalize all major words and any word containing 4 letters or more.</td>
+                      <td className="p-4 text-emerald-400 font-bold">Walking Through the Forest</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Keyboard Shortcuts Cheat Sheet */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                Keyboard Shortcuts for <span className="text-gradient">Title Case</span>
+              </h2>
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Microsoft Word</div>
+                  <div className="text-lg font-mono font-bold my-2 text-foreground">Shift + F3</div>
+                  <p className="text-xs text-muted-foreground">Cycles between LOWERCASE &rarr; UPPERCASE &rarr; Title Case.</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Google Docs</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">Format &rarr; Text</div>
+                  <p className="text-xs text-muted-foreground">Select text &rarr; Format &gt; Text &gt; Capitalization &gt; Title Case.</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">VS Code</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">Ctrl + Shift + P</div>
+                  <p className="text-xs text-muted-foreground">Command Palette &rarr; type "Transform to Title Case".</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Mac Keyboard</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">Edit &rarr; Transform</div>
+                  <p className="text-xs text-muted-foreground">In Pages/TextEdit: Edit &gt; Transformations &gt; Capitalize.</p>
+                </Card>
+              </div>
+            </div>
             <FAQSection faqs={faqs} toolName="Title Case Converter" />
 
             {/* Related Tools */}

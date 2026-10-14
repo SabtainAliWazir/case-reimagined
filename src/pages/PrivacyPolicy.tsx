@@ -137,12 +137,30 @@ const PrivacyPolicy = () => {
                                 <div className="space-y-3 text-muted-foreground leading-relaxed">
                                     <p>We may use the following third-party services:</p>
                                     <ul className="list-disc list-inside space-y-2 ml-4">
-                                        <li><strong>Google Analytics:</strong> For website analytics and traffic analysis</li>
-                                        <li><strong>Google AdSense:</strong> For displaying advertisements</li>
+                                        <li><strong>Google Analytics:</strong> For anonymous website analytics and traffic performance measurement.</li>
+                                        <li>
+                                            <strong>Google AdSense &amp; Advertising Partners:</strong> Google, as a third-party vendor, uses cookies to serve advertisements on CaseConvert. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.
+                                        </li>
                                     </ul>
                                     <p className="mt-4">
-                                        These services may collect information about your browsing behavior. Please review
-                                        their respective privacy policies for more information.
+                                        Users may opt out of personalized advertising by visiting{" "}
+                                        <a
+                                            href="https://www.google.com/settings/ads"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-primary hover:underline font-medium"
+                                        >
+                                            Google Ads Settings
+                                        </a>{" "}
+                                        or through the Digital Advertising Alliance at{" "}
+                                        <a
+                                            href="https://www.aboutads.info/choices/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-primary hover:underline font-medium"
+                                        >
+                                            aboutads.info
+                                        </a>.
                                     </p>
                                 </div>
                             </Card>

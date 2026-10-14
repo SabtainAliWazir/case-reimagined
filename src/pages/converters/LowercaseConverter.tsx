@@ -173,7 +173,140 @@ const LowercaseConverter = () => {
               </div>
             </div>
 
-            {/* FAQs */}
+            {/* Excel & Google Sheets Formulas Table */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                How to Lowercase in <span className="text-gradient">Excel &amp; Google Sheets</span>
+              </h2>
+              <p className="text-sm text-muted-foreground mb-4">
+                Standardizing customer emails or product SKUs into clean lowercase? Use these native spreadsheet functions:
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-white/20 dark:border-white/5 bg-card/60 backdrop-blur-xl">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-muted/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground border-b border-border">
+                    <tr>
+                      <th className="p-4">Application</th>
+                      <th className="p-4">Formula</th>
+                      <th className="p-4">Sample Input</th>
+                      <th className="p-4">Output</th>
+                      <th className="p-4">How to Apply</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border/50 text-foreground/90 font-mono text-xs md:text-sm">
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Microsoft Excel</td>
+                      <td className="p-4 text-primary font-bold">=LOWER(A2)</td>
+                      <td className="p-4 text-muted-foreground">Admin@COMPANY.com</td>
+                      <td className="p-4 text-emerald-400 font-bold">admin@company.com</td>
+                      <td className="p-4 font-sans text-xs text-muted-foreground">Enter in B2, double-click fill handle down.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Google Sheets</td>
+                      <td className="p-4 text-primary font-bold">=LOWER(A2)</td>
+                      <td className="p-4 text-muted-foreground">PRODUCT-SKU-99</td>
+                      <td className="p-4 text-emerald-400 font-bold">product-sku-99</td>
+                      <td className="p-4 font-sans text-xs text-muted-foreground">Drag cell down or press Ctrl+Enter.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Sheets (Entire Column)</td>
+                      <td className="p-4 text-primary font-bold">=ARRAYFORMULA(LOWER(A2:A))</td>
+                      <td className="p-4 text-muted-foreground">Thousands of rows</td>
+                      <td className="p-4 text-emerald-400 font-bold">all lowercase</td>
+                      <td className="p-4 font-sans text-xs text-muted-foreground">Place in B2 once to sanitize the entire column.</td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 font-sans font-medium">Excel Flash Fill</td>
+                      <td className="p-4 text-primary font-bold">Ctrl + E</td>
+                      <td className="p-4 text-muted-foreground">UPPERCASE_TEXT</td>
+                      <td className="p-4 text-emerald-400 font-bold">uppercase_text</td>
+                      <td className="p-4 font-sans text-xs text-muted-foreground">Type lowercase once in B2, press Ctrl+E in B3.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Keyboard Shortcuts Cheat Sheet */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                Keyboard Shortcuts to <span className="text-gradient">Lowercase Text</span>
+              </h2>
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">MS Word / Outlook</div>
+                  <div className="text-lg font-mono font-bold my-2 text-foreground">Shift + F3</div>
+                  <p className="text-xs text-muted-foreground">Highlight text and press Shift+F3 until all letters convert to lowercase.</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Google Docs</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">Format &rarr; Text</div>
+                  <p className="text-xs text-muted-foreground">Go to Menu: Format &gt; Text &gt; Capitalization &gt; lowercase.</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">VS Code</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">Ctrl + Shift + P</div>
+                  <p className="text-xs text-muted-foreground">Open Command Palette and search for "Transform to Lowercase".</p>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">macOS Universal</div>
+                  <div className="text-sm font-mono font-bold my-2 text-foreground">Edit &rarr; Transform</div>
+                  <p className="text-xs text-muted-foreground">In any native Mac app: Edit &gt; Transformations &gt; Make Lower Case.</p>
+                </Card>
+              </div>
+            </div>
+
+            {/* Developer Code Reference */}
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                Developer Cheat Sheet: <span className="text-gradient">Lowercase in Code</span>
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">JavaScript / TypeScript</span>
+                    <span className="text-xs font-mono text-muted-foreground">.toLowerCase()</span>
+                  </div>
+                  <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                    <code>{`const email = "User@Example.COM";\nconst clean = email.toLowerCase().trim();\n// Output: "user@example.com"`}</code>
+                  </pre>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">Python</span>
+                    <span className="text-xs font-mono text-muted-foreground">.lower()</span>
+                  </div>
+                  <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                    <code>{`email = "User@Example.COM"\nclean = email.strip().lower()\n# Output: "user@example.com"`}</code>
+                  </pre>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">SQL (PostgreSQL, MySQL)</span>
+                    <span className="text-xs font-mono text-muted-foreground">LOWER()</span>
+                  </div>
+                  <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                    <code>{`SELECT * FROM users\nWHERE LOWER(username) = LOWER('JohnDoe');`}</code>
+                  </pre>
+                </Card>
+                <Card className="bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/5 p-5 rounded-2xl">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">PHP</span>
+                    <span className="text-xs font-mono text-muted-foreground">strtolower()</span>
+                  </div>
+                  <pre className="p-3 rounded-xl bg-background/80 font-mono text-xs text-foreground overflow-x-auto border border-border">
+                    <code>{`$email = "User@Example.COM";\n$clean = strtolower(trim($email));\n// Output: "user@example.com"`}</code>
+                  </pre>
+                </Card>
+              </div>
+            </div>
+
+            {/* Database & SEO Best Practice Note */}
+            <Card className="bg-primary/5 border border-primary/20 p-6 rounded-2xl">
+              <h3 className="font-semibold text-base mb-2 text-primary">Technical Tip: Case-Insensitive Matching in Modern Databases</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                In PostgreSQL and SQLite, queries like <code>WHERE email = 'John@Doe.com'</code> are strictly case-sensitive and can fail if the user registered with lowercase letters. To prevent duplicate accounts or authentication errors, standard software engineering best practices mandate normalizing all email addresses and usernames to lowercase prior to database insertion.
+              </p>
+            </Card>
             <FAQSection faqs={faqs} toolName="Lowercase Converter" />
 
             {/* Related Tools */}

@@ -36,7 +36,6 @@ const standardSlugs = [
   "paycheck-tax", "triangle-calculator"
 ];
 
-const allCalcRoutes = [...standardSlugs, ...missingSlugs].map(s => `/calculators/${s}`);
 const converterRoutes = [
   '/uppercase-converter', '/lowercase-converter', '/title-case-converter',
   '/sentence-case-converter', '/capitalized-case-converter', '/camelcase-converter',
@@ -44,24 +43,23 @@ const converterRoutes = [
   '/reverse-text-generator'
 ];
 
-const otherRoutes = [
+const coreRoutes = [
   '/', ...converterRoutes,
   '/slug-generator', '/small-text-generator', '/binary-to-hex',
   '/word-frequency-counter', '/text-diff-checker', '/caesar-cipher',
   '/camelcase-to-snake-case', '/snake-case-to-camelcase', '/pascalcase-to-camelcase',
   '/kebab-case-to-camelcase', '/binary-to-morse-code', '/base64-to-hex',
-  '/calculators', '/word-counter', '/binary-translator', '/morse-translator',
+  '/word-counter', '/binary-translator', '/morse-translator',
   '/text-formatter', '/text-cleaner', '/json-formatter', '/password-generator',
   '/lorem-ipsum', '/base64', '/url-encoder', '/hash-generator', '/epoch-converter',
-  '/privacy', '/about', '/contact', '/compound-interest', '/loan-calculator',
-  '/roi-calculator', '/zip-extractor', '/zip-creator', '/image-converter', '/blog',
+  '/privacy', '/about', '/contact', '/blog',
   '/blog/title-case-vs-sentence-case-formatting-guide',
   '/blog/camelcase-vs-snake-case-naming-conventions',
   '/blog/how-to-create-seo-friendly-url-slugs',
   '/404'
 ];
 
-const routes = Array.from(new Set([...otherRoutes, ...allCalcRoutes]));
+const routes = Array.from(new Set(coreRoutes));
 
 async function prerender() {
   const app = express();

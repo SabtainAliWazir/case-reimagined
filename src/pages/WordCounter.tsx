@@ -382,6 +382,49 @@ const WordCounter = () => {
                   </div>
                 </Card>
               </div>
+
+              {/* Excel & Google Sheets Word & Character Count Formulas */}
+              <div>
+                <h2 className="text-2xl font-bold mb-4">
+                  How to Count Words in <span className="text-gradient">Excel &amp; Google Sheets</span>
+                </h2>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Need to calculate length, word count, or character counts directly in your spreadsheets? Use these exact formulas:
+                </p>
+                <div className="overflow-x-auto rounded-2xl border border-white/20 dark:border-white/5 bg-card/60 backdrop-blur-xl mb-4">
+                  <table className="w-full text-left text-sm">
+                    <thead className="bg-muted/40 text-xs font-semibold uppercase tracking-wider text-muted-foreground border-b border-border">
+                      <tr>
+                        <th className="p-4">Calculation</th>
+                        <th className="p-4">Excel &amp; Sheets Formula</th>
+                        <th className="p-4">How It Works</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border/50 text-foreground/90 font-mono text-xs md:text-sm">
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Character Count</td>
+                        <td className="p-4 text-primary font-bold">=LEN(A2)</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Returns total character count including spaces and punctuation.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Characters (No Spaces)</td>
+                        <td className="p-4 text-primary font-bold">=LEN(SUBSTITUTE(A2, " ", ""))</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Calculates length after stripping out all whitespace characters.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Excel Word Count</td>
+                        <td className="p-4 text-primary font-bold">=IF(LEN(TRIM(A2))=0, 0, LEN(TRIM(A2))-LEN(SUBSTITUTE(A2," ",""))+1)</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Standard formula: counts spaces between words plus one, handling empty cells safely.</td>
+                      </tr>
+                      <tr>
+                        <td className="p-4 font-sans font-medium">Google Sheets Word Count</td>
+                        <td className="p-4 text-primary font-bold">=IF(ISBLANK(A2), 0, COUNTA(SPLIT(A2, " ")))</td>
+                        <td className="p-4 font-sans text-xs text-muted-foreground">Splits cell text by spaces and counts the resulting array elements.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
 
             {/* FAQ Section */}
