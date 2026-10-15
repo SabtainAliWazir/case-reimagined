@@ -117,6 +117,7 @@ const ZipExtractor = () => {
       <Helmet>
         <title>Extract ZIP File | CaseConvert</title>
         <meta name="description" content="Free online tool to extract ZIP archives securely in your browser. Open ZIP files and download their contents without any software." />
+        <link rel="canonical" href="https://caseconvert.online/zip-extractor" />
       </Helmet>
       <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
         <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />

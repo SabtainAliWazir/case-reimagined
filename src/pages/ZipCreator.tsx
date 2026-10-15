@@ -111,6 +111,7 @@ const ZipCreator = () => {
       <Helmet>
         <title>Create ZIP File | CaseConvert</title>
         <meta name="description" content="Free online tool to create ZIP archives. Compress multiple files into a single ZIP file entirely in your browser securely." />
+        <link rel="canonical" href="https://caseconvert.online/zip-creator" />
       </Helmet>
       <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
         <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />

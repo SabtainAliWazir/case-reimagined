@@ -127,6 +127,7 @@ const CalculatorsIndex = () => {
       <Helmet>
         <title>All Financial Calculators | CaseConvert</title>
         <meta name="description" content="Explore our massive suite of 40+ free online financial calculators for loans, mortgages, retirement, stock investments, auto leases, and more." />
+        <link rel="canonical" href="https://caseconvert.online/calculators" />
       </Helmet>
       
       <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">

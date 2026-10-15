@@ -138,6 +138,7 @@ const ImageConverter = () => {
       <Helmet>
         <title>Image Converter | CaseConvert</title>
         <meta name="description" content="Free online image converter. Convert PNG, JPEG, WebP images instantly in your browser without uploading to a server." />
+        <link rel="canonical" href="https://caseconvert.online/image-converter" />
       </Helmet>
       <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 relative overflow-hidden">
         <div className="fixed inset-0 pointer-events-none -z-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
