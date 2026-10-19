@@ -19,6 +19,27 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { Helmet } from "react-helmet-async";
+import { FAQSection } from "@/components/FAQSection";
+import { RelatedTools } from "@/components/RelatedTools";
+
+const faqs = [
+  {
+    question: "How do I remove extra spaces and empty lines from text?",
+    answer: "Paste your text into the Text Cleaner box and click 'Remove Extra Spaces' or 'Remove Empty Lines'. Our tool instantly collapses consecutive spaces and removes unnecessary whitespace."
+  },
+  {
+    question: "Can I fix text copied from a PDF with broken line breaks?",
+    answer: "Yes! Use the 'Clean PDF Text' or 'Remove Line Breaks' button. It reconnects sentences broken across multiple lines and removes hyphenated line wraps."
+  },
+  {
+    question: "How do I remove duplicate lines from a list?",
+    answer: "Click the 'Remove Duplicate Lines' button. The cleaner scans your input line-by-line, eliminates identical repeated entries, and returns a unique, deduplicated list."
+  },
+  {
+    question: "Is my text private and secure when using this tool?",
+    answer: "Yes. All text cleaning operations execute client-side inside your browser via JavaScript. Your text is never transmitted, logged, or saved to any external server."
+  }
+];
 
 const TextCleaner = () => {
   const [text, setText] = useState("");
@@ -195,6 +216,20 @@ const TextCleaner = () => {
               "price": "0",
               "priceCurrency": "USD"
             }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
           })}
         </script>
 
@@ -445,6 +480,14 @@ const TextCleaner = () => {
                 </div>
               </div>
             </div>
+
+            {/* FAQ Section */}
+            <div className="mt-16">
+              <FAQSection faqs={faqs} toolName="Text Cleaner" />
+            </div>
+
+            {/* Related Tools */}
+            <RelatedTools currentPath="/text-cleaner" />
           </div>
         </main>
         <Footer />
