@@ -56,6 +56,7 @@ const coreRoutes = [
   '/blog/title-case-vs-sentence-case-formatting-guide',
   '/blog/camelcase-vs-snake-case-naming-conventions',
   '/blog/how-to-create-seo-friendly-url-slugs',
+  '/blog/more-ways-to-experience-convert-case',
   '/404'
 ];
 
